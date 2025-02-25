@@ -28,8 +28,5 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false
   },
-  ssr: false,
-  runtimeConfig: {
-    apiKey: process.env.NUXT_QWEATHER_API_KEY
-  }
+  ssr: false
 })
