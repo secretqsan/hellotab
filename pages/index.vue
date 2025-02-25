@@ -93,11 +93,11 @@ watch(pictures, () => {
 }, { deep: true })
 
 const widgetsConvertTable = {
-  '网页': WebpageWidget,
-  '新建': newWidget,
-  '天气': WeatherWidget,
-  '日历': CalendarWidget,
-  '时钟': ClockWidget
+  'web': WebpageWidget,
+  'new': newWidget,
+  'weather': WeatherWidget,
+  'calendar': CalendarWidget,
+  'clock': ClockWidget
 }
 
 const selectedId = ref(-1)
