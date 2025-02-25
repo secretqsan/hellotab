@@ -29,26 +29,26 @@ const { widgets } = storeToRefs(settingStore)
                         暂无可用小组件
                     </div>
                     <template v-for="widget in widgesAvailiable">
-                    <div 
-                        v-if="!widgets.find(w => w.type == widget.name)"
-                        @click="widgets.push({
-                            type: widget.name,
-                            title: widget.title,
-                            size_x: 1,
-                            size_y: 1,
-                            e: {}
-                        })"
-                        class="relative p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors group">
-                        <div class="transition-opacity group-hover:opacity-0 flex flex-col items-center justify-center">
-                            <i :class="[widget.icon, 'pi text-2xl text-gray-600']"></i>
-                            <div class="mt-2 text-sm">{{widget.name}}</div>
+                        <div 
+                            v-if="!widgets.find(w => w.type == widget.name)"
+                            @click="widgets.push({
+                                type: widget.name,
+                                title: widget.title,
+                                size_x: 1,
+                                size_y: 1,
+                                e: {}
+                            })"
+                            class="relative p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors group">
+                            <div class="transition-opacity group-hover:opacity-0 flex flex-col items-center justify-center">
+                                <i :class="[widget.icon, 'pi text-2xl text-gray-600']"></i>
+                                <div class="mt-2 text-sm">{{widget.title}}</div>
+                            </div>
+                            <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex flex-col items-center justify-center">
+                                <i class="pi pi-plus text-blue-500 text-2xl"></i>
+                                <div class="mt-2 text-sm">{{widget.title}}</div>
+                            </div>
                         </div>
-                        <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex flex-col items-center justify-center">
-                            <i class="pi pi-plus text-blue-500 text-2xl"></i>
-                            <div class="mt-2 text-sm">{{widget.name}}</div>
-                        </div>
-                    </div>
-                </template>
+                    </template>
                 </div>
             </div>
     </div>
