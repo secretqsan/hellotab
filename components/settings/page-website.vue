@@ -70,7 +70,7 @@ const handleAddCustomWebsite = () => {
         id = pictureProxy(customWebsite.value.icon)
     }
     widgets.value.push({
-        type: '网页',
+        type: 'web',
         title: customWebsite.value.name,
         size_x: 1,
         size_y: 1,
@@ -145,7 +145,7 @@ const handleAddCustomWebsite = () => {
                     <div 
                         v-if="!widgets.find(w => w.e1 == site.url)"
                         @click="widgets.push({
-                            type: '网页',
+                            type: 'web',
                             title: site.name,
                             size_x: 1,
                             size_y: 1,
