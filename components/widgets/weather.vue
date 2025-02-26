@@ -18,6 +18,7 @@ const location = ref({
   latitude: null,
   name: null
 })
+const positionFetchError = ref(false)
 
 const weather = ref({
   temp: null,
@@ -41,6 +42,7 @@ async function getLocation(){
     }
   } catch (err) {
     console.error('获取位置信息失败:', err)
+    positionFetchError.value = true
   }
 }
 
@@ -121,7 +123,19 @@ onUnmounted(() => {
     </template>
 
     <template #alt>
-      <div class="h-full w-full flex items-center justify-center">
+      <div v-if="positionFetchError" class="h-full w-full flex flex-col items-center justify-center gap-2">
+        <i class="pi pi-exclamation-circle text-red-500 text-3xl"></i>
+        <p class="text-lg font-medium text-gray-800">地理位置获取失败</p>
+        <p class="text-sm text-gray-600 text-center">请检查是否已开启位置服务</p>
+        <a 
+          href="https://blog.csdn.net/sinat_39030079/article/details/144381035"
+          target="_blank"
+          class="text-sm text-blue-500 hover:text-blue-600 hover:underline mt-1"
+        >
+          Chrome浏览器用户请查看
+        </a>
+      </div>
+      <div v-else class="h-full w-full flex items-center justify-center">
         <i class="pi pi-spin pi-spinner text-2xl"></i>
       </div>
     </template>

@@ -1,10 +1,11 @@
 <script setup>
-const aiSearchEngineCandidate = ref(
-    ['秘塔搜索', 'Perplexity']
-)
+const aiSearchEngineCandidate = ref([
+    {id:'mitaso', name:'秘塔搜索'},
+    {id:'perplexity', name:'Perplexity'}
+])
 const urls = ref({
-    '秘塔搜索': 'https://metaso.cn/?q=',
-    'Perplexity': 'https://www.perplexity.ai/?q='
+    'mitaso': 'https://metaso.cn/?q=',
+    'perplexity': 'https://www.perplexity.ai/?q='
 })
 const settings = useSettingsStore()
 const { aiSearchEngine, glmApiKey } = storeToRefs(settings)
@@ -15,8 +16,7 @@ watch(() => aiSearchEngine.value.id, (newId, oldId) => {
 </script>
 
 <template>
-    <div class="p-4">
-        <div class="space-y-6">
+    <div class="p-4 space-y-6">
             <div class="flex flex-col gap-4">
                 <label class="text-sm text-gray-600">AI搜索服务提供商</label>
                 <selector :candidates="aiSearchEngineCandidate" v-model="aiSearchEngine.id"/>
@@ -37,6 +37,5 @@ watch(() => aiSearchEngine.value.id, (newId, oldId) => {
                 </div>
                 <p class="text-xs text-gray-500 mt-1">用于输入预测，请在<a href="https://open.bigmodel.cn/" target="_blank" class="hover:underline inline-flex items-center">智谱AI官网<i class="mx-1 pi pi-external-link ml-0.5 text-[10px]"></i></a>获取API Key</p>
             </div>
-        </div>
     </div>
 </template>

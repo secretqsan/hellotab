@@ -4,8 +4,8 @@ const { appearance } = storeToRefs(settingStore)
 const imageStorage = useImageStore();
 const { pictures } = storeToRefs(imageStorage);
 const backgroundOrigin = ref([
-    '必应每日一图',
-    '自定义'
+    {id: 'bing', name: '必应每日一图'},
+    {id: 'custom', name: '自定义'}
 ])
 const bingBackgroundUrl = ref('')
 const customBackgroundUrl = ref('')
@@ -45,15 +45,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="p-4">
-        <div class="space-y-4">
+    <div class="p-4 space-y-6">
             <div class="flex flex-col gap-2">
                 <label class="text-sm text-gray-600">背景图片</label>
                 <div class="flex flex-col gap-4">
                     <selector :candidates="backgroundOrigin" v-model="appearance.background"/>
-                    
                     <div
-                        v-if="appearance.background == '自定义'"
+                        v-if="appearance.background == 'custom'"
                         class="flex flex-row gap-2"
                     >
                         <input
@@ -84,7 +82,7 @@ onMounted(() => {
                             @change="handleFileSelect"
                         />
                         <div 
-                            v-if="appearance.background == '自定义' && appearance.e1 == ''" 
+                            v-if="appearance.background == 'custom' && appearance.e1 == ''" 
                             class="flex flex-col items-center gap-4 text-gray-400"
                         >
                             <i class="pi pi-upload text-4xl"></i>
@@ -92,7 +90,7 @@ onMounted(() => {
                         </div>
                         <img 
                             v-else
-                            :src="appearance.background == '自定义' ? pictures[appearance.e1] : bingBackgroundUrl"
+                            :src="appearance.background == 'custom' ? pictures[appearance.e1] : bingBackgroundUrl"
                             class="w-full"
                         />
                     </div>
@@ -115,6 +113,5 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </template>

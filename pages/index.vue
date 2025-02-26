@@ -177,12 +177,7 @@ const backgroundUrl = computed(() => {
     class="
       p-4 h-screen w-screen 
       bg-cover bg-center bg-no-repeat 
-      flex flex-col items-center
-      [&::-webkit-scrollbar]:w-2
-      [&::-webkit-scrollbar-track]:bg-transparent
-      [&::-webkit-scrollbar-thumb]:bg-white/50
-      [&::-webkit-scrollbar-thumb]:rounded-full
-      [&::-webkit-scrollbar-thumb]:hover:bg-white/60" 
+      flex flex-col items-center" 
     :style="`background-image: url(${backgroundUrl})`"
   >
     <div class="flex flex-row w-full">
@@ -225,13 +220,13 @@ const backgroundUrl = computed(() => {
             :title="element.title"
             :e="element.e"
             @click="()=>{
-              if (element.type == '新建') {
+              if (element.type == 'new') {
                 settingPanelOpened = true;
                 settingPage = 'widgets'
               }
             }"
             @contextmenu="(event) => {
-              if (element.type != '新建') {
+              if (element.type != 'new') {
                 selectedId = widgets.indexOf(element)
                 menu.show(event)
               }
@@ -254,11 +249,3 @@ const backgroundUrl = computed(() => {
     <SettingsMain v-model="settingPage" @close="settingPanelOpened = false"/>
   </div>
 </template>
-
-<style>
-/* Firefox滚动条样式 */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
-</style>

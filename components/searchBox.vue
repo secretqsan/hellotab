@@ -14,6 +14,7 @@ const { searchEngine, aiSearchEngine, glmApiKey } = storeToRefs(settings)
 const showInlineSuggestions = computed(() => {
   return searchQuery.value.trim() && focused.value && aiSearch.value
 })
+
 const showSuggestions = computed(() => {
   return searchQuery.value.trim() && focused.value && !aiSearch.value
 })
@@ -24,6 +25,14 @@ const acceptAiSuggestion = () => {
     aiSuggestionAccepted.value = true
   }
 }
+
+const selectSuggestion = (suggestion) => {
+  searchQuery.value = suggestion;
+  setTimeout(() => {
+    handleSearch()
+  }, 150)
+}
+
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
     let searchUrl = ''
@@ -33,7 +42,6 @@ const handleSearch = () => {
     else{
       searchUrl = `${searchEngine.value.baseUrl}${encodeURIComponent(searchQuery.value.trim())}`
     }
-    
     window.open(searchUrl, '_blank')
   }
 }
@@ -81,7 +89,6 @@ const fetchSuggestions = async (query) => {
     suggestions.value = []
   } 
 }
-
 const debouncedFetchSuggestions = debounce(fetchSuggestions, 300)
 
 const calculateTextWidth = (text) => {
@@ -100,6 +107,11 @@ watch(() => searchQuery.value, (newValue) => {
   textWidth.value = calculateTextWidth(newValue)
   debouncedFetchSuggestions(newValue)
 })
+const handleBlur = () => {
+  setTimeout(() => {
+    focused.value = false
+  }, 100)
+}
 </script>
 
 <template>
@@ -108,7 +120,7 @@ watch(() => searchQuery.value, (newValue) => {
       <input
         v-model="searchQuery"
         type="text"
-        :placeholder="aiSearch?'问AI':'搜索...  没有头绪？按下空格问问ai'"
+        :placeholder="aiSearch?'问AI':'搜索...    没有头绪？按下空格问问ai'"
         @keyup.enter="handleSearch"
         @keyup.right="acceptAiSuggestion"
         @keydown.backspace="()=>{
@@ -116,7 +128,7 @@ watch(() => searchQuery.value, (newValue) => {
             aiSearch = false
           }
         }"
-        @blur="focused = false"
+        @blur="handleBlur"
         @focus="focused = true"
         :class="[
           'w-full px-4 py-3 pr-[80px] text-base border-2 ' +

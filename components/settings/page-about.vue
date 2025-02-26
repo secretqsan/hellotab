@@ -1,16 +1,16 @@
 <script setup>
-
+const config = useRuntimeConfig()
 </script>
 
 <template>
-    <div class="p-4">
-        <div class="space-y-4">
+    <div class="p-4 space-y-6">
             <div class="p-4 bg-white rounded-lg shadow-sm">
                 <h3 class="text-lg font-medium mb-2">HelloTab</h3>
                 <p class="text-gray-600 mb-4">一个简洁、美观、实用的新标签页扩展。</p>
                 <div class="text-sm text-gray-500">
-                    <div class="mb-1">版本：1.0.0</div>
+                    <div class="mb-1">版本：{{ config.public.version }}</div>
                     <div class="mb-1">作者：神秘的Q桑</div>
+                    <div class="mb-1">许可证：LGPL</div>
                 </div>
             </div>
 
@@ -30,10 +30,8 @@
                     <div class="pl-6 space-y-1">
                         <div>• 在 GitHub 上给我们一个 Star</div>
                         <div>• 向您的朋友推荐 HelloTab</div>
-                        <div>• 通过 <a href="https://afdian.net/hellotab" target="_blank" class="text-blue-500 hover:text-blue-600 transition-colors">爱发电</a> 支持我们的开发</div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </template>

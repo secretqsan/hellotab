@@ -95,8 +95,7 @@ const downloadFromCloud = async () => {
 </script>
 
 <template>
-    <div class="p-4">
-        <div class="space-y-6">
+    <div class="p-4 space-y-6">
             <div class="flex flex-col gap-4">
                 <div class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
                     <div>
@@ -194,6 +193,5 @@ const downloadFromCloud = async () => {
                     </div>
                 </template>
             </div>
-        </div>
     </div>
 </template>

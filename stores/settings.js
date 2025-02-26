@@ -1,11 +1,11 @@
 export const useSettingsStore = defineStore('settings', {
     state: () => ({
         searchEngine: {
-            id: 'Bing',
-            baseUrl: 'https://api.bing.com/qsonhs.aspx&q='
+            id: 'bing',
+            baseUrl: 'https://www.bing.com/search?q='
         },
         aiSearchEngine: {
-            id: '秘塔搜索',
+            id: 'mitaso',
             baseUrl: 'https://metaso.cn/?q='
         },
         glmApiKey: '',

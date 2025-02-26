@@ -10,7 +10,8 @@ export default defineNuxtConfig({
   ],
   css: [
     'primeicons/primeicons.css',
-    'qweather-icons/font/qweather-icons.css'
+    'qweather-icons/font/qweather-icons.css',
+    './static/css/global.css'
   ],
   primevue: {
     options: {
@@ -28,5 +29,10 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false
   },
-  ssr: false
+  ssr: false,
+  runtimeConfig: {
+    public: {
+      version: '1.1.0'
+    }
+  }
 })
