@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { Analytics } from '@vercel/analytics/nuxt'
 
 const features = ref([
     {
@@ -26,6 +26,7 @@ const features = ref([
 </script>
 
 <template>
+    <Analytics />
     <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">

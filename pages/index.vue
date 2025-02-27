@@ -1,5 +1,6 @@
 <script setup>
 import draggable from 'vuedraggable'
+import { Analytics } from '@vercel/analytics/nuxt'
 
 const onlineBackgroundUrl = ref('')
 const settingPanelOpened = ref(false)
@@ -141,13 +142,15 @@ const items = ref([
     },
     { separator: true },
     { 
-      label: 'Delete', 
+      label: '删除', 
       icon: 'pi pi-trash',
       command: () => {
         widgets.value.splice(selectedId.value, 1)
       }
     }
 ]);
+
+const menuRef = ref(null)
 import backgroundImageUrl from '~/utils/background';
 backgroundImageUrl()
 onMounted(() => {
@@ -173,6 +176,7 @@ const backgroundUrl = computed(() => {
 </script>
 
 <template>
+  <Analytics/>
   <div 
     class="
       p-4 h-screen w-screen 
@@ -225,10 +229,10 @@ const backgroundUrl = computed(() => {
                 settingPage = 'widgets'
               }
             }"
-            @contextmenu="(event) => {
+            @contextmenu.prevent.stop="(event) => {
               if (element.type != 'new') {
                 selectedId = widgets.indexOf(element)
-                menu.show(event)
+                menuRef.show(event)
               }
             }"
           />
@@ -236,7 +240,8 @@ const backgroundUrl = computed(() => {
       </draggable>
     </div>
   </div>
-  <ContextMenu ref="menu" :model="items"/>
+
+  <WidgetsMenu ref="menuRef" :model="items"/>
   <div
     v-if="settingPanelOpened"
     class="
