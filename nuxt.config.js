@@ -30,6 +30,10 @@ export default defineNuxtConfig({
     enabled: false
   },
   ssr: false,
+  routeRules: {
+    '/intro': { ssr: true },
+    '/**': { ssr: false }
+  },
   runtimeConfig: {
     public: {
       version: '1.1.1 Beta'
