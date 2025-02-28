@@ -16,7 +16,6 @@
 ## 技术栈
 
 - [Nuxt 3](https://nuxt.com/) - Vue.js框架
-- [PrimeVue](https://primevue.org/) - UI组件库
 - [Tailwind CSS](https://tailwindcss.com/) - 样式框架
 - [Pinia](https://pinia.vuejs.org/) - 状态管理
 

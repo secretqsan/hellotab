@@ -1,8 +1,6 @@
-export const useImageStore = defineStore('imageStorage', {
-    state: () => ({
-        pictures: {
-
-        },
-    }),
-    persist: true
-})
+export const useImageStore = defineStore("imageStorage", {
+  state: () => ({
+    pictures: {},
+  }),
+  persist: true,
+});
