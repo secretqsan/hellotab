@@ -2,67 +2,11 @@
 useHead({
   title: "HelloTab",
 });
-import draggable from "vuedraggable";
 import { Analytics } from "@vercel/analytics/nuxt";
 
 const onlineBackgroundUrl = ref("");
 const imageStorage = useImageStore();
 const { pictures } = storeToRefs(imageStorage);
-const selectedId = ref(-1);
-const items = ref([
-  {
-    label: "缩小",
-    icon: "pi pi-minus",
-    command: () => {
-      switch (
-        widgets.value[selectedId.value].size_x * 10 +
-        widgets.value[selectedId.value].size_y
-      ) {
-        case 21:
-          widgets.value[selectedId.value].size_x = 1;
-          break;
-
-        case 22:
-          widgets.value[selectedId.value].size_y = 1;
-          break;
-
-        default:
-          break;
-      }
-    },
-  },
-  {
-    label: "扩大",
-    icon: "pi pi-plus",
-    command: () => {
-      switch (
-        widgets.value[selectedId.value].size_x * 10 +
-        widgets.value[selectedId.value].size_y
-      ) {
-        case 21:
-          widgets.value[selectedId.value].size_y = 2;
-          break;
-
-        case 11:
-          widgets.value[selectedId.value].size_x = 2;
-          break;
-
-        default:
-          break;
-      }
-    },
-  },
-  { separator: true },
-  {
-    label: "删除",
-    icon: "pi pi-trash",
-    command: () => {
-      widgets.value.splice(selectedId.value, 1);
-    },
-  },
-]);
-
-const menuRef = ref(null);
 const settingPanel = ref(null);
 
 const settingStore = useSettingsStore();
@@ -76,11 +20,6 @@ const {
 } = storeToRefs(localSettings);
 const { widgets, appearance } = storeToRefs(settingStore);
 import Client from "~/utils/webdav";
-import WebpageWidget from "@/components/widgets/website.vue";
-import newWidget from "@/components/widgets/new.vue";
-import WeatherWidget from "@/components/widgets/weather.vue";
-import CalendarWidget from "@/components/widgets/calendar.vue";
-import ClockWidget from "@/components/widgets/clock.vue";
 import { debounce } from "lodash";
 const uploadSettings = debounce(async () => {
   const client = new Client(`/api/proxy/${webdavUrl.value}`, {
@@ -174,13 +113,6 @@ watch(
   { deep: true }
 );
 
-const widgetsConvertTable = {
-  web: WebpageWidget,
-  new: newWidget,
-  weather: WeatherWidget,
-  calendar: CalendarWidget,
-  clock: ClockWidget,
-};
 onMounted(() => {
   if (syncEnabled.value && webdavTestedOk.value) {
     fetchSettings();
@@ -223,45 +155,10 @@ const backgroundUrl = computed(() => {
         <i class="pi pi-cog text-xl"></i>
       </div>
     </div>
-    <div class="h-20 min-h-10"></div>
+    <div class="h-20 min-h-10"/>
     <searchBox class="z-10" />
-    <div class="h-20 min-h-10"></div>
-    <div class="flex-1 w-full overflow-auto">
-      <draggable
-        filter=".fixed"
-        v-model="widgets"
-        item-key="id"
-        class="w-full grid gap-16 px-[calc(100%/8)] grid-cols-[repeat(auto-fill,_80px)] justify-center"
-        :style="{ 'grid-auto-flow': 'dense' }"
-      >
-        <template #item="{ element }">
-          <component
-            :is="widgetsConvertTable[element.type]"
-            :size_x="element.size_x"
-            :size_y="element.size_y"
-            :title="element.title"
-            :e="element.e"
-            @click="
-              () => {
-                if (element.type == 'new') {
-                  settingPanel.show('widgets');
-                }
-              }
-            "
-            @contextmenu.prevent.stop="
-              (event) => {
-                if (element.type != 'new') {
-                  selectedId = widgets.indexOf(element);
-                  menuRef.show(event);
-                }
-              }
-            "
-          />
-        </template>
-      </draggable>
-    </div>
+    <div class="h-20 min-h-10"/>
+    <WidgetsPanel class="flex-1 w-full"/>
   </div>
-
-  <WidgetsMenu ref="menuRef" :model="items" />
   <SettingsMain ref="settingPanel"/>
 </template>

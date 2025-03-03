@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "HelloTab",
+  "version": "0.0.1 alpha",
+  "description": "将HelloTab设为默认主页",
+  "permissions": [],
+  "chrome_url_overrides": {
+    "newtab": "redirect.html"
+  },
+  "icons": {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  }
+}

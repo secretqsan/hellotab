@@ -84,8 +84,6 @@ const handleAddCustomWebsite = () => {
       customIcon: customWebsite.value.custom,
     },
   });
-
-  // 重置表单
   customWebsite.value = {
     name: "",
     url: "",
@@ -160,7 +158,7 @@ const handleAddCustomWebsite = () => {
                   size_y: 1,
                   e: {
                     url: site.url,
-                    icon: getFaviconUrl(site.url),
+                    icon: site.icon == ''? getFaviconUrl(site.url): site.icon,
                     customIcon: false,
                   },
                 })
@@ -168,7 +166,7 @@ const handleAddCustomWebsite = () => {
               class="overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3"
             >
               <img
-                :src="getFaviconUrl(site.url)"
+                :src="site.icon == ''? getFaviconUrl(site.url): site.icon"
                 :alt="site.name"
                 class="w-6 h-6"
                 @error="$event.target.src = ''"
