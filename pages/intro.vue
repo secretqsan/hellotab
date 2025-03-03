@@ -1,4 +1,7 @@
 <script setup>
+useHead({
+  title: "HelloTab",
+});
 import { Analytics } from "@vercel/analytics/nuxt";
 
 const features = ref([

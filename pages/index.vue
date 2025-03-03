@@ -1,12 +1,69 @@
 <script setup>
+useHead({
+  title: "HelloTab",
+});
 import draggable from "vuedraggable";
 import { Analytics } from "@vercel/analytics/nuxt";
 
 const onlineBackgroundUrl = ref("");
-const settingPanelOpened = ref(false);
-const settingPage = ref("search");
 const imageStorage = useImageStore();
 const { pictures } = storeToRefs(imageStorage);
+const selectedId = ref(-1);
+const items = ref([
+  {
+    label: "缩小",
+    icon: "pi pi-minus",
+    command: () => {
+      switch (
+        widgets.value[selectedId.value].size_x * 10 +
+        widgets.value[selectedId.value].size_y
+      ) {
+        case 21:
+          widgets.value[selectedId.value].size_x = 1;
+          break;
+
+        case 22:
+          widgets.value[selectedId.value].size_y = 1;
+          break;
+
+        default:
+          break;
+      }
+    },
+  },
+  {
+    label: "扩大",
+    icon: "pi pi-plus",
+    command: () => {
+      switch (
+        widgets.value[selectedId.value].size_x * 10 +
+        widgets.value[selectedId.value].size_y
+      ) {
+        case 21:
+          widgets.value[selectedId.value].size_y = 2;
+          break;
+
+        case 11:
+          widgets.value[selectedId.value].size_x = 2;
+          break;
+
+        default:
+          break;
+      }
+    },
+  },
+  { separator: true },
+  {
+    label: "删除",
+    icon: "pi pi-trash",
+    command: () => {
+      widgets.value.splice(selectedId.value, 1);
+    },
+  },
+]);
+
+const menuRef = ref(null);
+const settingPanel = ref(null);
 
 const settingStore = useSettingsStore();
 const localSettings = useLocalSettingsStore();
@@ -124,65 +181,6 @@ const widgetsConvertTable = {
   calendar: CalendarWidget,
   clock: ClockWidget,
 };
-
-const selectedId = ref(-1);
-const menu = ref();
-const items = ref([
-  {
-    label: "缩小",
-    icon: "pi pi-minus",
-    command: () => {
-      switch (
-        widgets.value[selectedId.value].size_x * 10 +
-        widgets.value[selectedId.value].size_y
-      ) {
-        case 21:
-          widgets.value[selectedId.value].size_x = 1;
-          break;
-
-        case 22:
-          widgets.value[selectedId.value].size_y = 1;
-          break;
-
-        default:
-          break;
-      }
-    },
-  },
-  {
-    label: "扩大",
-    icon: "pi pi-plus",
-    command: () => {
-      switch (
-        widgets.value[selectedId.value].size_x * 10 +
-        widgets.value[selectedId.value].size_y
-      ) {
-        case 21:
-          widgets.value[selectedId.value].size_y = 2;
-          break;
-
-        case 11:
-          widgets.value[selectedId.value].size_x = 2;
-          break;
-
-        default:
-          break;
-      }
-    },
-  },
-  { separator: true },
-  {
-    label: "删除",
-    icon: "pi pi-trash",
-    command: () => {
-      widgets.value.splice(selectedId.value, 1);
-    },
-  },
-]);
-
-const menuRef = ref(null);
-import backgroundImageUrl from "~/utils/background";
-backgroundImageUrl();
 onMounted(() => {
   if (syncEnabled.value && webdavTestedOk.value) {
     fetchSettings();
@@ -218,8 +216,7 @@ const backgroundUrl = computed(() => {
         class="text-white hover:bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center"
         @click="
           () => {
-            settingPanelOpened = true;
-            settingPage = 'search';
+            settingPanel.show('search');
           }
         "
       >
@@ -247,8 +244,7 @@ const backgroundUrl = computed(() => {
             @click="
               () => {
                 if (element.type == 'new') {
-                  settingPanelOpened = true;
-                  settingPage = 'widgets';
+                  settingPanel.show('widgets');
                 }
               }
             "
@@ -267,10 +263,5 @@ const backgroundUrl = computed(() => {
   </div>
 
   <WidgetsMenu ref="menuRef" :model="items" />
-  <div
-    v-if="settingPanelOpened"
-    class="w-screen h-screen fixed top-0 left-0 bg-gray-800/40 z-50 flex items-center justify-center"
-  >
-    <SettingsMain v-model="settingPage" @close="settingPanelOpened = false" />
-  </div>
+  <SettingsMain ref="settingPanel"/>
 </template>
