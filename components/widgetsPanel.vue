@@ -5,12 +5,14 @@ import newWidget from "@/components/widgets/new.vue";
 import WeatherWidget from "@/components/widgets/weather.vue";
 import CalendarWidget from "@/components/widgets/calendar.vue";
 import ClockWidget from "@/components/widgets/clock.vue";
+import TodolistWidget from "@/components/widgets/todolist.vue";
 const widgetsConvertTable = {
   web: WebpageWidget,
   new: newWidget,
   weather: WeatherWidget,
   calendar: CalendarWidget,
   clock: ClockWidget,
+  todolist: TodolistWidget,
 };
 const items = ref([
   {
@@ -70,7 +72,11 @@ const settingStore = useSettingsStore();
 const { widgets } = storeToRefs(settingStore);
 </script>
 <template>
-  <div class="overflow-auto">
+  <div 
+    class="overflow-auto"
+    @scroll="
+      menuRef.hideMenu()
+    ">
     <draggable
         v-model="widgets"
         item-key="id"
@@ -84,13 +90,6 @@ const { widgets } = storeToRefs(settingStore);
             :size_y="element.size_y"
             :title="element.title"
             :e="element.e"
-            @click="
-              () => {
-                if (element.type == 'new') {
-                  settingPanel.show('widgets');
-                }
-              }
-            "
             @contextmenu.prevent.stop="
               (event) => {
                 if (element.type != 'new') {
@@ -99,6 +98,7 @@ const { widgets } = storeToRefs(settingStore);
                 }
               }
             "
+
           />
         </template>
       </draggable>

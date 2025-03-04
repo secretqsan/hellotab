@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "HelloTab",
-  "version": "0.0.1 alpha",
+  "version": "0.0.1",
   "description": "将HelloTab设为默认主页",
   "permissions": [],
   "chrome_url_overrides": {

@@ -42,6 +42,7 @@ const hideMenu = () => {
 
 defineExpose({
   show,
+  hideMenu
 });
 
 watch(hide, (newValue) => {

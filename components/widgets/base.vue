@@ -13,8 +13,15 @@ const props = defineProps({
     default: false,
   },
 });
+const windowRef = ref(null);
 const settingStore = useSettingsStore();
 const { appearance } = storeToRefs(settingStore);
+const openOuterWindow = () => {
+  windowRef.value.show();
+};
+defineExpose({
+  openOuterWindow,
+});
 </script>
 <template>
   <div
@@ -48,5 +55,8 @@ const { appearance } = storeToRefs(settingStore);
     >
       {{ title }}
     </div>
+    <Window ref="windowRef" @click.stop @contextmenu.stop>
+      <slot name="window"/>
+    </Window>
   </div>
 </template>

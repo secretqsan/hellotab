@@ -4,16 +4,27 @@ const widgesAvailiable = [
     name: "clock",
     title: "时钟",
     icon: "pi-clock",
+    e: {}
   },
   {
     name: "calendar",
     title: "日历",
     icon: "pi-calendar",
+    e: {}
   },
   {
     name: "weather",
     title: "天气",
     icon: "pi-sun",
+    e: {}
+  },
+  {
+    name: "todolist",
+    title: "待办列表",
+    icon: "pi-list",
+    e: {
+      items: []
+    }
   },
 ];
 const settingStore = useSettingsStore();
@@ -44,7 +55,7 @@ const { widgets } = storeToRefs(settingStore);
                 title: widget.title,
                 size_x: 1,
                 size_y: 1,
-                e: {},
+                e: widget.e,
               })
             "
             class="relative p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors group"

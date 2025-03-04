@@ -7,10 +7,10 @@ import { Analytics } from "@vercel/analytics/nuxt";
 const onlineBackgroundUrl = ref("");
 const imageStorage = useImageStore();
 const { pictures } = storeToRefs(imageStorage);
-const settingPanel = ref(null);
-
 const settingStore = useSettingsStore();
 const localSettings = useLocalSettingsStore();
+const sharedComponents = useSharedComponentsStore();
+const { settingPanel } = storeToRefs(sharedComponents);
 const {
   syncEnabled,
   webdavTestedOk,
@@ -18,7 +18,7 @@ const {
   webdavUsername,
   webdavPassword,
 } = storeToRefs(localSettings);
-const { widgets, appearance } = storeToRefs(settingStore);
+const { appearance } = storeToRefs(settingStore);
 import Client from "~/utils/webdav";
 import { debounce } from "lodash";
 const uploadSettings = debounce(async () => {
