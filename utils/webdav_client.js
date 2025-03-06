@@ -3,6 +3,7 @@ class Client {
     this.url = url.endsWith("/")
       ? url + `${params.subdir}/`
       : url + `/${params.subdir}/`;
+    this.url = proxyedUrl(url);
     this.authorizationStr =
       "Basic " + btoa(params.username + ":" + params.password);
   }

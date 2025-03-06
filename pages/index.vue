@@ -10,7 +10,7 @@ const { pictures } = storeToRefs(imageStorage);
 const settingStore = useSettingsStore();
 const localSettings = useLocalSettingsStore();
 const sharedComponents = useSharedComponentsStore();
-const { settingPanel } = storeToRefs(sharedComponents);
+const { settingPanel, toast } = storeToRefs(sharedComponents);
 const {
   syncEnabled,
   webdavTestedOk,
@@ -19,10 +19,9 @@ const {
   webdavPassword,
 } = storeToRefs(localSettings);
 const { appearance } = storeToRefs(settingStore);
-import Client from "~/utils/webdav";
 import { debounce } from "lodash";
 const uploadSettings = debounce(async () => {
-  const client = new Client(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(`/api/proxy/${webdavUrl.value}`, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,
@@ -118,7 +117,13 @@ onMounted(() => {
     fetchSettings();
   }
   $fetch(
-    "/api/proxy/https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"
+    proxyedUrl("https://www.bing.com/HPImageArchive.aspx"),{
+      params:{
+        n:1,
+        idx:0,
+        format:"js"
+      }
+    }
   )
     .then((res) => {
       onlineBackgroundUrl.value = `https://www.bing.com${res.images[0].url}`;
@@ -138,6 +143,7 @@ const backgroundUrl = computed(() => {
 
 <template>
   <Analytics />
+  
   <div
     class="p-4 h-screen w-screen bg-cover bg-center bg-no-repeat flex flex-col items-center"
     :style="`background-image: url(${backgroundUrl})`"
@@ -161,4 +167,5 @@ const backgroundUrl = computed(() => {
     <WidgetsPanel class="flex-1 w-full"/>
   </div>
   <SettingsMain ref="settingPanel"/>
+  <Toast ref="toast"/>
 </template>

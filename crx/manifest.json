@@ -8,8 +8,8 @@
     "newtab": "redirect.html"
   },
   "icons": {
-    "16": "img/icon.png",
-    "48": "img/icon.png",
-    "128": "img/icon.png"
+    "16": "img/favicon.ico",
+    "48": "img/favicon.ico",
+    "128": "img/favicon.ico"
   }
 }

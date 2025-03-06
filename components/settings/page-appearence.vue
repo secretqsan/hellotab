@@ -11,7 +11,6 @@ const bingBackgroundUrl = ref("");
 const customBackgroundUrl = ref("");
 const fileInputRef = ref();
 
-import pictureProxy from "@/utils/picture.js";
 function uploadFile(file) {
   if (file && file.type.startsWith("image/")) {
     const reader = new FileReader();

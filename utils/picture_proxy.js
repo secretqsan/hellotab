@@ -1,4 +1,4 @@
-export default function pictureProxy(dataUrl) {
+export default function(dataUrl) {
   const timeStamp = new Date().getTime().toString();
   const imageStorage = useImageStore();
   const { pictures } = storeToRefs(imageStorage);

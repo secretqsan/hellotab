@@ -6,8 +6,8 @@ const selectedCategory = ref("all");
 
 const settings = useSettingsStore();
 const { widgets } = storeToRefs(settings);
-
-import popularWebsites from "@/utils/websiteDb.js";
+const sharedComponents = useSharedComponentsStore();
+const { toast } = storeToRefs(sharedComponents);
 
 const handleImportBookmarks = () => {
   alert("网页版暂不支持");
@@ -55,7 +55,6 @@ const customWebsite = ref({
 });
 
 const iconInput = ref();
-import pictureProxy from "@/utils/picture.js";
 const handleIconSelect = (event) => {
   const file = event.target.files[0];
   if (file && file.type.startsWith("image/")) {
@@ -89,11 +88,12 @@ const handleAddCustomWebsite = () => {
     url: "",
     icon: "",
   };
+  toast.showToast("添加成功")
 };
 </script>
 
 <template>
-  <div class="p-4 space-y-6">
+  <div class="p-4 flex flex-col gap-6 w-full">
     <button
       class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center gap-2"
       @click="handleImportBookmarks"
@@ -102,7 +102,7 @@ const handleAddCustomWebsite = () => {
       <span>导入浏览器收藏夹</span>
     </button>
 
-    <div class="bg-white rounded-lg p-4">
+    <div class="bg-white rounded-lg p-4 w-full">
       <div class="flex gap-4 mb-4">
         <button
           v-for="tab in ['popular', 'custom']"
@@ -145,12 +145,12 @@ const handleAddCustomWebsite = () => {
             </option>
           </select>
         </div>
-
         <div class="grid grid-cols-2 gap-4">
           <template v-for="site in filteredWebsites">
             <div
               v-if="!widgets.find((w) => w.e1 == site.url)"
-              @click="
+              @click="() =>{
+                toast.showToast('添加成功');
                 widgets.push({
                   type: 'web',
                   title: site.name,
@@ -162,7 +162,7 @@ const handleAddCustomWebsite = () => {
                     customIcon: false,
                   },
                 })
-              "
+              }"
               class="overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3"
             >
               <img

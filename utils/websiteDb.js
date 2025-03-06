@@ -1,11 +1,17 @@
 const popularWebsites = [
   {
     name: "娱乐",
-    sites: [{ name: "哔哩哔哩", url: "https://www.bilibili.com", icon:"" }],
+    sites: [
+      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon:"" },
+      { name: "爱奇艺", url: "https://www.iqiyi.com/", icon:"" }
+      ],
   },
   {
     name: "AI",
-    sites: [{ name: "Deepseek", url: "https://chat.deepseek.com", icon:"https://www.deepseek.com/favicon.ico" }],
+    sites: [
+      { name: "Deepseek", url: "https://chat.deepseek.com", icon:"https://www.deepseek.com/favicon.ico" },
+      { name: "Kimi", url: "https://kimi.moonshot.cn/", icon:"https://statics.moonshot.cn/kimi-chat/favicon.ico" }
+    ],
   },
   {
     name: "社交",
@@ -13,7 +19,10 @@ const popularWebsites = [
   },
   {
     name: "工具",
-    sites: [{ name: "知乎", url: "https://www.zhihu.com", icon:"" }],
+    sites: [
+      { name: "知乎", url: "https://www.zhihu.com", icon:"" },
+      { name: "deepl", url: "https://www.deepl.com/", icon:"https://static.deepl.com/img/logo/deepl-logo-blue.svg" },
+    ],
   },
   {
     name: "新闻",
@@ -38,5 +47,11 @@ const popularWebsites = [
       { name: "阿里云", url: "https://www.aliyun.com", icon:"https://img.alicdn.com/tfs/TB1_ZXuNcfpK1RjSZFOXXa6nFXa-32-32.ico"}
     ],
   },
+  {
+    name: "学习",
+    sites: [
+      { name: "学习通", url: "https://i.chaoxing.com", icon:"https://app.chaoxing.com/res/images/apk/logo.png" },
+    ]
+  }
 ];
-export default popularWebsites;
+export { popularWebsites };

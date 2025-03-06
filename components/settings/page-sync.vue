@@ -16,10 +16,8 @@ const uploading = ref(false);
 const downloading = ref(false);
 const previousDataExists = ref(true);
 
-import Client from "@/utils/webdav.js";
-
 const testConnection = async () => {
-  const client = new Client(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(webdavUrl.value, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,
@@ -47,7 +45,7 @@ function clearSyncState() {
 
 const uploadToCloud = async () => {
   uploading.value = true;
-  const client = new Client(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(webdavUrl.value, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,
@@ -72,7 +70,7 @@ const uploadToCloud = async () => {
 const downloadFromCloud = async () => {
   downloading.value = true;
   const decoder = new TextDecoder("utf-8");
-  const client = new Client(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(webdavUrl.value, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,
