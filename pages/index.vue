@@ -92,6 +92,9 @@ async function fetchSettings() {
     console.error("同步失败:", error);
   }
 }
+function openIntroPage() {
+  window.open("/intro", "_blank");
+}
 watch(
   () => settingStore.$state,
   () => {
@@ -148,10 +151,17 @@ const backgroundUrl = computed(() => {
     class="p-4 h-screen w-screen bg-cover bg-center bg-no-repeat flex flex-col items-center"
     :style="`background-image: url(${backgroundUrl})`"
   >
-    <div class="flex flex-row w-full">
+    <div class="flex flex-row w-full gap-2">
       <Placeholder />
       <div
-        class="text-white hover:bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center"
+        v-if="!extensionInstalled()"
+        class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
+        @click="openIntroPage"
+      >
+        <i class="pi pi-download text-xl"></i>
+      </div>
+      <div
+        class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
         @click="
           () => {
             settingPanel.show('search');

@@ -1,15 +1,34 @@
 {
   "manifest_version": 3,
   "name": "HelloTab",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "将HelloTab设为默认主页",
-  "permissions": [],
   "chrome_url_overrides": {
-    "newtab": "redirect.html"
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "bookmarks",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "greetings.html",
+    "default_icon": "img/favicon.ico"
   },
   "icons": {
     "16": "img/favicon.ico",
     "48": "img/favicon.ico",
     "128": "img/favicon.ico"
+  },
+  "content_scripts": [
+    {
+      "js": ["inject.js"],
+      "matches": ["http://localhost:3000/", "https://hellotab.secretqsan.top/"]
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["http://localhost:3000/", "https://hellotab.secretqsan.top/"]
   }
 }

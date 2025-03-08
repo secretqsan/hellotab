@@ -55,26 +55,25 @@ const features = ref([
         </div>
       </div>
 
-      <div
-        class="max-w-2xl mx-auto mt-20 mb-16 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8 shadow-lg transform hover:scale-105 transition-transform duration-300"
-      >
-        <div class="text-center">
-          <i class="pi pi-browser text-5xl text-purple-500 mb-4"></i>
-          <h2 class="text-2xl font-bold text-gray-800 mb-3">
-            浏览器扩展版即将到来
-          </h2>
-          <p class="text-gray-600 mb-2">我们正在开发更强大的浏览器扩展版本</p>
-          <p class="text-gray-500 text-sm">敬请期待！</p>
-        </div>
-      </div>
-
-      <div class="text-center">
+      <div class="text-center mt-16">
         <NuxtLink
           to="/"
           class="inline-block px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold"
         >
           开始使用
         </NuxtLink>
+      </div>
+      <div class="w-full mt-8 flex flex-row items-center justify-center gap-4">
+        <a 
+          href="https://github.com/Gryffindor2/hellotab/releases/download/0.0.3/hellotab.crx" 
+          class="group flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-300 hover:shadow-lg">
+          <img src="assets/image/chrome.svg" class="w-6 h-6" alt="Chrome" />
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-800">crx 扩展</span>
+            <span class="text-xs text-gray-500">开发版本</span>
+          </div>
+          <i class="pi pi-download ml-2 text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+        </a>
       </div>
     </div>
   </div>

@@ -9,8 +9,21 @@ const { widgets } = storeToRefs(settings);
 const sharedComponents = useSharedComponentsStore();
 const { toast } = storeToRefs(sharedComponents);
 
-const handleImportBookmarks = () => {
-  alert("网页版暂不支持");
+const handleImportBookmarks = async () => {
+  if (extensionInstalled()){
+    try {
+      var targetExtensionId = "lnajnbalnnhmiigpejhlkgabokbnklgc";
+      chrome.runtime.sendMessage(targetExtensionId, {type: 'fav', msg: 'Hello, I am page~'}, function(response) {
+        console.log(response);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  else{
+    alert("请先安装插件");
+    window.open('/intro', '_blank');
+  }
 };
 
 const getFaviconUrl = (url) => {
