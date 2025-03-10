@@ -3,8 +3,9 @@ const popularWebsites = [
     name: "娱乐",
     sites: [
       { name: "哔哩哔哩", url: "https://www.bilibili.com", icon:"" },
-      { name: "爱奇艺", url: "https://www.iqiyi.com/", icon:"" }
-      ],
+      { name: "爱奇艺", url: "https://www.iqiyi.com/", icon:"" },
+      { name: "抖音", url: "https://www.douyin.com/", icon: ""}
+    ],
   },
   {
     name: "AI",
@@ -15,13 +16,18 @@ const popularWebsites = [
   },
   {
     name: "社交",
-    sites: [{ name: "微博", url: "https://weibo.com", icon:"" }],
+    sites: [
+      { name: "微博", url: "https://weibo.com", icon:"" },
+      { name: "小红书", url:"https://www.xiaohongshu.com/", icon:"" },
+    ],
   },
   {
     name: "工具",
     sites: [
       { name: "知乎", url: "https://www.zhihu.com", icon:"" },
+      { name: "office", url:"https://m365.cloud.microsoft", icon: "https://res.cdn.office.net/officehub/images/content/images/favicon_copilot-4370172aa6.ico"},
       { name: "deepl", url: "https://www.deepl.com/", icon:"https://static.deepl.com/img/logo/deepl-logo-blue.svg" },
+      { name: "outlook", url: "https://outlook.office365.com/mail/", icon:""}
     ],
   },
   {
@@ -36,7 +42,7 @@ const popularWebsites = [
     sites: [
       { name: "淘宝", url: "https://www.taobao.com", icon:"" },
       { name: "京东", url: "https://www.jd.com", icon:"" }
-      ],
+    ],
   },
   {
     name: "开发",
@@ -50,7 +56,7 @@ const popularWebsites = [
   {
     name: "学习",
     sites: [
-      { name: "学习通", url: "https://i.chaoxing.com", icon:"https://app.chaoxing.com/res/images/apk/logo.png" },
+      { name: "学习通", url: "https://i.chaoxing.com", icon:"https://app.chaoxing.com/res/images/apk/logo.png" }
     ]
   }
 ];

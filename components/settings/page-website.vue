@@ -13,10 +13,27 @@ const handleImportBookmarks = async () => {
   if (extensionInstalled()){
     try {
       var targetExtensionId = "lnajnbalnnhmiigpejhlkgabokbnklgc";
-      chrome.runtime.sendMessage(targetExtensionId, {type: 'fav', msg: 'Hello, I am page~'}, function(response) {
-        console.log(response);
+      var favList = [];
+      chrome.runtime.sendMessage(targetExtensionId, {type: 'fav', msg: ''}, function(response) {
+        favList = JSON.parse(response.msg);
+        for (var i = 0; i < favList.length; i++) {
+          var fav = favList[i];
+          widgets.value.push({
+            type: 'web',
+            title: fav.title,
+            size_x: 1,
+            size_y: 1,
+            e: {
+              url: fav.url,
+              icon: getFaviconUrl(fav.url),
+              customIcon: false,
+            },
+          });
+        }
       });
+      toast.value.showToast("导入成功");
     } catch (error) {
+      toast.value.showToast("导入失败");
       console.log(error);
     }
   }
@@ -101,7 +118,7 @@ const handleAddCustomWebsite = () => {
     url: "",
     icon: "",
   };
-  toast.showToast("添加成功")
+  toast.value.showToast("添加成功")
 };
 </script>
 

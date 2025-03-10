@@ -155,6 +155,7 @@ const backgroundUrl = computed(() => {
       <Placeholder />
       <div
         v-if="!extensionInstalled()"
+        title="下载扩展"
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
         @click="openIntroPage"
       >
@@ -162,6 +163,7 @@ const backgroundUrl = computed(() => {
       </div>
       <div
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
+        title="设置"
         @click="
           () => {
             settingPanel.show('search');

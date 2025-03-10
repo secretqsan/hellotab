@@ -65,7 +65,7 @@ const features = ref([
       </div>
       <div class="w-full mt-8 flex flex-row items-center justify-center gap-4">
         <a 
-          href="https://github.com/Gryffindor2/hellotab/releases/download/0.0.3/hellotab.crx" 
+          href="https://github.com/Gryffindor2/hellotab/releases/download/v0.0.4/hellotab.crx" 
           class="group flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-300 hover:shadow-lg">
           <img src="assets/image/chrome.svg" class="w-6 h-6" alt="Chrome" />
           <div class="flex flex-col">

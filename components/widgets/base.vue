@@ -30,6 +30,7 @@ defineExpose({
       size_x == 1 ? 'col-span-1' : 'col-span-2',
       size_y == 1 ? 'row-span-1' : 'row-span-2',
     ]"
+    :title="title"
   >
     <div
       :class="[
@@ -38,6 +39,7 @@ defineExpose({
         size_x == 1 ? 'w-20' : 'w-56',
         size_y == 1 ? 'h-20' : 'h-56',
       ]"
+
     >
       <template v-if="!alt">
         <slot v-if="size_x == 1 && size_y == 1" name="small" />
@@ -51,7 +53,7 @@ defineExpose({
 
     <div
       v-if="!appearance.hideTitle"
-      class="absolute -bottom-8 left-0 w-full text-center text-white"
+      class="absolute -bottom-8 left-0 w-full text-center text-white truncate"
     >
       {{ title }}
     </div>
