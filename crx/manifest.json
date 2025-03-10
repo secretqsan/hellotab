@@ -6,10 +6,7 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": [
-    "bookmarks",
-    "activeTab"
-  ],
+  "permissions": ["bookmarks", "activeTab"],
   "background": {
     "service_worker": "background.js"
   },

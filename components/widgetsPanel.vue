@@ -72,36 +72,31 @@ const settingStore = useSettingsStore();
 const { widgets } = storeToRefs(settingStore);
 </script>
 <template>
-  <div 
-    class="overflow-auto"
-    @scroll="
-      menuRef.hideMenu()
-    ">
+  <div class="overflow-auto" @scroll="menuRef.hideMenu()">
     <draggable
-        v-model="widgets"
-        item-key="id"
-        class="w-full grid gap-16 px-[calc(100%/8)] grid-cols-[repeat(auto-fill,_80px)] justify-center"
-        :style="{ 'grid-auto-flow': 'dense' }"
-      >
-        <template #item="{ element }">
-          <component
-            :is="widgetsConvertTable[element.type]"
-            :size_x="element.size_x"
-            :size_y="element.size_y"
-            :title="element.title"
-            :e="element.e"
-            @contextmenu.prevent.stop="
-              (event) => {
-                if (element.type != 'new') {
-                  selectedId = widgets.indexOf(element);
-                  menuRef.show(event);
-                }
+      v-model="widgets"
+      item-key="id"
+      class="w-full grid gap-16 px-[calc(100%/8)] grid-cols-[repeat(auto-fill,_80px)] justify-center"
+      :style="{ 'grid-auto-flow': 'dense' }"
+    >
+      <template #item="{ element }">
+        <component
+          :is="widgetsConvertTable[element.type]"
+          :size_x="element.size_x"
+          :size_y="element.size_y"
+          :title="element.title"
+          :e="element.e"
+          @contextmenu.prevent.stop="
+            (event) => {
+              if (element.type != 'new') {
+                selectedId = widgets.indexOf(element);
+                menuRef.show(event);
               }
-            "
-
-          />
-        </template>
-      </draggable>
-      <WidgetsMenu ref="menuRef" :model="items" />
-    </div>
+            }
+          "
+        />
+      </template>
+    </draggable>
+    <WidgetsMenu ref="menuRef" :model="items" />
+  </div>
 </template>

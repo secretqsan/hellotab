@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.2.3 Beta"
+      version: "1.2.4 Beta"
     },
   }
 });

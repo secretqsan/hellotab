@@ -10,36 +10,39 @@ const sharedComponents = useSharedComponentsStore();
 const { toast } = storeToRefs(sharedComponents);
 
 const handleImportBookmarks = async () => {
-  if (extensionInstalled()){
+  if (extensionInstalled()) {
     try {
       var targetExtensionId = "lnajnbalnnhmiigpejhlkgabokbnklgc";
       var favList = [];
-      chrome.runtime.sendMessage(targetExtensionId, {type: 'fav', msg: ''}, function(response) {
-        favList = JSON.parse(response.msg);
-        for (var i = 0; i < favList.length; i++) {
-          var fav = favList[i];
-          widgets.value.push({
-            type: 'web',
-            title: fav.title,
-            size_x: 1,
-            size_y: 1,
-            e: {
-              url: fav.url,
-              icon: getFaviconUrl(fav.url),
-              customIcon: false,
-            },
-          });
+      chrome.runtime.sendMessage(
+        targetExtensionId,
+        { type: "fav", msg: "" },
+        function (response) {
+          favList = JSON.parse(response.msg);
+          for (var i = 0; i < favList.length; i++) {
+            var fav = favList[i];
+            widgets.value.push({
+              type: "web",
+              title: fav.title,
+              size_x: 1,
+              size_y: 1,
+              e: {
+                url: fav.url,
+                icon: getFaviconUrl(fav.url),
+                customIcon: false,
+              },
+            });
+          }
         }
-      });
+      );
       toast.value.showToast("导入成功");
     } catch (error) {
       toast.value.showToast("导入失败");
       console.log(error);
     }
-  }
-  else{
+  } else {
     alert("请先安装插件");
-    window.open('/intro', '_blank');
+    window.open("/intro", "_blank");
   }
 };
 
@@ -118,7 +121,7 @@ const handleAddCustomWebsite = () => {
     url: "",
     icon: "",
   };
-  toast.value.showToast("添加成功")
+  toast.value.showToast("添加成功");
 };
 </script>
 
@@ -179,24 +182,27 @@ const handleAddCustomWebsite = () => {
           <template v-for="site in filteredWebsites">
             <div
               v-if="!widgets.find((w) => w.e1 == site.url)"
-              @click="() =>{
-                toast.showToast('添加成功');
-                widgets.push({
-                  type: 'web',
-                  title: site.name,
-                  size_x: 1,
-                  size_y: 1,
-                  e: {
-                    url: site.url,
-                    icon: site.icon == ''? getFaviconUrl(site.url): site.icon,
-                    customIcon: false,
-                  },
-                })
-              }"
+              @click="
+                () => {
+                  toast.showToast('添加成功');
+                  widgets.push({
+                    type: 'web',
+                    title: site.name,
+                    size_x: 1,
+                    size_y: 1,
+                    e: {
+                      url: site.url,
+                      icon:
+                        site.icon == '' ? getFaviconUrl(site.url) : site.icon,
+                      customIcon: false,
+                    },
+                  });
+                }
+              "
               class="overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3"
             >
               <img
-                :src="site.icon == ''? getFaviconUrl(site.url): site.icon"
+                :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
                 :alt="site.name"
                 class="w-6 h-6"
                 @error="$event.target.src = ''"

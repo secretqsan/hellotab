@@ -35,14 +35,13 @@ async function getLocation() {
     location.value.latitude = position.coords.latitude;
     location.value.longitude = position.coords.longitude;
 
-    const res = await $fetch(apiEndpoint('weather'),{
+    const res = await $fetch(apiEndpoint("weather"), {
       params: {
         type: "location",
         longitude: location.value.longitude,
         latitude: location.value.latitude,
       },
-    }
-    );
+    });
     if (res.code === "200" && res.location && res.location[0]) {
       location.value.name = res.location[0].adm2 + res.location[0].name;
       await getWeather();
@@ -55,15 +54,13 @@ async function getLocation() {
 
 async function getWeather() {
   try {
-    const res = await $fetch(
-      apiEndpoint('weather'),{
-        params: {
-          type: "weather",
-          longitude: location.value.longitude,
-          latitude: location.value.latitude,
-        },
-      }
-    );
+    const res = await $fetch(apiEndpoint("weather"), {
+      params: {
+        type: "weather",
+        longitude: location.value.longitude,
+        latitude: location.value.latitude,
+      },
+    });
     if (res.code === "200") {
       weather.value = {
         temp: res.now.temp,

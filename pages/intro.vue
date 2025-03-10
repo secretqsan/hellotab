@@ -1,8 +1,9 @@
 <script setup>
+import { Analytics } from "@vercel/analytics/nuxt";
+
 useHead({
   title: "HelloTab",
 });
-import { Analytics } from "@vercel/analytics/nuxt";
 
 const features = ref([
   {
@@ -26,53 +27,79 @@ const features = ref([
     description: "支持自由布局以及自定义背景，打造专属新标签页",
   },
 ]);
+const releases = ref([
+  {
+    url: "/downloads/hellotab.crx",
+    icon: "image/edge.svg",
+    mainText: "Edge 扩展",
+    subText: "开发版本",
+  },
+  {
+    url: "/downloads/hellotab.crx",
+    icon: "image/chrome.svg",
+    mainText: "Chrome 扩展",
+    subText: "开发版本",
+  },
+  {
+    url: "#",
+    icon: "image/firefox.svg",
+    mainText: "Firefox 扩展",
+    subText: "敬请期待",
+  },
+]);
 </script>
 
 <template>
   <Analytics />
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">HelloTab</h1>
-        <p class="text-xl text-gray-600">你的智能新标签页伙伴</p>
-      </div>
-
+  <div
+    class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-20 flex flex-col items-center"
+  >
+    <h1 class="text-center text-4xl font-bold text-gray-800 mb-4">HelloTab</h1>
+    <p class="text-center text-xl text-gray-600 mb-16">你的智能新标签页伙伴</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+        v-for="feature in features"
+        :key="feature.title"
+        class="bg-white rounded-xl p-6 shadow-lg transform hover:scale-105 transition-transform duration-300"
       >
-        <div
-          v-for="feature in features"
-          :key="feature.title"
-          class="bg-white rounded-xl p-6 shadow-lg transform hover:scale-105 transition-transform duration-300"
-        >
-          <div class="text-center">
-            <i :class="[feature.icon, 'text-4xl text-blue-500 mb-4']"></i>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">
-              {{ feature.title }}
-            </h3>
-            <p class="text-gray-600">{{ feature.description }}</p>
-          </div>
+        <div class="text-center">
+          <i :class="[feature.icon, 'text-4xl text-blue-500 mb-4']"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">
+            {{ feature.title }}
+          </h3>
+          <p class="text-gray-600">{{ feature.description }}</p>
         </div>
       </div>
+    </div>
 
-      <div class="text-center mt-16">
-        <NuxtLink
-          to="/"
-          class="inline-block px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold"
+    <div class="text-center mt-16">
+      <NuxtLink
+        to="/"
+        target="_blank"
+        class="inline-block px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold"
+      >
+        开始使用
+      </NuxtLink>
+    </div>
+    <div class="flex flex-row w-full mt-8 justify-center gap-2">
+      <div
+        v-for="release in releases"
+        class="flex flex-row items-center justify-center gap-4"
+      >
+        <a
+          :href="release.url"
+          class="group flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-300 hover:shadow-lg"
         >
-          开始使用
-        </NuxtLink>
-      </div>
-      <div class="w-full mt-8 flex flex-row items-center justify-center gap-4">
-        <a 
-          href="https://github.com/Gryffindor2/hellotab/releases/download/v0.0.4/hellotab.crx" 
-          class="group flex items-center gap-2 px-4 py-2 bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-300 hover:shadow-lg">
-          <img src="assets/image/chrome.svg" class="w-6 h-6" alt="Chrome" />
+          <img :src="release.icon" class="w-6 h-6" />
           <div class="flex flex-col">
-            <span class="text-sm font-medium text-gray-800">crx 扩展</span>
-            <span class="text-xs text-gray-500">开发版本</span>
+            <span class="text-sm font-medium text-gray-800">{{
+              release.mainText
+            }}</span>
+            <span class="text-xs text-gray-500">{{ release.subText }}</span>
           </div>
-          <i class="pi pi-download ml-2 text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+          <i
+            class="pi pi-download text-gray-400 group-hover:text-blue-500 transition-colors"
+          ></i>
         </a>
       </div>
     </div>

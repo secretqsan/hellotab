@@ -39,7 +39,6 @@ defineExpose({
         size_x == 1 ? 'w-20' : 'w-56',
         size_y == 1 ? 'h-20' : 'h-56',
       ]"
-
     >
       <template v-if="!alt">
         <slot v-if="size_x == 1 && size_y == 1" name="small" />
@@ -58,7 +57,7 @@ defineExpose({
       {{ title }}
     </div>
     <Window ref="windowRef" @click.stop @contextmenu.stop>
-      <slot name="window"/>
+      <slot name="window" />
     </Window>
   </div>
 </template>

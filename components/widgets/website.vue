@@ -18,9 +18,7 @@ const prop = defineProps({
 });
 
 const handleClick = () => {
-  if (prop.e.url) {
-    window.open(prop.e.url, "_blank");
-  }
+  window.open(prop.e.url, "_blank");
 };
 
 const imageStorage = useImageStore();

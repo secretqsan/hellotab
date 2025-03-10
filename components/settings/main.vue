@@ -6,7 +6,7 @@ import SyncSettings from "./page-sync.vue";
 import AboutSettings from "./page-about.vue";
 import AISettings from "./page-ai.vue";
 import WebsiteSettings from "./page-website.vue";
-const activeSettingTab = ref("search")
+const activeSettingTab = ref("search");
 const windowRef = ref(null);
 
 const settingTabs = {
@@ -33,50 +33,52 @@ defineExpose({
 <template>
   <Window ref="windowRef">
     <div class="w-full h-full flex flex-row">
-    <div class="w-1/4 bg-gray-100 h-full p-2 flex flex-col gap-1">
-      <div
-        v-for="(tab, key) in settingTabs"
-        :key="key"
-        @click="activeSettingTab = key"
-        :class="[
-          'flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-colors duration-200',
-          activeSettingTab === key ? 'bg-white shadow-sm' : 'hover:bg-white/50',
-        ]"
-      >
-        <i
+      <div class="w-1/4 bg-gray-100 h-full p-2 flex flex-col gap-1">
+        <div
+          v-for="(tab, key) in settingTabs"
+          :key="key"
+          @click="activeSettingTab = key"
           :class="[
-            tab.icon,
-            'text-lg',
-            activeSettingTab === key ? 'text-blue-500' : 'text-gray-500',
-          ]"
-        ></i>
-        <span
-          :class="[
+            'flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-colors duration-200',
             activeSettingTab === key
-              ? 'text-blue-500 font-medium'
-              : 'text-gray-700',
-            'whitespace-nowrap',
+              ? 'bg-white shadow-sm'
+              : 'hover:bg-white/50',
           ]"
-          >{{ tab.label }}</span
         >
+          <i
+            :class="[
+              tab.icon,
+              'text-lg',
+              activeSettingTab === key ? 'text-blue-500' : 'text-gray-500',
+            ]"
+          ></i>
+          <span
+            :class="[
+              activeSettingTab === key
+                ? 'text-blue-500 font-medium'
+                : 'text-gray-700',
+              'whitespace-nowrap',
+            ]"
+            >{{ tab.label }}</span
+          >
+        </div>
+      </div>
+      <div class="flex-1 h-full flex flex-col">
+        <div class="flex flex-row">
+          <h2 class="text-xl font-medium ml-8 mt-8 mb-0">
+            设置中心 > {{ settingTabs[activeSettingTab].label }}
+          </h2>
+          <Placeholder />
+          <button
+            class="m-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors duration-200"
+          >
+            <i class="pi pi-times text-lg"></i>
+          </button>
+        </div>
+        <div class="flex-1 p-4 overflow-y-auto">
+          <component :is="settingTabs[activeSettingTab].comp" />
+        </div>
       </div>
     </div>
-    <div class="flex-1 h-full flex flex-col">
-      <div class="flex flex-row">
-        <h2 class="text-xl font-medium ml-8 mt-8 mb-0">
-          设置中心 > {{ settingTabs[activeSettingTab].label }}
-        </h2>
-        <Placeholder />
-        <button
-          class="m-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors duration-200"
-        >
-          <i class="pi pi-times text-lg"></i>
-        </button>
-      </div>
-      <div class="flex-1 p-4 overflow-y-auto">
-        <component :is="settingTabs[activeSettingTab].comp" />
-      </div>
-    </div>
-  </div>
   </Window>
 </template>

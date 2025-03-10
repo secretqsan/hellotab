@@ -22,7 +22,7 @@ const { settingPanel } = storeToRefs(sharedComponents);
 <template>
   <WidgetsBase :size_x="1" :size_y="1" :title="'新增小组件'" :alt="true">
     <template #alt>
-      <div 
+      <div
         class="h-full w-full flex items-center justify-center"
         @click="
           () => {

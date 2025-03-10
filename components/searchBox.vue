@@ -58,10 +58,12 @@ const fetchSuggestions = async (query) => {
   try {
     if (!aiSearch.value) {
       const response = await $fetch(
-        proxyedUrl('https://api.bing.com/qsonhs.aspx'),{
+        proxyedUrl("https://api.bing.com/qsonhs.aspx"),
+        {
           params: {
-            q: query
-        }}
+            q: query,
+          },
+        }
       );
       suggestions.value =
         response?.AS?.Results?.[0]?.Suggests?.map((s) => s.Txt) || [];

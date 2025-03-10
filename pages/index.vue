@@ -1,16 +1,18 @@
 <script setup>
+import { Analytics } from "@vercel/analytics/nuxt";
+import { debounce } from "lodash";
+
 useHead({
   title: "HelloTab",
 });
-import { Analytics } from "@vercel/analytics/nuxt";
 
-const onlineBackgroundUrl = ref("");
 const imageStorage = useImageStore();
-const { pictures } = storeToRefs(imageStorage);
 const settingStore = useSettingsStore();
 const localSettings = useLocalSettingsStore();
 const sharedComponents = useSharedComponentsStore();
 const { settingPanel, toast } = storeToRefs(sharedComponents);
+const { pictures } = storeToRefs(imageStorage);
+const { appearance } = storeToRefs(settingStore);
 const {
   syncEnabled,
   webdavTestedOk,
@@ -18,8 +20,8 @@ const {
   webdavUsername,
   webdavPassword,
 } = storeToRefs(localSettings);
-const { appearance } = storeToRefs(settingStore);
-import { debounce } from "lodash";
+const onlineBackgroundUrl = ref("");
+
 const uploadSettings = debounce(async () => {
   const client = new webdavClient(`/api/proxy/${webdavUrl.value}`, {
     subdir: "hellotab",
@@ -92,9 +94,6 @@ async function fetchSettings() {
     console.error("同步失败:", error);
   }
 }
-function openIntroPage() {
-  window.open("/intro", "_blank");
-}
 watch(
   () => settingStore.$state,
   () => {
@@ -119,15 +118,13 @@ onMounted(() => {
   if (syncEnabled.value && webdavTestedOk.value) {
     fetchSettings();
   }
-  $fetch(
-    proxyedUrl("https://www.bing.com/HPImageArchive.aspx"),{
-      params:{
-        n:1,
-        idx:0,
-        format:"js"
-      }
-    }
-  )
+  $fetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"), {
+    params: {
+      n: 1,
+      idx: 0,
+      format: "js",
+    },
+  })
     .then((res) => {
       onlineBackgroundUrl.value = `https://www.bing.com${res.images[0].url}`;
     })
@@ -146,21 +143,22 @@ const backgroundUrl = computed(() => {
 
 <template>
   <Analytics />
-  
+
   <div
     class="p-4 h-screen w-screen bg-cover bg-center bg-no-repeat flex flex-col items-center"
     :style="`background-image: url(${backgroundUrl})`"
   >
     <div class="flex flex-row w-full gap-2">
       <Placeholder />
-      <div
+      <NuxtLink
         v-if="!extensionInstalled()"
         title="下载扩展"
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
-        @click="openIntroPage"
+        to="/intro"
+        target="_blank"
       >
         <i class="pi pi-download text-xl"></i>
-      </div>
+      </NuxtLink>
       <div
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
         title="设置"
@@ -173,11 +171,11 @@ const backgroundUrl = computed(() => {
         <i class="pi pi-cog text-xl"></i>
       </div>
     </div>
-    <div class="h-20 min-h-10"/>
+    <div class="h-20 min-h-10" />
     <searchBox class="z-10" />
-    <div class="h-20 min-h-10"/>
-    <WidgetsPanel class="flex-1 w-full"/>
+    <div class="h-20 min-h-10" />
+    <WidgetsPanel class="flex-1 w-full" />
   </div>
-  <SettingsMain ref="settingPanel"/>
-  <Toast ref="toast"/>
+  <SettingsMain ref="settingPanel" />
+  <Toast ref="toast" />
 </template>

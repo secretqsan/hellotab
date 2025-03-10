@@ -4,27 +4,27 @@ const widgesAvailiable = [
     name: "clock",
     title: "时钟",
     icon: "pi-clock",
-    e: {}
+    e: {},
   },
   {
     name: "calendar",
     title: "日历",
     icon: "pi-calendar",
-    e: {}
+    e: {},
   },
   {
     name: "weather",
     title: "天气",
     icon: "pi-sun",
-    e: {}
+    e: {},
   },
   {
     name: "todolist",
     title: "待办列表",
     icon: "pi-list",
     e: {
-      items: []
-    }
+      items: [],
+    },
   },
 ];
 const settingStore = useSettingsStore();
