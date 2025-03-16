@@ -1,6 +1,4 @@
 <script setup>
-import { debounce } from "lodash";
-
 const aiSearch = ref(false);
 const searchQuery = ref("");
 const suggestions = ref([]);
@@ -10,6 +8,11 @@ const aiSuggestion = ref("");
 const aiSuggestionAccepted = ref(false);
 const settings = useSettingsStore();
 const { searchEngine, aiSearchEngine, glmApiKey } = storeToRefs(settings);
+
+function openLink(url) {
+  const urlWithProtocol = url.match(/^[a-zA-Z]+:\/\//) ? url : `http://${url}`;
+  window.open(urlWithProtocol, "_blank");
+}
 
 const showInlineSuggestions = computed(() => {
   return searchQuery.value.trim() && focused.value && aiSearch.value;
@@ -65,8 +68,22 @@ const fetchSuggestions = async (query) => {
           },
         }
       );
-      suggestions.value =
+      const suggestions_text =
         response?.AS?.Results?.[0]?.Suggests?.map((s) => s.Txt) || [];
+      if (isUrl(query)) {
+        const queryIndex = suggestions_text.findIndex(s => s === query);
+        if (queryIndex !== -1) {
+          suggestions_text.splice(queryIndex, 1);
+        } 
+        suggestions_text.unshift(query);
+      }
+      suggestions.value = [];
+      for (const suggestion of suggestions_text) {
+        suggestions.value.push({
+          text: suggestion,
+          isUrl: isUrl(suggestion),
+        });
+      }
     } else {
       if (glmApiKey.value == "") {
         aiSuggestion.value = "提供API Key以开启AI补全";
@@ -105,7 +122,7 @@ const fetchSuggestions = async (query) => {
     suggestions.value = [];
   }
 };
-const debouncedFetchSuggestions = debounce(fetchSuggestions, 300);
+const debouncedFetchSuggestions = _debounce(fetchSuggestions, 300);
 
 const calculateTextWidth = (text) => {
   const canvas = document.createElement("canvas");
@@ -218,10 +235,19 @@ const handleBlur = () => {
           class="group"
         >
           <div
-            :class="'px-4 py-3 cursor-pointer transition-colors duration-200 hover:bg-slate-50'"
+            class="px-4 py-3 cursor-pointer transition-colors duration-200 hover:bg-slate-50 flex flex-row items-center gap-2"
             @click="selectSuggestion(suggestion)"
           >
-            {{ suggestion }}
+            <i v-if="suggestion.isUrl" class="pi pi-globe" />
+            <div :class="[suggestion.isUrl ? 'underline' : '']">{{ suggestion.text }}</div>
+            <placeholder/>
+            <button
+              @click.stop="openLink(suggestion.text)"
+              v-if="suggestion.isUrl"
+              class="p-1 rounded-md hover:bg-gray-200 transition-colors duration-150 flex items-center justify-center"
+            >
+              <i class="pi pi-external-link" />
+            </button>
           </div>
           <div
             v-if="index < suggestions.length - 1"

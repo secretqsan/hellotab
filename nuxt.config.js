@@ -5,7 +5,12 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
+    "nuxt-lodash"
   ],
+  lodash: {
+    prefix: "_",
+    upperAfterPrefix: false,
+  },
   css: [
     "primeicons/primeicons.css",
     "qweather-icons/font/qweather-icons.css",
@@ -27,7 +32,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.2.4 Beta"
+      version: "1.2.5 Beta"
     },
   }
 });

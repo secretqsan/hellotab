@@ -44,7 +44,11 @@ const popularWebsites = [
         icon: "https://static.deepl.com/img/logo/deepl-logo-blue.svg",
       },
       { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
-      { name: "figma", url: "https://www.figma.com/", icon: "https://static.figma.com/app/icon/1/touch-180.png"}
+      {
+        name: "figma",
+        url: "https://www.figma.com/",
+        icon: "https://static.figma.com/app/icon/1/touch-180.png",
+      },
     ],
   },
   {
@@ -72,6 +76,11 @@ const popularWebsites = [
         url: "https://www.aliyun.com",
         icon: "https://img.alicdn.com/tfs/TB1_ZXuNcfpK1RjSZFOXXa6nFXa-32-32.ico",
       },
+      {
+        name: "Azure",
+        url: "https://portal.azure.com/",
+        icon: "https://portal.azure.com/Content/static/PWA/Azure-512p-maskable.svg",
+      },
     ],
   },
   {
@@ -82,6 +91,16 @@ const popularWebsites = [
         url: "https://i.chaoxing.com",
         icon: "https://app.chaoxing.com/res/images/apk/logo.png",
       },
+      {
+        name: "Web of Science",
+        url: "https://www.webofscience.com/wos/",
+        icon: ""
+      },
+      {
+        name: "中国知网",
+        url: "https://www.cnki.net/",
+        icon: ""
+      }
     ],
   },
 ];

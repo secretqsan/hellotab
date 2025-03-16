@@ -178,41 +178,43 @@ const handleAddCustomWebsite = () => {
             </option>
           </select>
         </div>
-        <div class="grid grid-cols-2 gap-4">
-          <template v-for="site in filteredWebsites">
-            <div
-              v-if="!widgets.find((w) => w.e1 == site.url)"
-              @click="
-                () => {
-                  toast.showToast('添加成功');
-                  widgets.push({
-                    type: 'web',
-                    title: site.name,
-                    size_x: 1,
-                    size_y: 1,
-                    e: {
-                      url: site.url,
-                      icon:
-                        site.icon == '' ? getFaviconUrl(site.url) : site.icon,
-                      customIcon: false,
-                    },
-                  });
-                }
-              "
-              class="overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3"
-            >
-              <img
-                :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
-                :alt="site.name"
-                class="w-6 h-6"
-                @error="$event.target.src = ''"
-              />
-              <div>
-                <div class="font-medium">{{ site.name }}</div>
-                <div class="text-sm text-gray-500">{{ site.url }}</div>
+        <div class="h-80 overflow-auto">
+          <div class="grid grid-cols-2 gap-4">
+            <template v-for="site in filteredWebsites">
+              <div
+                v-if="!widgets.find((w) => w.e1 == site.url)"
+                @click="
+                  () => {
+                    toast.showToast('添加成功');
+                    widgets.push({
+                      type: 'web',
+                      title: site.name,
+                      size_x: 1,
+                      size_y: 1,
+                      e: {
+                        url: site.url,
+                        icon:
+                          site.icon == '' ? getFaviconUrl(site.url) : site.icon,
+                        customIcon: false,
+                      },
+                    });
+                  }
+                "
+                class="overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3"
+              >
+                <img
+                  :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
+                  :alt="site.name"
+                  class="w-6 h-6"
+                  @error="$event.target.src = ''"
+                />
+                <div>
+                  <div class="font-medium">{{ site.name }}</div>
+                  <div class="text-sm text-gray-500">{{ site.url }}</div>
+                </div>
               </div>
-            </div>
-          </template>
+            </template>
+          </div>
         </div>
       </div>
 

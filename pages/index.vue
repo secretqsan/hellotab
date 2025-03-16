@@ -1,6 +1,5 @@
 <script setup>
 import { Analytics } from "@vercel/analytics/nuxt";
-import { debounce } from "lodash";
 
 useHead({
   title: "HelloTab",
@@ -22,7 +21,7 @@ const {
 } = storeToRefs(localSettings);
 const onlineBackgroundUrl = ref("");
 
-const uploadSettings = debounce(async () => {
+const uploadSettings = _debounce(async () => {
   const client = new webdavClient(`/api/proxy/${webdavUrl.value}`, {
     subdir: "hellotab",
     username: webdavUsername.value,
@@ -37,7 +36,7 @@ const uploadSettings = debounce(async () => {
     console.error("同步失败:", error);
   }
 }, 1000);
-const uploadImages = debounce(async () => {
+const uploadImages = _debounce(async () => {
   const client = new Client(`/api/proxy/${webdavUrl.value}`, {
     subdir: "hellotab",
     username: webdavUsername.value,
