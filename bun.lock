@@ -9,6 +9,7 @@
         "@vercel/analytics": "^1.5.0",
         "lodash": "^4.17.21",
         "nuxt": "3.15.3",
+        "nuxt-lodash": "^2.5.3",
         "pinia": "^3.0.1",
         "pinia-plugin-persistedstate": "^4.2.0",
         "primeicons": "^7.0.0",
@@ -313,6 +314,10 @@
     "@types/estree": ["@types/estree@1.0.6", "https://registry.npmmirror.com/@types/estree/-/estree-1.0.6.tgz", {}, "sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw=="],
 
     "@types/http-proxy": ["@types/http-proxy@1.17.16", "https://registry.npmmirror.com/@types/http-proxy/-/http-proxy-1.17.16.tgz", { "dependencies": { "@types/node": "*" } }, "sha512-sdWoUajOB1cd0A8cRRQ1cfyWNbmFKLAqBB89Y8x5iYyG/mkJHc0YUH8pdWBy2omi9qtCpiIgGjuwO0dQST2l5w=="],
+
+    "@types/lodash": ["@types/lodash@4.17.16", "https://registry.npmmirror.com/@types/lodash/-/lodash-4.17.16.tgz", {}, "sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g=="],
+
+    "@types/lodash-es": ["@types/lodash-es@4.17.12", "https://registry.npmmirror.com/@types/lodash-es/-/lodash-es-4.17.12.tgz", { "dependencies": { "@types/lodash": "*" } }, "sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ=="],
 
     "@types/node": ["@types/node@22.13.10", "https://registry.npmmirror.com/@types/node/-/node-22.13.10.tgz", { "dependencies": { "undici-types": "~6.20.0" } }, "sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw=="],
 
@@ -862,6 +867,8 @@
 
     "lodash": ["lodash@4.17.21", "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz", {}, "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="],
 
+    "lodash-es": ["lodash-es@4.17.21", "https://registry.npmmirror.com/lodash-es/-/lodash-es-4.17.21.tgz", {}, "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw=="],
+
     "lodash.defaults": ["lodash.defaults@4.2.0", "https://registry.npmmirror.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz", {}, "sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ=="],
 
     "lodash.isarguments": ["lodash.isarguments@3.1.0", "https://registry.npmmirror.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz", {}, "sha512-chi4NHZlZqZD18a0imDHnZPrDeBbTtVN7GXMwuGdRH9qotxAjYs3aVLKc7zNOG9eddR5Ksd8rvFEBc9SsggPpg=="],
@@ -953,6 +960,8 @@
     "nth-check": ["nth-check@2.1.1", "https://registry.npmmirror.com/nth-check/-/nth-check-2.1.1.tgz", { "dependencies": { "boolbase": "^1.0.0" } }, "sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w=="],
 
     "nuxt": ["nuxt@3.15.3", "https://registry.npmmirror.com/nuxt/-/nuxt-3.15.3.tgz", { "dependencies": { "@nuxt/cli": "^3.20.0", "@nuxt/devalue": "^2.0.2", "@nuxt/devtools": "^1.7.0", "@nuxt/kit": "3.15.3", "@nuxt/schema": "3.15.3", "@nuxt/telemetry": "^2.6.4", "@nuxt/vite-builder": "3.15.3", "@unhead/dom": "^1.11.18", "@unhead/shared": "^1.11.18", "@unhead/ssr": "^1.11.18", "@unhead/vue": "^1.11.18", "@vue/shared": "^3.5.13", "acorn": "8.14.0", "c12": "^2.0.1", "chokidar": "^4.0.3", "compatx": "^0.1.8", "consola": "^3.4.0", "cookie-es": "^1.2.2", "defu": "^6.1.4", "destr": "^2.0.3", "devalue": "^5.1.1", "errx": "^0.1.0", "esbuild": "^0.24.2", "escape-string-regexp": "^5.0.0", "estree-walker": "^3.0.3", "globby": "^14.0.2", "h3": "^1.14.0", "hookable": "^5.5.3", "ignore": "^7.0.3", "impound": "^0.2.0", "jiti": "^2.4.2", "klona": "^2.0.6", "knitwork": "^1.2.0", "magic-string": "^0.30.17", "mlly": "^1.7.4", "nanotar": "^0.2.0", "nitropack": "^2.10.4", "nypm": "^0.5.0", "ofetch": "^1.4.1", "ohash": "^1.1.4", "pathe": "^2.0.2", "perfect-debounce": "^1.0.0", "pkg-types": "^1.3.1", "radix3": "^1.1.2", "scule": "^1.3.0", "semver": "^7.6.3", "std-env": "^3.8.0", "strip-literal": "^3.0.0", "tinyglobby": "0.2.10", "ufo": "^1.5.4", "ultrahtml": "^1.5.3", "uncrypto": "^0.1.3", "unctx": "^2.4.1", "unenv": "^1.10.0", "unhead": "^1.11.18", "unimport": "^4.0.0", "unplugin": "^2.1.2", "unplugin-vue-router": "^0.11.1", "unstorage": "^1.14.4", "untyped": "^1.5.2", "vue": "^3.5.13", "vue-bundle-renderer": "^2.1.1", "vue-devtools-stub": "^0.1.0", "vue-router": "^4.5.0" }, "peerDependencies": { "@parcel/watcher": "^2.1.0", "@types/node": "^18.0.0 || ^20.0.0 || >=22.0.0" }, "optionalPeers": ["@parcel/watcher", "@types/node"], "bin": { "nuxi": "bin/nuxt.mjs", "nuxt": "bin/nuxt.mjs" } }, "sha512-96D5vPMeqIxceIMvWms3a75Usi63zan/BGJvseXJqYGoi08fDBBql1lFWEa9rQb8QiRevfcmJQ9LiEj3jVjnkg=="],
+
+    "nuxt-lodash": ["nuxt-lodash@2.5.3", "https://registry.npmmirror.com/nuxt-lodash/-/nuxt-lodash-2.5.3.tgz", { "dependencies": { "@nuxt/kit": "^3.8.0", "@types/lodash-es": "^4.17.10", "lodash-es": "^4.17.21" } }, "sha512-LCJ40tGQTHkfk8rQoGqtb0mFgRVt8U+pc3S352DsI39yF3olqgxlsm28wdJMIcWHuxLgf5X+DwxmZhrAHXNS5g=="],
 
     "nypm": ["nypm@0.5.4", "https://registry.npmmirror.com/nypm/-/nypm-0.5.4.tgz", { "dependencies": { "citty": "^0.1.6", "consola": "^3.4.0", "pathe": "^2.0.3", "pkg-types": "^1.3.1", "tinyexec": "^0.3.2", "ufo": "^1.5.4" }, "bin": { "nypm": "dist/cli.mjs" } }, "sha512-X0SNNrZiGU8/e/zAB7sCTtdxWTMSIO73q+xuKgglm2Yvzwlo8UoC5FNySQFCvl84uPaeADkqHUZUkWy4aH4xOA=="],
 
