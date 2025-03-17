@@ -14,7 +14,13 @@ defineExpose({
     @contextmenu.stop
     class="w-screen h-screen fixed top-0 left-0 bg-gray-800/40 z-30 flex items-center justify-center"
   >
-    <div class="bg-gray-50 w-3/4 h-3/4 rounded-lg overflow-hidden relative">
+    <div 
+      :class="
+        [
+          'bg-gray-50 overflow-hidden relative',
+          ($device.isDesktop || $device.isTablet)? 'w-3/4 h-3/4 rounded-lg': 'w-full h-full'
+        ]
+    ">
       <slot></slot>
       <button
         class="absolute top-2 right-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors duration-200"

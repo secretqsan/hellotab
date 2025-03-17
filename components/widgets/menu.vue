@@ -67,7 +67,10 @@ watch(hide, (newValue) => {
       <template v-for="item in model">
         <template v-if="!item.separator">
           <div
-            class="px-2 py-1 cursor-pointer hover:bg-gray-100 transition-colors flex items-center gap-3 rounded-md"
+            :class="[
+              'px-2 py-1 cursor-pointer flex items-center gap-3 rounded-md',
+              ($device.isDesktop || $device.isTablet)? 'hover:bg-gray-100 transition-colors ': ''
+            ]"
             @click="
               () => {
                 hide = true;

@@ -128,6 +128,7 @@ const handleAddCustomWebsite = () => {
 <template>
   <div class="p-4 flex flex-col gap-6 w-full">
     <button
+      v-if="$device.isDesktop"
       class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center gap-2"
       @click="handleImportBookmarks"
     >

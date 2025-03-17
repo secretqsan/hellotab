@@ -76,7 +76,10 @@ const { widgets } = storeToRefs(settingStore);
     <draggable
       v-model="widgets"
       item-key="id"
-      class="w-full grid gap-16 px-[calc(100%/8)] grid-cols-[repeat(auto-fill,_80px)] justify-center"
+      :class="[
+        'w-full grid gap-16 grid-cols-[repeat(auto-fill,_80px)] justify-center'
+        ($device.isDesktop || $device.isTablet)? 'px-[calc(100%/8)]': 'px-2'
+      ]"
       :style="{ 'grid-auto-flow': 'dense' }"
     >
       <template #item="{ element }">

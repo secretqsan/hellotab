@@ -150,7 +150,7 @@ const backgroundUrl = computed(() => {
     <div class="flex flex-row w-full gap-2">
       <Placeholder />
       <NuxtLink
-        v-if="!extensionInstalled()"
+        v-if="!extensionInstalled() && $device.isDesktop"
         title="下载扩展"
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
         to="/intro"

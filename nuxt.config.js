@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
-    "nuxt-lodash"
+    "nuxt-lodash",
+    "@nuxtjs/device"
   ],
   lodash: {
     prefix: "_",
@@ -32,7 +33,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.3.0 Beta"
+      version: "1.3.1 Beta"
     },
   }
 });
