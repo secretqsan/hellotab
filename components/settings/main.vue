@@ -68,12 +68,6 @@ defineExpose({
           <h2 class="text-xl font-medium ml-8 mt-8 mb-0">
             设置中心 > {{ settingTabs[activeSettingTab].label }}
           </h2>
-          <Placeholder />
-          <button
-            class="m-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors duration-200"
-          >
-            <i class="pi pi-times text-lg"></i>
-          </button>
         </div>
         <div class="flex-1 p-4 overflow-y-auto">
           <component :is="settingTabs[activeSettingTab].comp" />
