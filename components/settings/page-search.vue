@@ -13,7 +13,7 @@ const urls = ref({
   bing: "https://www.bing.com/search?q=",
   baidu: "https://www.baidu.com/s?wd=",
   duckduckgo: "https://www.duckduckgo.com/?q=",
-  自定义: "",
+  costum: "",
 });
 watch(
   () => searchEngine.value.id,

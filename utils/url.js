@@ -4,29 +4,21 @@ function proxyedUrl(url) {
 function apiEndpoint(fun) {
   return `/api/${fun}`;
 }
+const localhostPattern = /^localhost(:\d+)?(\/.*)?$/;
+const protocolPattern = /.*:\/\/[^\s/$.?#].[^\s]*$/i;
+const ipPattern = /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(:\d+)?(\/.*)?$/;
+const domainPattern = /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}(:\d+)?(\/.*)?$/;
 function isUrl(str) {
-  // match localhost
-  if (str.match(/^localhost(:\d+)?(\/.*)?$/)) {
+  if (str.match(localhostPattern)) {
     return true;
   }
-  // match protocol
-  if (str.match(/.*:\/\/[^\s/$.?#].[^\s]*$/i)) {
+  if (str.match(protocolPattern)) {
     return true;
   }
-  // match ip
-  if (
-    str.match(
-      /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(:\d+)?(\/.*)?$/
-    )
-  ) {
+  if (str.match(ipPattern)) {
     return true;
   }
-  // match domain
-  if (
-    str.match(
-      /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}(:\d+)?(\/.*)?$/
-    )
-  ) {
+  if (str.match(domainPattern)) {
     return true;
   }
   return false;

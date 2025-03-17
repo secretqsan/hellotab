@@ -3,6 +3,9 @@ export const useSettingsStore = defineStore("settings", {
     searchEngine: {
       id: "bing",
       baseUrl: "https://www.bing.com/search?q=",
+      history: [
+        
+      ]
     },
     aiSearchEngine: {
       id: "mitaso",

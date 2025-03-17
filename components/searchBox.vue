@@ -9,7 +9,20 @@ const aiSuggestionAccepted = ref(false);
 const settings = useSettingsStore();
 const { searchEngine, aiSearchEngine, glmApiKey } = storeToRefs(settings);
 
+function addHistory(history){
+  const existingIndex = searchEngine.value.history.indexOf(history);
+    if (existingIndex == -1) {
+      if (searchEngine.value.history.length >= 50) {
+        searchEngine.value.history.shift();
+      }
+      searchEngine.value.history.push(history);
+    }
+}
+function latestNHistory(n) {
+  return searchEngine.value.history.slice(-n).reverse();
+}
 function openLink(url) {
+  addHistory(url);
   const urlWithProtocol = url.match(/^[a-zA-Z]+:\/\//) ? url : `http://${url}`;
   window.open(urlWithProtocol, "_blank");
 }
@@ -19,7 +32,7 @@ const showInlineSuggestions = computed(() => {
 });
 
 const showSuggestions = computed(() => {
-  return searchQuery.value.trim() && focused.value && !aiSearch.value;
+  return focused.value && !aiSearch.value;
 });
 
 const acceptAiSuggestion = () => {
@@ -30,7 +43,7 @@ const acceptAiSuggestion = () => {
 };
 
 const selectSuggestion = (suggestion) => {
-  searchQuery.value = suggestion;
+  searchQuery.value = suggestion.text;
   setTimeout(() => {
     handleSearch();
   }, 150);
@@ -48,6 +61,7 @@ const handleSearch = () => {
         searchQuery.value.trim()
       )}`;
     }
+    addHistory(searchQuery.value.trim());
     window.open(searchUrl, "_blank");
   }
 };
@@ -55,6 +69,14 @@ const handleSearch = () => {
 const fetchSuggestions = async (query) => {
   if (!query.trim()) {
     suggestions.value = [];
+    var historys = latestNHistory(5);
+    for (const history of historys) {
+      suggestions.value.push({
+        text: history,
+        isUrl: isUrl(history),
+        history: true,
+      });
+    }
     return;
   }
 
@@ -68,8 +90,14 @@ const fetchSuggestions = async (query) => {
           },
         }
       );
-      const suggestions_text =
+      var suggestions_text =
         response?.AS?.Results?.[0]?.Suggests?.map((s) => s.Txt) || [];
+      const matchedHistory = latestNHistory(50)
+        .filter(h => h.toLowerCase().includes(query.toLowerCase()))
+        .slice(-3);
+      
+      suggestions_text = suggestions_text.filter(text => !matchedHistory.includes(text));
+      suggestions_text.unshift(...matchedHistory);
       if (isUrl(query)) {
         const queryIndex = suggestions_text.findIndex(s => s === query);
         if (queryIndex !== -1) {
@@ -82,6 +110,7 @@ const fetchSuggestions = async (query) => {
         suggestions.value.push({
           text: suggestion,
           isUrl: isUrl(suggestion),
+          history: matchedHistory.includes(suggestion),
         });
       }
     } else {
@@ -148,6 +177,20 @@ const handleBlur = () => {
     focused.value = false;
   }, 100);
 };
+function searchBoxFocused() {
+  focused.value = true;
+  if (aiSearch.value == false && searchQuery.value.trim() == "") {
+    suggestions.value = [];
+    var historys = latestNHistory(5);
+    for (const history of historys) {
+      suggestions.value.push({
+        text: history,
+        isUrl: isUrl(history),
+        history: true,
+      });
+    }
+  }
+}
 </script>
 
 <template>
@@ -167,7 +210,7 @@ const handleBlur = () => {
           }
         "
         @blur="handleBlur"
-        @focus="focused = true"
+        @focus="searchBoxFocused"
         :class="[
           'w-full px-4 py-3 pr-[80px] text-base border-2 ' +
             'outline-none transition-all duration-200 ',
@@ -238,8 +281,9 @@ const handleBlur = () => {
             class="px-4 py-3 cursor-pointer transition-colors duration-200 hover:bg-slate-50 flex flex-row items-center gap-2"
             @click="selectSuggestion(suggestion)"
           >
-            <i v-if="suggestion.isUrl" class="pi pi-globe" />
+            <i v-if="suggestion.history" class="pi pi-history" />
             <div :class="[suggestion.isUrl ? 'underline' : '']">{{ suggestion.text }}</div>
+            <i v-if="suggestion.isUrl" class="pi pi-globe" />
             <placeholder/>
             <button
               @click.stop="openLink(suggestion.text)"
