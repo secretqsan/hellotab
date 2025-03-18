@@ -17,13 +17,16 @@ defineExpose({
     <div 
       :class="
         [
-          'bg-gray-50 overflow-hidden relative',
+          'bg-gray-50 overflow-scroll relative',
           ($device.isDesktop || $device.isTablet)? 'w-3/4 h-3/4 rounded-lg': 'w-full h-full'
         ]
     ">
       <slot></slot>
       <button
-        class="absolute top-2 right-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors duration-200"
+        :class="[
+          'absolute top-2 right-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500',
+          $device.isDesktop? 'hover:bg-red-50 transition-colors duration-200': ''
+        ]"
         @click="open = false"
       >
         <i class="pi pi-times text-lg"></i>

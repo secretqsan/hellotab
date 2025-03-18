@@ -27,10 +27,13 @@ watch(
   <div class="p-4 space-y-6">
     <div class="flex flex-col gap-2">
       <label class="text-sm text-gray-600">默认搜索引擎</label>
-      <selector
-        :candidates="searchEngineCandidates"
-        v-model="searchEngine.id"
-      />
+      <div class="w-full overflow-x-scroll">
+        <selector
+          :candidates="searchEngineCandidates"
+          v-model="searchEngine.id"
+        />
+      </div>
+      
       <label class="text-sm text-gray-600 mb-2 block">URL</label>
       <input
         :disabled="searchEngine.id !== 'custom'"
@@ -43,7 +46,7 @@ watch(
         placeholder="请输入搜索引擎URL"
       />
     </div>
-    <div class="flex flex-row items-center">
+    <div class="flex flex-row items-center w-full">
       <div class="text-sm text-gray-600">最大历史记录</div>
       <Placeholder />
       <input

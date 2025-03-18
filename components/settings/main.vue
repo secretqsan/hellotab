@@ -11,18 +11,18 @@ const activeSettingTab = ref("search");
 const windowRef = ref(null);
 
 const settingTabs = {
-  general: { label: "常规", icon: "pi pi-cog", comp: GeneralSettings },
-  search: { label: "搜索", icon: "pi pi-search", comp: SearchSettings },
-  ai: { label: "AI", icon: "pi pi-sparkles", comp: AISettings },
+  general: { label: 'menu.main.general', icon: "pi pi-cog", comp: GeneralSettings },
+  search: { label: 'menu.main.search', icon: "pi pi-search", comp: SearchSettings },
+  ai: { label: 'menu.main.ai', icon: "pi pi-sparkles", comp: AISettings },
   appearance: {
-    label: "外观",
+    label: 'menu.main.appearance',
     icon: "pi pi-palette",
     comp: AppearanceSettings,
   },
-  widgets: { label: "小组件", icon: "pi pi-th-large", comp: WidgetsSettings },
-  website: { label: "网址导航", icon: "pi pi-globe", comp: WebsiteSettings },
-  sync: { label: "同步", icon: "pi pi-cloud", comp: SyncSettings },
-  about: { label: "关于", icon: "pi pi-info-circle", comp: AboutSettings },
+  widgets: { label: 'menu.main.widgets', icon: "pi pi-th-large", comp: WidgetsSettings },
+  website: { label: 'menu.main.website', icon: "pi pi-globe", comp: WebsiteSettings },
+  sync: { label: 'menu.main.sync', icon: "pi pi-cloud", comp: SyncSettings },
+  about: { label: 'menu.main.about', icon: "pi pi-info-circle", comp: AboutSettings },
 };
 const show = (tabName) => {
   activeSettingTab.value = tabName;
@@ -35,7 +35,12 @@ defineExpose({
 <template>
   <Window ref="windowRef">
     <div class="w-full h-full flex flex-row">
-      <div class="w-1/4 bg-gray-100 h-full p-2 flex flex-col gap-1">
+      <div 
+        :class="[
+          'bg-gray-100 h-full p-2 flex flex-col gap-1',
+          $device.isDesktop || $device.isTablet ? 'w-1/4' : '',
+        ]
+      ">
         <div
           v-for="(tab, key) in settingTabs"
           :key="key"
@@ -61,14 +66,15 @@ defineExpose({
                 : 'text-gray-700',
               'whitespace-nowrap',
             ]"
-            >{{ tab.label }}</span
+            v-if="$device.isDesktop || $device.isTablet"
+            >{{ $t(tab.label) }}</span
           >
         </div>
       </div>
-      <div class="flex-1 h-full flex flex-col">
+      <div class="flex-1 w-0 h-full flex flex-col">
         <div class="flex flex-row">
           <h2 class="text-xl font-medium ml-8 mt-8 mb-0">
-            设置中心 > {{ settingTabs[activeSettingTab].label }}
+            {{ $t('menu.main.setting') }} > {{ $t(settingTabs[activeSettingTab].label) }}
           </h2>
         </div>
         <div class="flex-1 p-4 overflow-y-auto">
