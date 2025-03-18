@@ -17,7 +17,9 @@ const config = useRuntimeConfig();
     <div class="p-4 bg-white rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">支持我们</h3>
       <div class="text-sm text-gray-500 space-y-2">
-        <div class="flex items-center gap-2">
+        <div :class="[
+          'flex items-center gap-2'
+        ]">
           <i class="pi pi-github text-lg"></i>
           <span>我们的项目是开源的！欢迎访问</span>
           <a

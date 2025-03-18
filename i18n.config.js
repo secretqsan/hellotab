@@ -3,6 +3,9 @@ export default defineI18nConfig(() => ({
     locale: 'zh',
     messages: {
       zh: {
+        search: {
+          search: '搜索',
+        },
         menu: {
           main: {
             general: '通用',
@@ -21,6 +24,9 @@ export default defineI18nConfig(() => ({
         }
       },
       en: {
+        search: {
+          search: 'Search',
+        },
         menu: {
           main: {
             general: 'General',

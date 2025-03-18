@@ -6,7 +6,7 @@ const searchEngineCandidates = ref([
   { id: "bing", name: "Bing" },
   { id: "baidu", name: "百度" },
   { id: "duckduckgo", name: "DuckDuckGo" },
-  { id: "costum", name: "自定义" },
+  { id: "custom", name: "自定义" },
 ]);
 const urls = ref({
   google: "https://www.google.com/search?q=",
@@ -36,7 +36,7 @@ watch(
       
       <label class="text-sm text-gray-600 mb-2 block">URL</label>
       <input
-        :disabled="searchEngine.id !== 'custom'"
+        :disabled="searchEngine.id != 'custom'"
         v-model="searchEngine.baseUrl"
         type="text"
         :class="[

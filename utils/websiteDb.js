@@ -5,6 +5,7 @@ const popularWebsites = [
       { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "" },
       { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: "" },
       { name: "抖音", url: "https://www.douyin.com/", icon: "" },
+      { name: "4399", url: "https://4399.com", icon: ""}
     ],
   },
   {
@@ -56,6 +57,11 @@ const popularWebsites = [
     sites: [
       { name: "网易新闻", url: "https://news.163.com", icon: "" },
       { name: "新华社", url: "https://www.xinhuanet.com", icon: "" },
+      {
+        name: "澎湃新闻",
+        url: "https://www.thepaper.cn",
+        icon: ""
+      }
     ],
   },
   {

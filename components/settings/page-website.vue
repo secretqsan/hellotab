@@ -201,7 +201,10 @@ const handleAddCustomWebsite = () => {
                     });
                   }
                 "
-                class="overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3"
+                :class="[
+                  'overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3',
+                  ($device.isDesktop || $device.isTablet)? 'flex-row': 'flex-col'
+                ]"
               >
                 <img
                   :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
@@ -211,7 +214,9 @@ const handleAddCustomWebsite = () => {
                 />
                 <div>
                   <div class="font-medium">{{ site.name }}</div>
-                  <div class="text-sm text-gray-500">{{ site.url }}</div>
+                  <div
+                    v-if="$device.isDesktop || $device.isTablet"
+                    class="text-sm text-gray-500">{{ site.url }}</div>
                 </div>
               </div>
             </template>

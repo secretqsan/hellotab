@@ -35,14 +35,21 @@ const { widgets } = storeToRefs(settingStore);
   <div class="p-4 space-y-6">
     <div class="flex flex-col gap-2">
       <label class="text-sm text-gray-600">可用小组件</label>
-      <div class="grid grid-cols-3 gap-4">
+      <div 
+        :class="[
+          'grid gap-4',
+          ($device.isDesktop || $device.isTablet)? 'grid-cols-3': 'grid-cols-2'
+        ]">
         <div
           v-if="
             !widgesAvailiable.some(
               (widget) => !widgets.find((w) => w.type === widget.name)
             )
           "
-          class="col-span-3 text-center py-8 text-gray-500"
+          :class="[
+            'text-center py-8 text-gray-500',
+            ($device.isDesktop || $device.isTablet)? 'col-span-3': 'col-span-2'
+          ]"
         >
           暂无可用小组件
         </div>
