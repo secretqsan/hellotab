@@ -12,7 +12,7 @@ const { searchEngine, aiSearchEngine, glmApiKey } = storeToRefs(settings);
 function addHistory(history){
   const existingIndex = searchEngine.value.history.indexOf(history);
     if (existingIndex == -1) {
-      if (searchEngine.value.history.length >= 50) {
+      if (searchEngine.value.history.length >= (searchEngine.value.maxHistoryCnt ?? 50)) {
         searchEngine.value.history.shift();
       }
       searchEngine.value.history.push(history);

@@ -11,7 +11,8 @@ const localSettings = useLocalSettingsStore();
 const sharedComponents = useSharedComponentsStore();
 const { settingPanel, toast } = storeToRefs(sharedComponents);
 const { pictures } = storeToRefs(imageStorage);
-const { appearance } = storeToRefs(settingStore);
+const { appearance, language } = storeToRefs(settingStore);
+const { setLocale } = useI18n();
 const {
   syncEnabled,
   webdavTestedOk,
@@ -117,6 +118,7 @@ onMounted(() => {
   if (syncEnabled.value && webdavTestedOk.value) {
     fetchSettings();
   }
+  setLocale(language.value?? "zh");
   $fetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"), {
     params: {
       n: 1,
@@ -163,14 +165,16 @@ const backgroundUrl = computed(() => {
         title="设置"
         @click="
           () => {
-            settingPanel.show('search');
+            settingPanel.show('general');
           }
         "
       >
         <i class="pi pi-cog text-xl"></i>
       </div>
     </div>
-    <div class="h-20 min-h-10" />
+    <div :class="[
+      ($device.isDesktop || $device.isTablet)? 'h-20': 'h-10'
+    ]" />
     <searchBox class="z-10" />
     <div class="h-20 min-h-10" />
     <WidgetsPanel class="flex-1 w-full" />

@@ -6,8 +6,12 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "nuxt-lodash",
-    "@nuxtjs/device"
+    "@nuxtjs/device",
+    "@nuxtjs/i18n"
   ],
+  i18n: {
+    vueI18n: '@/i18n.config.js'
+  },
   lodash: {
     prefix: "_",
     upperAfterPrefix: false,
@@ -33,7 +37,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.3.2 Beta"
+      version: "1.3.3 Beta"
     },
   }
 });

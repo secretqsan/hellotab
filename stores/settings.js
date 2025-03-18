@@ -1,11 +1,13 @@
 export const useSettingsStore = defineStore("settings", {
   state: () => ({
+    language: "zh-CN",
     searchEngine: {
       id: "bing",
       baseUrl: "https://www.bing.com/search?q=",
       history: [
         
-      ]
+      ],
+      maxHistoryCnt: 50,
     },
     aiSearchEngine: {
       id: "mitaso",

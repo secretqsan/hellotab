@@ -43,5 +43,16 @@ watch(
         placeholder="请输入搜索引擎URL"
       />
     </div>
+    <div class="flex flex-row items-center">
+      <div class="text-sm text-gray-600">最大历史记录</div>
+      <Placeholder />
+      <input
+        type="number"
+        class="w-24 px-4 py-2 border rounded-lg focus:border-blue-500 focus:outline-none"
+        min="10"
+        max="100"
+        v-model="settingsStore.maxHistory"
+      />
+    </div>
   </div>
 </template>

@@ -6,10 +6,12 @@ import SyncSettings from "./page-sync.vue";
 import AboutSettings from "./page-about.vue";
 import AISettings from "./page-ai.vue";
 import WebsiteSettings from "./page-website.vue";
+import GeneralSettings from "./page-general.vue";
 const activeSettingTab = ref("search");
 const windowRef = ref(null);
 
 const settingTabs = {
+  general: { label: "常规", icon: "pi pi-cog", comp: GeneralSettings },
   search: { label: "搜索", icon: "pi pi-search", comp: SearchSettings },
   ai: { label: "AI", icon: "pi pi-sparkles", comp: AISettings },
   appearance: {
