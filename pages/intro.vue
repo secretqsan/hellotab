@@ -81,7 +81,9 @@ const releases = ref([
         开始使用
       </NuxtLink>
     </div>
-    <div class="flex flex-row w-full mt-8 justify-center gap-2">
+    <div
+      v-if="$device.isDesktop"
+      class="flex flex-row w-full mt-8 justify-center gap-2">
       <div
         v-for="release in releases"
         class="flex flex-row items-center justify-center gap-4"

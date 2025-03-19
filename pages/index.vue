@@ -134,7 +134,7 @@ onMounted(() => {
     });
 });
 const backgroundUrl = computed(() => {
-  if (appearance.value.background == "自定义" && appearance.value.e1) {
+  if (appearance.value.background == "custom" && appearance.value.e1) {
     return pictures.value[appearance.value.e1];
   } else {
     return onlineBackgroundUrl.value;
@@ -146,20 +146,21 @@ const backgroundUrl = computed(() => {
   <Analytics />
 
   <div
-    class="p-4 h-screen w-screen bg-cover bg-center bg-no-repeat flex flex-col items-center"
-    :style="`background-image: url(${backgroundUrl})`"
+    class="z-10 p-4 h-screen w-screen flex flex-col items-center relative"
   >
     <div class="flex flex-row w-full gap-2">
       <Placeholder />
-      <NuxtLink
-        v-if="!extensionInstalled() && $device.isDesktop"
-        title="下载扩展"
-        class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
-        to="/intro"
-        target="_blank"
-      >
-        <i class="pi pi-download text-xl"></i>
-      </NuxtLink>
+      <ClientOnly>
+        <NuxtLink
+          v-if="!extensionInstalled() && $device.isDesktop"
+          title="下载扩展"
+          class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
+          to="/intro"
+          target="_blank"
+        >
+          <i class="pi pi-download text-xl"></i>
+        </NuxtLink>
+      </ClientOnly>
       <div
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
         title="设置"
@@ -175,10 +176,15 @@ const backgroundUrl = computed(() => {
     <div :class="[
       ($device.isDesktop || $device.isTablet)? 'h-20': 'h-10'
     ]" />
-    <searchBox class="z-10" />
+    <searchBox class="z-20" />
     <div class="h-20 min-h-10" />
-    <WidgetsPanel class="flex-1 w-full" />
+    <ClientOnly>
+      <WidgetsPanel class="flex-1 w-full" />
+    </ClientOnly>
   </div>
+  <ClientOnly>
+    <Background :background-url="backgroundUrl" />
+  </ClientOnly>
   <SettingsMain ref="settingPanel" />
   <Toast ref="toast" />
 </template>
