@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "HelloTab",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "将HelloTab设为默认主页",
   "chrome_url_overrides": {
     "newtab": "index.html"
@@ -12,7 +12,7 @@
   },
   "action": {
     "default_popup": "greetings.html",
-    "default_icon": "img/favicon.ico"
+    "default_icon": "img/128.ico"
   },
   "icons": {
     "48": "img/48.ico",

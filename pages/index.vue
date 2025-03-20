@@ -3,6 +3,10 @@ import { Analytics } from "@vercel/analytics/nuxt";
 
 useHead({
   title: "HelloTab",
+  meta: [
+    {name: "keywords", content: "新标签页,标签页定制，效率工具"},
+    {name: "description", content: "试用HelloTab。HelloTab是一款功能强大的浏览器新标签页，提供可定制的小组件、云端同步、智能搜索和个性化外观等特性，让你的浏览体验更加高效和个性化。"},
+  ]
 });
 
 const imageStorage = useImageStore();
@@ -153,8 +157,7 @@ onMounted(() => {
     <div :class="[$device.isDesktop || $device.isTablet ? 'h-20' : 'h-10']" />
     <searchBox class="z-20" />
     <div class="h-20 min-h-10" />
-    
-      <WidgetsPanel class="flex-1 w-full" />
+    <WidgetsPanel class="flex-1 w-full" />
     
   </div>
   <Background/>

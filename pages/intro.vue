@@ -3,6 +3,10 @@ import { Analytics } from "@vercel/analytics/nuxt";
 
 useHead({
   title: "HelloTab",
+  meta: [
+    {name: "keywords", content: "新标签页,标签页定制,浏览器扩展,Chrome扩展,Edge扩展,效率工具"},
+    {name: "description", content: "HelloTab是一款功能强大的浏览器新标签页扩展，提供可定制的小组件、云端同步、智能搜索和个性化外观，让你的浏览体验更加高效和个性化。"},
+  ]
 });
 
 const features = ref([

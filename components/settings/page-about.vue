@@ -11,6 +11,9 @@ const config = useRuntimeConfig();
         <div class="mb-1">版本：{{ config.public.version }}</div>
         <div class="mb-1">作者：神秘的Q桑</div>
         <div class="mb-1">许可证：LGPL</div>
+        <div class="mb-1">
+          隐私政策：<NuxtLink to="/privacy" class="text-blue-500 hover:text-blue-600 transition-colors">隐私政策</NuxtLink>
+        </div>
       </div>
     </div>
 
