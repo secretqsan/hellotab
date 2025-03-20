@@ -126,7 +126,7 @@ const handleAddCustomWebsite = () => {
 </script>
 
 <template>
-  <div class="p-4 flex flex-col gap-6 w-full">
+  <div class="p-4 flex flex-col gap-6 w-full h-full">
     <button
       v-if="$device.isDesktop"
       class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center gap-2"
@@ -136,7 +136,7 @@ const handleAddCustomWebsite = () => {
       <span>导入浏览器收藏夹</span>
     </button>
 
-    <div class="bg-white rounded-lg p-4 w-full">
+    <div class="bg-white rounded-lg p-4 w-full flex-1 h-0 flex flex-col overflow-hidden">
       <div class="flex gap-4 mb-4">
         <button
           v-for="tab in ['popular', 'custom']"
@@ -153,7 +153,7 @@ const handleAddCustomWebsite = () => {
         </button>
       </div>
 
-      <div v-if="activeTab === 'popular'" class="space-y-4">
+      <div v-if="activeTab === 'popular'" class="flex flex-col gap-4 flex-1 h-0">
         <div class="flex gap-4 items-center">
           <div class="relative flex-1">
             <i
@@ -179,7 +179,7 @@ const handleAddCustomWebsite = () => {
             </option>
           </select>
         </div>
-        <div class="h-80 overflow-auto">
+        <div class="overflow-auto  flex-1">
           <div class="grid grid-cols-2 gap-4">
             <template v-for="site in filteredWebsites">
               <div

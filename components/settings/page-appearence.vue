@@ -5,9 +5,8 @@ const imageStorage = useImageStore();
 const { pictures } = storeToRefs(imageStorage);
 const backgroundOrigin = ref([
   { id: "bing", name: "必应每日一图" },
-  { id: "custom", name: "自定义" },
+  { id: "custom", name: "自定义" }
 ]);
-const bingBackgroundUrl = ref("");
 const customBackgroundUrl = ref("");
 const fileInputRef = ref();
 
@@ -22,6 +21,7 @@ function uploadFile(file) {
     reader.readAsDataURL(file);
   }
 }
+
 const handleFileSelect = (event) => {
   const file = event.target.files[0];
   uploadFile(file);
@@ -32,16 +32,27 @@ const handleDrop = (event) => {
   uploadFile(file);
 };
 
-onMounted(() => {
-  $fetch(
-    "/api/proxy/https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"
-  )
-    .then((res) => {
-      bingBackgroundUrl.value = `https://www.bing.com${res.images[0].url}`;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+const { data:bingBackgroundUrl } = await useFetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"),{
+  params: {
+    n: 1,
+    idx: 0,
+    format: "js",
+  },
+  transform: (data) => {
+    return `https://www.bing.com${data.images[0].url}`;
+  }
+})
+
+const imageUrl = computed(() => {
+  if (appearance.value.background == "bing") {
+    return bingBackgroundUrl.value;
+  } else {
+    if (!isNaN(appearance.value.e1)) {
+      return pictures.value[appearance.value.e1];
+    } else {
+      return appearance.value.e1;
+    }
+  }
 });
 </script>
 
@@ -55,7 +66,7 @@ onMounted(() => {
           v-model="appearance.background"
         />
         <div
-          v-if="appearance.background == 'custom'"
+          v-if="appearance.background == 'customUrl'"
           class="flex flex-row gap-2"
         >
           <input
@@ -75,8 +86,17 @@ onMounted(() => {
           </button>
         </div>
         <div
-          class="w-full min-h-60 border rounded-lg border-1 flex flex-col bg-white items-center justify-center overflow-hidden cursor-pointer"
-          @click="fileInputRef.click()"
+          :class="[
+            'w-full min-h-60 border rounded-lg border-1 flex flex-col bg-white items-center justify-center overflow-hidden ',
+            appearance.background == 'customImage'
+              ? 'cursor-pointer'
+              : '',
+          ]"
+          @click="() => {
+            if(appearance.background == 'customImage'){
+              fileInputRef.click()
+            }
+          }"
           @dragover.prevent
           @drop.prevent="handleDrop"
         >
@@ -88,7 +108,7 @@ onMounted(() => {
             @change="handleFileSelect"
           />
           <div
-            v-if="appearance.background == 'custom' && appearance.e1 == ''"
+            v-if="appearance.background == 'customImage' && appearance.e1 == ''"
             class="flex flex-col items-center gap-4 text-gray-400"
           >
             <i class="pi pi-upload text-4xl"></i>
@@ -96,11 +116,7 @@ onMounted(() => {
           </div>
           <img
             v-else
-            :src="
-              appearance.background == 'custom'
-                ? pictures[appearance.e1]
-                : bingBackgroundUrl
-            "
+            :src="imageUrl"
             class="w-full"
           />
         </div>

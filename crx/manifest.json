@@ -15,9 +15,8 @@
     "default_icon": "img/favicon.ico"
   },
   "icons": {
-    "16": "img/favicon.ico",
-    "48": "img/favicon.ico",
-    "128": "img/favicon.ico"
+    "48": "img/48.ico",
+    "128": "img/128.ico"
   },
   "content_scripts": [
     {

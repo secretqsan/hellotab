@@ -42,5 +42,17 @@ const config = useRuntimeConfig();
         </div>
       </div>
     </div>
+
+    <div class="p-4 bg-white rounded-lg shadow-sm">
+      <h3 class="text-lg font-medium mb-2">社区</h3>
+      <div class="text-sm text-gray-500 space-y-2">
+        <div class="flex items-center gap-2">
+          <span>欢迎加入我们的 QQ 交流群：</span>
+        </div>
+        <div class="flex justify-center mt-2">
+          <img src="/image/qq_group.jpg" alt="QQ群二维码" class="w-1/4" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>

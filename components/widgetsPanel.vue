@@ -73,33 +73,35 @@ const { widgets } = storeToRefs(settingStore);
 </script>
 <template>
   <div class="overflow-auto" @scroll="menuRef.hideMenu()">
-    <draggable
-      v-model="widgets"
-      item-key="id"
-      :class="[
-        'w-full grid gap-16 grid-cols-[repeat(auto-fill,_80px)] justify-center',
-        ($device.isDesktop || $device.isTablet)? 'px-[calc(100%/8)]': 'px-2'
-      ]"
-      :style="{ 'grid-auto-flow': 'dense' }"
-    >
-      <template #item="{ element }">
-        <component
-          :is="widgetsConvertTable[element.type]"
-          :size_x="element.size_x"
-          :size_y="element.size_y"
-          :title="element.title"
-          :e="element.e"
-          @contextmenu.prevent.stop="
-            (event) => {
-              if (element.type != 'new') {
-                selectedId = widgets.indexOf(element);
-                menuRef.show(event);
+    <ClientOnly>
+      <draggable
+        v-model="widgets"
+        item-key="id"
+        :class="[
+          'w-full grid gap-16 grid-cols-[repeat(auto-fill,_80px)] justify-center',
+          $device.isDesktop || $device.isTablet ? 'px-[calc(100%/8)]' : 'px-2',
+        ]"
+        :style="{ 'grid-auto-flow': 'dense' }"
+      >
+        <template #item="{ element }">
+          <component
+            :is="widgetsConvertTable[element.type]"
+            :size_x="element.size_x"
+            :size_y="element.size_y"
+            :title="element.title"
+            :e="element.e"
+            @contextmenu.prevent.stop="
+              (event) => {
+                if (element.type != 'new') {
+                  selectedId = widgets.indexOf(element);
+                  menuRef.show(event);
+                }
               }
-            }
-          "
-        />
-      </template>
-    </draggable>
+            "
+          />
+        </template>
+      </draggable>
+    </ClientOnly>
     <WidgetsMenu ref="menuRef" :model="items" />
   </div>
 </template>

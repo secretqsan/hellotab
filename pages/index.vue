@@ -11,7 +11,7 @@ const localSettings = useLocalSettingsStore();
 const sharedComponents = useSharedComponentsStore();
 const { settingPanel, toast } = storeToRefs(sharedComponents);
 const { pictures } = storeToRefs(imageStorage);
-const { appearance, language } = storeToRefs(settingStore);
+const { language } = storeToRefs(settingStore);
 const { setLocale } = useI18n();
 const {
   syncEnabled,
@@ -20,7 +20,6 @@ const {
   webdavUsername,
   webdavPassword,
 } = storeToRefs(localSettings);
-const onlineBackgroundUrl = ref("");
 
 const uploadSettings = _debounce(async () => {
   const client = new webdavClient(`/api/proxy/${webdavUrl.value}`, {
@@ -118,36 +117,14 @@ onMounted(() => {
   if (syncEnabled.value && webdavTestedOk.value) {
     fetchSettings();
   }
-  setLocale(language.value?? "zh");
-  $fetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"), {
-    params: {
-      n: 1,
-      idx: 0,
-      format: "js",
-    },
-  })
-    .then((res) => {
-      onlineBackgroundUrl.value = `https://www.bing.com${res.images[0].url}`;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  setLocale(language.value ?? "zh");
 });
-const backgroundUrl = computed(() => {
-  if (appearance.value.background == "custom" && appearance.value.e1) {
-    return pictures.value[appearance.value.e1];
-  } else {
-    return onlineBackgroundUrl.value;
-  }
-});
+
 </script>
 
 <template>
   <Analytics />
-
-  <div
-    class="z-10 p-4 h-screen w-screen flex flex-col items-center relative"
-  >
+  <div class="z-10 p-4 h-screen w-screen flex flex-col items-center relative">
     <div class="flex flex-row w-full gap-2">
       <Placeholder />
       <ClientOnly>
@@ -173,18 +150,14 @@ const backgroundUrl = computed(() => {
         <i class="pi pi-cog text-xl"></i>
       </div>
     </div>
-    <div :class="[
-      ($device.isDesktop || $device.isTablet)? 'h-20': 'h-10'
-    ]" />
+    <div :class="[$device.isDesktop || $device.isTablet ? 'h-20' : 'h-10']" />
     <searchBox class="z-20" />
     <div class="h-20 min-h-10" />
-    <ClientOnly>
+    
       <WidgetsPanel class="flex-1 w-full" />
-    </ClientOnly>
+    
   </div>
-  <ClientOnly>
-    <Background :background-url="backgroundUrl" />
-  </ClientOnly>
+  <Background/>
   <SettingsMain ref="settingPanel" />
   <Toast ref="toast" />
 </template>
