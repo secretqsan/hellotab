@@ -155,7 +155,7 @@ onMounted(() => {
       </div>
     </div>
     <div :class="[$device.isDesktop || $device.isTablet ? 'h-20' : 'h-10']" />
-    <searchBox class="z-20" />
+    <searchBox class="z-30" />
     <div class="h-20 min-h-10" />
     <WidgetsPanel class="flex-1 w-full" />
     

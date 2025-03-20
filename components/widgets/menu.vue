@@ -55,7 +55,7 @@ watch(hide, (newValue) => {
   <Teleport to="body">
     <div
       ref="menuRef"
-      class="absolute z-100 w-40 bg-white rounded-lg shadow-lg border border-gray-300 flex flex-col overflow-hidden p-1"
+      class="absolute z-20 w-40 bg-white rounded-lg shadow-lg border border-gray-300 flex flex-col overflow-hidden p-1"
       v-show="!hide"
       :style="{
         left: `${x}px`,

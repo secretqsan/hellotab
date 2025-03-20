@@ -12,7 +12,7 @@ defineExpose({
     v-if="open"
     @click.stop
     @contextmenu.stop
-    class="w-screen h-screen fixed top-0 left-0 bg-gray-800/40 z-30 flex items-center justify-center"
+    class="w-screen h-screen fixed top-0 left-0 bg-gray-800/40 z-50 flex items-center justify-center"
   >
     <div 
       :class="

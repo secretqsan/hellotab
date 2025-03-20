@@ -101,7 +101,8 @@ const { widgets } = storeToRefs(settingStore);
           />
         </template>
       </draggable>
+    
+      <WidgetsMenu ref="menuRef" :model="items" />
     </ClientOnly>
-    <WidgetsMenu ref="menuRef" :model="items" />
   </div>
 </template>
