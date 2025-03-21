@@ -17,7 +17,7 @@ defineExpose({
     <div 
       :class="
         [
-          'bg-gray-50 overflow-scroll relative',
+          'bg-gray-50 overflow-hidden relative',
           ($device.isDesktop || $device.isTablet)? 'w-3/4 h-3/4 rounded-lg': 'w-full h-full'
         ]
     ">

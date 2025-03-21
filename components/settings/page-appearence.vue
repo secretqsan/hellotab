@@ -32,16 +32,7 @@ const handleDrop = (event) => {
   uploadFile(file);
 };
 
-const { data:bingBackgroundUrl } = await useFetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"),{
-  params: {
-    n: 1,
-    idx: 0,
-    format: "js",
-  },
-  transform: (data) => {
-    return `https://www.bing.com${data.images[0].url}`;
-  }
-})
+const bingBackgroundUrl = ref('')
 
 const imageUrl = computed(() => {
   if (appearance.value.background == "bing") {
@@ -54,6 +45,18 @@ const imageUrl = computed(() => {
     }
   }
 });
+
+onMounted(() => {
+  $fetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"),{
+    params: {
+      n: 1,
+      idx: 0,
+      format: "js",
+    }})
+  .then((data) => {
+    bingBackgroundUrl.value = `https://www.bing.com${data.images[0].url}`;
+  })
+})
 </script>
 
 <template>
