@@ -54,7 +54,7 @@ watch(
         class="w-24 px-4 py-2 border rounded-lg focus:border-blue-500 focus:outline-none"
         min="10"
         max="100"
-        v-model="settingsStore.maxHistory"
+        v-model="searchEngine.maxHistoryCnt"
       />
     </div>
   </div>

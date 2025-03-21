@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "HelloTab",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Set HelloTab as your default new tab page",
+    "description": "Extension description"
+  }
+}

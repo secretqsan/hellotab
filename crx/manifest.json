@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "HelloTab",
-  "version": "0.0.5",
-  "description": "将HelloTab设为默认主页",
+  "default_locale": "zh",
+  "name": "__MSG_extName__",
+  "version": "0.0.7",
+  "description": "__MSG_extDescription__",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

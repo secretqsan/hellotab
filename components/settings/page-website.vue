@@ -3,19 +3,17 @@ import { ref } from "vue";
 const activeTab = ref("popular");
 const searchQuery = ref("");
 const selectedCategory = ref("all");
-
+const runtimeVariables = useRuntimeStore();
 const settings = useSettingsStore();
 const { widgets } = storeToRefs(settings);
-const sharedComponents = useSharedComponentsStore();
-const { toast } = storeToRefs(sharedComponents);
+const { crxId, toast } = storeToRefs(runtimeVariables);
 
 const handleImportBookmarks = async () => {
-  if (extensionInstalled()) {
+  if (crxId.value) {
     try {
-      var targetExtensionId = "lnajnbalnnhmiigpejhlkgabokbnklgc";
       var favList = [];
       chrome.runtime.sendMessage(
-        targetExtensionId,
+        crxId.value,
         { type: "fav", msg: "" },
         function (response) {
           favList = JSON.parse(response.msg);

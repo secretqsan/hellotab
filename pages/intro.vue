@@ -33,13 +33,13 @@ const features = ref([
 ]);
 const releases = ref([
   {
-    url: "/downloads/hellotab.crx",
+    url: "/downloads/crx.zip",
     icon: "image/edge.svg",
     mainText: "Edge 扩展",
     subText: "开发版本",
   },
   {
-    url: "/downloads/hellotab.crx",
+    url: "/downloads/crx.zip",
     icon: "image/chrome.svg",
     mainText: "Chrome 扩展",
     subText: "开发版本",

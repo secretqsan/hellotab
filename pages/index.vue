@@ -12,10 +12,10 @@ useHead({
 const imageStorage = useImageStore();
 const settingStore = useSettingsStore();
 const localSettings = useLocalSettingsStore();
-const sharedComponents = useSharedComponentsStore();
-const { settingPanel, toast } = storeToRefs(sharedComponents);
+const runtimeVariables = useRuntimeStore();
 const { pictures } = storeToRefs(imageStorage);
 const { language } = storeToRefs(settingStore);
+const { crxId, settingPanel, toast } = storeToRefs(runtimeVariables);
 const { setLocale } = useI18n();
 const {
   syncEnabled,
@@ -118,6 +118,11 @@ watch(
 );
 
 onMounted(() => {
+  const body = document.getElementsByTagName("body")[0];
+  const extensionDiv = body.querySelector("#extension");
+  if (extensionDiv) {
+    crxId.value = extensionDiv.innerHTML;
+  }
   if (syncEnabled.value && webdavTestedOk.value) {
     fetchSettings();
   }
@@ -133,7 +138,7 @@ onMounted(() => {
       <Placeholder />
       <ClientOnly>
         <NuxtLink
-          v-if="!extensionInstalled() && $device.isDesktop"
+          v-if="crxId=='' && $device.isDesktop"
           title="下载扩展"
           class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
           to="/intro"
@@ -158,6 +163,7 @@ onMounted(() => {
     <searchBox class="z-30" />
     <div class="h-20 min-h-10" />
     <WidgetsPanel class="flex-1 w-full" />
+    
     
   </div>
   <Background/>

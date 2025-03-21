@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /privacy
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: https://hellotab.secretqsan.top/sitemap.xml

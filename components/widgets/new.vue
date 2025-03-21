@@ -16,8 +16,8 @@ const prop = defineProps({
     default: {},
   },
 });
-const sharedComponents = useSharedComponentsStore();
-const { settingPanel } = storeToRefs(sharedComponents);
+const runtimeVariables = useRuntimeStore();
+const { settingPanel } = storeToRefs(runtimeVariables);
 </script>
 <template>
   <WidgetsBase :size_x="1" :size_y="1" :title="'新增小组件'" :alt="true">

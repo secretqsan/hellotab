@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "HelloTab",
+    "description": "扩展名称"
+  },
+  "extDescription": {
+    "message": "将HelloTab设为默认新标签页",
+    "description": "扩展描述"
+  }
+}
