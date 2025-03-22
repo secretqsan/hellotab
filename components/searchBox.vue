@@ -282,7 +282,11 @@ function searchBoxFocused() {
             @click="selectSuggestion(suggestion)"
           >
             <i v-if="suggestion.history" class="pi pi-history" />
-            <div :class="[suggestion.isUrl ? 'underline' : '']">{{ suggestion.text }}</div>
+            <div :class="[
+              suggestion.isUrl ? 'underline' : '', ' truncate'
+            ]">
+              {{ suggestion.text }}
+            </div>
             <i v-if="suggestion.isUrl" class="pi pi-globe" />
             <placeholder/>
             <button
