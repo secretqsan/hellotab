@@ -37,17 +37,19 @@ watch(
 </script>
 
 <template>
-  <div class="p-4 space-y-6">
+  <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-sm text-gray-600">默认搜索引擎</label>
+      <label class="text-md text-gray-600">默认搜索引擎</label>
       <div class="w-full overflow-x-scroll">
         <selector
           :candidates="searchEngineCandidates"
           v-model="searchEngine.id"
         />
       </div>
+    </div>
 
-      <label class="text-sm text-gray-600 mb-2 block">URL</label>
+    <div class="flex flex-col gap-2">
+      <label class="text-md text-gray-600">URL</label>
       <input
         :disabled="searchEngine.id != 'custom'"
         v-model="searchEngine.baseUrl"
@@ -59,19 +61,20 @@ watch(
         placeholder="请输入搜索引擎URL"
       />
     </div>
+
     <div class="flex flex-row items-center w-full">
-      <div class="text-sm text-gray-600">最大历史记录</div>
+      <label class="text-md text-gray-600">最大历史记录</label>
       <Placeholder />
       <input
         type="number"
-        class="w-24 px-4 py-2 border rounded-lg focus:border-blue-500 focus:outline-none"
+        class="px-2 py-1 border rounded-lg focus:border-blue-500 focus:outline-none"
         min="10"
         max="100"
         v-model="searchEngine.maxHistoryCnt"
       />
     </div>
     <div class="flex flex-col gap-2">
-      <label class="text-sm text-gray-600">历史记录管理</label>
+      <label class="text-md text-gray-600">历史记录管理</label>
       <div
         class="flex flex-col gap-1 bg-white rounded-md p-2 border border-gray-200"
       >

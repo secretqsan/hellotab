@@ -3,7 +3,7 @@ const config = useRuntimeConfig();
 </script>
 
 <template>
-  <div class="p-4 space-y-6">
+  <div class="p-4 flex flex-col gap-6">
     <div class="p-4 bg-white rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">HelloTab</h3>
       <p class="text-gray-600 mb-4">一个简洁、美观、实用的新标签页扩展。</p>

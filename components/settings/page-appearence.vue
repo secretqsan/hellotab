@@ -60,16 +60,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-4 space-y-6">
+  <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-sm text-gray-600">背景图片</label>
+      <label class="text-md text-gray-600">背景图片</label>
       <div class="flex flex-col gap-4">
         <selector
           :candidates="backgroundOrigin"
           v-model="appearance.background"
         />
         <div
-          v-if="appearance.background == 'customUrl'"
+          v-if="appearance.background == 'custom'"
           class="flex flex-row gap-2"
         >
           <input
@@ -91,12 +91,12 @@ onMounted(() => {
         <div
           :class="[
             'w-full min-h-60 border rounded-lg border-1 flex flex-col bg-white items-center justify-center overflow-hidden ',
-            appearance.background == 'customImage'
+            appearance.background == 'custom'
               ? 'cursor-pointer'
               : '',
           ]"
           @click="() => {
-            if(appearance.background == 'customImage'){
+            if(appearance.background == 'custom'){
               fileInputRef.click()
             }
           }"
@@ -111,7 +111,7 @@ onMounted(() => {
             @change="handleFileSelect"
           />
           <div
-            v-if="appearance.background == 'customImage' && appearance.e1 == ''"
+            v-if="appearance.background == 'custom' && appearance.e1 == ''"
             class="flex flex-col items-center gap-4 text-gray-400"
           >
             <i class="pi pi-upload text-4xl"></i>
@@ -126,9 +126,9 @@ onMounted(() => {
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <label class="text-sm text-gray-600">小组件</label>
+      <label class="text-md text-gray-600">小组件</label>
       <div class="flex items-center gap-2">
-        <label class="text-sm text-gray-600">隐藏小组件标题</label>
+        <label class="text-md text-gray-600">隐藏小组件标题</label>
         <placeholder />
         <div
           :class="[

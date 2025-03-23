@@ -34,9 +34,15 @@ const features = ref([
 const releases = ref([
   {
     url: "downloads/crx.zip",
+    icon: "image/crx.svg",
+    mainText: "crx 扩展",
+    subText: "开发版本",
+  },
+  {
+    url: "https://microsoftedge.microsoft.com/addons/detail/apcaagdmicpkhmldkepdadhkfglkimaf",
     icon: "image/edge.svg",
     mainText: "Edge 扩展",
-    subText: "开发版本",
+    subText: "扩展商店",
   },
   {
     url: "downloads/crx.zip",
