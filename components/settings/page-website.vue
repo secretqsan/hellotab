@@ -208,7 +208,7 @@ const handleAddCustomWebsite = () => {
                   :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
                   :alt="site.name"
                   class="w-6 h-6"
-                  @error="$event.target.src = ''"
+                  @error="$event.target.src = '/icons/globe.svg'"
                 />
                 <div>
                   <div class="font-medium">{{ site.name }}</div>

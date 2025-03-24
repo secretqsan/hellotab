@@ -33,6 +33,8 @@ const popularWebsites = [
   {
     name: "工具",
     sites: [
+      { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
+      { name: "Notion", url: "https://www.notion.so/", icon: "https://www.notion.com/front-static/favicon.ico" },
       { name: "知乎", url: "https://www.zhihu.com", icon: "" },
       {
         name: "office",
@@ -55,6 +57,7 @@ const popularWebsites = [
   {
     name: "新闻",
     sites: [
+      { name: "腾讯网", url: "https://www.qq.com", icon: "/icons/qq.ico" },
       { name: "网易新闻", url: "https://news.163.com", icon: "" },
       { name: "新华社", url: "https://www.xinhuanet.com", icon: "" },
       {
@@ -105,6 +108,16 @@ const popularWebsites = [
       {
         name: "中国知网",
         url: "https://www.cnki.net/",
+        icon: ""
+      },
+      {
+        name: "MOOC",
+        url: "https://www.icourse163.org/",
+        icon: "/icons/mooc.png"
+      },
+      {
+        name: "菜鸟教程",
+        url: "https://www.runoob.com/",
         icon: ""
       }
     ],

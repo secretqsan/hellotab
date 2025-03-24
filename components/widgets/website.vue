@@ -39,7 +39,7 @@ const { pictures } = storeToRefs(imageStorage);
           v-if="e.url"
           :src="e.customIcon ? pictures[e.icon] : e.icon"
           class="w-12 h-12"
-          @error="$event.target.src = ''"
+          @error="$event.target.src = '/icons/globe.svg'"
         />
         <i v-else class="pi pi-globe text-gray-400 text-3xl"></i>
       </div>
