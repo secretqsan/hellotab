@@ -21,7 +21,7 @@ watch(
       <Placeholder />
       <select
         v-model="language"
-        class="rounded-lg border border-gray-300 bg-gray-50 p-1 text-sm focus:border-blue-500 focus:ring-blue-500 outline-none"
+        class="rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm focus:border-blue-500 focus:ring-blue-500 outline-none"
       >
         <option v-for="option in languageOptions" :key="option.value" :value="option.value">
           {{ option.label }}

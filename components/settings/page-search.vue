@@ -67,7 +67,7 @@ watch(
       <Placeholder />
       <input
         type="number"
-        class="px-2 py-1 border rounded-lg focus:border-blue-500 focus:outline-none"
+        class="p-2 border rounded-lg focus:border-blue-500 focus:outline-none"
         min="10"
         max="100"
         v-model="searchEngine.maxHistoryCnt"

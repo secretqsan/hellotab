@@ -22,7 +22,7 @@ function addHistory(history) {
   }
 }
 function latestNHistory(n) {
-  return searchEngine.value.history.slice(-n).reverse();
+  return searchEngine.value.history.slice(0, n);
 }
 function openLink(url) {
   addHistory(url);
@@ -95,7 +95,7 @@ const fetchSuggestions = async (query) => {
       );
       var suggestions_text =
         response?.AS?.Results?.[0]?.Suggests?.map((s) => s.Txt) || [];
-      const matchedHistory = latestNHistory(50)
+      const matchedHistory = latestNHistory(searchEngine.value.maxHistoryCnt ?? 50)
         .filter((h) => h.toLowerCase().includes(query.toLowerCase()))
         .slice(-3);
 
