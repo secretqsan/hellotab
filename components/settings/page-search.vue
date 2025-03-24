@@ -4,6 +4,7 @@ const { searchEngine } = storeToRefs(settingsStore);
 const currentPage = ref(1);
 const itemsPerPage = 5;
 const searchEngineCandidates = ref([
+  { id: "bingcn", name: "必应(国内用户使用)" },
   { id: "google", name: "Google" },
   { id: "bing", name: "Bing" },
   { id: "baidu", name: "百度" },
@@ -11,6 +12,7 @@ const searchEngineCandidates = ref([
   { id: "custom", name: "自定义" },
 ]);
 const urls = ref({
+  bingcn: "https://www4.bing.com/search?q=",
   google: "https://www.google.com/search?q=",
   bing: "https://www.bing.com/search?q=",
   baidu: "https://www.baidu.com/s?wd=",
