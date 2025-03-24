@@ -9,14 +9,17 @@ const aiSuggestionAccepted = ref(false);
 const settings = useSettingsStore();
 const { searchEngine, aiSearchEngine, glmApiKey } = storeToRefs(settings);
 
-function addHistory(history){
+function addHistory(history) {
   const existingIndex = searchEngine.value.history.indexOf(history);
-    if (existingIndex == -1) {
-      if (searchEngine.value.history.length >= (searchEngine.value.maxHistoryCnt ?? 50)) {
-        searchEngine.value.history.shift();
-      }
-      searchEngine.value.history.push(history);
+  if (existingIndex == -1) {
+    if (
+      searchEngine.value.history.length >=
+      (searchEngine.value.maxHistoryCnt ?? 50)
+    ) {
+      searchEngine.value.history.pop();
     }
+    searchEngine.value.history.unshift(history);
+  }
 }
 function latestNHistory(n) {
   return searchEngine.value.history.slice(-n).reverse();
@@ -93,16 +96,18 @@ const fetchSuggestions = async (query) => {
       var suggestions_text =
         response?.AS?.Results?.[0]?.Suggests?.map((s) => s.Txt) || [];
       const matchedHistory = latestNHistory(50)
-        .filter(h => h.toLowerCase().includes(query.toLowerCase()))
+        .filter((h) => h.toLowerCase().includes(query.toLowerCase()))
         .slice(-3);
-      
-      suggestions_text = suggestions_text.filter(text => !matchedHistory.includes(text));
+
+      suggestions_text = suggestions_text.filter(
+        (text) => !matchedHistory.includes(text)
+      );
       suggestions_text.unshift(...matchedHistory);
       if (isUrl(query)) {
-        const queryIndex = suggestions_text.findIndex(s => s === query);
+        const queryIndex = suggestions_text.findIndex((s) => s === query);
         if (queryIndex !== -1) {
           suggestions_text.splice(queryIndex, 1);
-        } 
+        }
         suggestions_text.unshift(query);
       }
       suggestions.value = [];
@@ -196,9 +201,11 @@ function searchBoxFocused() {
 <template>
   <div class="relative w-full max-w-[600px]">
     <div class="relative w-full group">
+      <input v-show="false"> <!--//difuse the browser autofill-->
       <input
         v-model="searchQuery"
         type="text"
+        autocomplete="off"
         :placeholder="aiSearch ? '问AI' : $t('search.search') + '...'"
         @keyup.enter="handleSearch"
         @keyup.right="acceptAiSuggestion"
@@ -282,13 +289,11 @@ function searchBoxFocused() {
             @click="selectSuggestion(suggestion)"
           >
             <i v-if="suggestion.history" class="pi pi-history" />
-            <div :class="[
-              suggestion.isUrl ? 'underline' : '', ' truncate'
-            ]">
+            <div :class="[suggestion.isUrl ? 'underline' : '', ' truncate']">
               {{ suggestion.text }}
             </div>
             <i v-if="suggestion.isUrl" class="pi pi-globe" />
-            <placeholder/>
+            <placeholder />
             <button
               @click.stop="openLink(suggestion.text)"
               v-if="suggestion.isUrl"

@@ -21,6 +21,9 @@ export default defineI18nConfig(() => ({
           general:{
             language: '语言',
           }
+        },
+        intro: {
+          slogan: '你的智能新标签页伙伴',
         }
       },
       en: {
@@ -42,6 +45,9 @@ export default defineI18nConfig(() => ({
           general:{
             language: 'Language',
           }
+        },
+        intro: {
+          slogan: 'Your Smart New Tab Page Buddy', 
         }
       }
     }

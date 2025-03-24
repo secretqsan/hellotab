@@ -1,5 +1,9 @@
 <script setup>
 import { Analytics } from "@vercel/analytics/nuxt";
+const { setLocale } = useI18n();
+
+const settingStore = useSettingsStore();
+const { language } = storeToRefs(settingStore);
 
 useHead({
   title: "HelloTab",
@@ -42,7 +46,7 @@ const releases = ref([
     url: "https://microsoftedge.microsoft.com/addons/detail/apcaagdmicpkhmldkepdadhkfglkimaf",
     icon: "image/edge.svg",
     mainText: "Edge 扩展",
-    subText: "扩展商店",
+    subText: "扩展商店*",
   },
   {
     url: "downloads/crx.zip",
@@ -57,15 +61,35 @@ const releases = ref([
     subText: "敬请期待",
   },
 ]);
+onMounted(() => {
+  setLocale(language.value??'zh');
+});
 </script>
 
 <template>
   <Analytics />
   <div
-    class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-20 flex flex-col items-center"
+    class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-2 flex flex-col items-center"
   >
+    <div class="flex flex-row items-center gap-2 w-full mb-20">
+      <Placeholder/>
+      <button
+        class="w-10 h-10 bg-white hover:bg-gray-50 rounded-md shadow-md transition-all duration-300 hover:shadow-lg outline-none"
+        @click="() => {
+          if (language == 'en') {
+            language = 'zh';
+          }
+          else {
+            language = 'en'; 
+          }
+          setLocale(language)
+        }"
+      >
+        <span class="text-sm font-medium text-gray-800">{{ language == 'en' ? 'En' : '中' }}</span>
+      </button>
+    </div>
     <h1 class="text-center text-4xl font-bold text-gray-800 mb-4">HelloTab</h1>
-    <p class="text-center text-xl text-gray-600 mb-16">你的智能新标签页伙伴</p>
+    <p class="text-center text-xl text-gray-600 mb-16">{{ $t('intro.slogan') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
       <div
         v-for="feature in features"
@@ -88,12 +112,12 @@ const releases = ref([
         target="_blank"
         class="inline-block px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold"
       >
-        开始使用
+        开始使用(Web)
       </NuxtLink>
     </div>
     <div
       v-if="$device.isDesktop"
-      class="flex flex-row w-full mt-8 justify-center gap-2">
+      class="flex flex-row w-full mt-6 justify-center gap-2">
       <div
         v-for="release in releases"
         class="flex flex-row items-center justify-center gap-4"
@@ -115,5 +139,6 @@ const releases = ref([
         </a>
       </div>
     </div>
+    <div class="text-xs text-gray-500 mt-2">* 由于扩展商店的审核机制，扩展商店版本更新速度会慢于开发版本。</div>
   </div>
 </template>
