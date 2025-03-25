@@ -21,6 +21,16 @@ const popularWebsites = [
         url: "https://kimi.moonshot.cn/",
         icon: "https://statics.moonshot.cn/kimi-chat/favicon.ico",
       },
+      {
+        name: "豆包",
+        url: "https://www.doubao.com/chat/",
+        icon: "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png"
+      },
+      {
+        name: "Gamma",
+        url: "https://gamma.app/",
+        icon: "https://gamma.app/favicons/favicon-192.svg"
+      }
     ],
   },
   {
@@ -31,7 +41,7 @@ const popularWebsites = [
     ],
   },
   {
-    name: "工具",
+    name: "效率工具",
     sites: [
       { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
       { name: "Notion", url: "https://www.notion.so/", icon: "https://www.notion.com/front-static/favicon.ico" },
@@ -47,12 +57,23 @@ const popularWebsites = [
         icon: "https://static.deepl.com/img/logo/deepl-logo-blue.svg",
       },
       { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
+
+    ],
+  },
+  {
+    name: "设计",
+    sites: [
       {
         name: "figma",
         url: "https://www.figma.com/",
         icon: "https://static.figma.com/app/icon/1/touch-180.png",
       },
-    ],
+      {
+        name: "Unsplash",
+        url: "https://unsplash.com/",
+        icon: ""
+      }
+    ]
   },
   {
     name: "新闻",
@@ -90,6 +111,11 @@ const popularWebsites = [
         url: "https://portal.azure.com/",
         icon: "https://portal.azure.com/Content/static/PWA/Azure-512p-maskable.svg",
       },
+      {
+        name: "Nuxt",
+        url: "https://nuxt.com/",
+        icon: "https://nuxt.com/icon.png",
+      },
     ],
   },
   {
@@ -99,16 +125,6 @@ const popularWebsites = [
         name: "学习通",
         url: "https://i.chaoxing.com",
         icon: "https://app.chaoxing.com/res/images/apk/logo.png",
-      },
-      {
-        name: "Web of Science",
-        url: "https://www.webofscience.com/wos/",
-        icon: ""
-      },
-      {
-        name: "中国知网",
-        url: "https://www.cnki.net/",
-        icon: ""
       },
       {
         name: "MOOC",
@@ -122,5 +138,25 @@ const popularWebsites = [
       }
     ],
   },
+  {
+    name: "科研",
+    sites: [
+      {
+        name: "Web of Science",
+        url: "https://www.webofscience.com/wos/",
+        icon: ""
+      },
+      {
+        name: "中国知网",
+        url: "https://www.cnki.net/",
+        icon: ""
+      },
+      {
+        name: "Google Scholar",
+        url: "https://scholar.google.com/",
+        icon: "/icons/google_scholar.ico"  
+      }
+    ]
+  }
 ];
 export { popularWebsites };

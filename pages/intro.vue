@@ -2,9 +2,8 @@
 import { Analytics } from "@vercel/analytics/nuxt";
 const { setLocale } = useI18n();
 
-const settingStore = useSettingsStore();
-const { language } = storeToRefs(settingStore);
-
+const route = useRoute();
+const language = ref(route.query.lang ?? 'zh');
 useHead({
   title: "HelloTab",
   meta: [
@@ -62,7 +61,7 @@ const releases = ref([
   },
 ]);
 onMounted(() => {
-  setLocale(language.value??'zh');
+  setLocale(language.value);
 });
 </script>
 

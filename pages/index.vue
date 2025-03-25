@@ -141,7 +141,7 @@ onMounted(() => {
           v-if="crxId=='' && $device.isDesktop"
           title="下载扩展"
           class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center outline-none"
-          to="/intro"
+          :to="'/intro?lang=' + language"
           target="_blank"
         >
           <i class="pi pi-download text-xl"></i>

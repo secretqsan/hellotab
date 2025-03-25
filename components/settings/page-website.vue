@@ -154,9 +154,7 @@ const handleAddCustomWebsite = () => {
       <div v-if="activeTab === 'popular'" class="flex flex-col gap-4 flex-1 h-0">
         <div class="flex gap-4 items-center">
           <div class="relative flex-1">
-            <i
-              class="pi pi-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-            ></i>
+            <i class="pi pi-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               v-model="searchQuery"
               type="text"
@@ -205,6 +203,7 @@ const handleAddCustomWebsite = () => {
                 ]"
               >
                 <img
+                  loading="lazy"
                   :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
                   :alt="site.name"
                   class="w-6 h-6"

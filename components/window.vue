@@ -24,8 +24,8 @@ defineExpose({
       <slot></slot>
       <button
         :class="[
-          'absolute top-2 right-2 h-10 w-10 rounded-full flex items-center justify-center text-red-500',
-          $device.isDesktop? 'hover:bg-red-50 transition-colors duration-200': ''
+          'absolute top-2 right-2 rounded-full flex items-center justify-center text-red-500',
+          $device.isDesktop? 'hover:bg-red-50 transition-colors duration-200 h-10 w-10': ' h-12 w-12',
         ]"
         @click="open = false"
       >

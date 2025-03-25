@@ -40,6 +40,7 @@ const { pictures } = storeToRefs(imageStorage);
           :src="e.customIcon ? pictures[e.icon] : e.icon"
           class="w-12 h-12"
           @error="$event.target.src = '/icons/globe.svg'"
+          @contextmenu.prevent
         />
         <i v-else class="pi pi-globe text-gray-400 text-3xl"></i>
       </div>
