@@ -5,7 +5,14 @@ const popularWebsites = [
       { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "" },
       { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: "" },
       { name: "抖音", url: "https://www.douyin.com/", icon: "" },
-      { name: "4399", url: "https://4399.com", icon: ""}
+      { name: "4399", url: "https://4399.com", icon: "" },
+      { name: "QQ音乐", url: "https://y.qq.com/", icon: "" },
+      {
+        name: "网易云音乐",
+        url: "https://music.163.com/",
+        icon: "/icons/163music.jpg",
+      },
+      { name: "腾讯视频", url: "https://v.qq.com/", icon: "" },
     ],
   },
   {
@@ -24,13 +31,23 @@ const popularWebsites = [
       {
         name: "豆包",
         url: "https://www.doubao.com/chat/",
-        icon: "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png"
+        icon: "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png",
       },
       {
         name: "Gamma",
         url: "https://gamma.app/",
-        icon: "https://gamma.app/favicons/favicon-192.svg"
-      }
+        icon: "https://gamma.app/favicons/favicon-192.svg",
+      },
+      {
+        name: "可图AI生图",
+        url: "https://kolors.kuaishou.com/",
+        icon: "https://h1.static.yximgs.com/kos/nlav111937/images/logo.ico",
+      },
+      {
+        name: "可灵AI视频",
+        url: "https://kling.kuaishou.com/",
+        icon: "https://s2-111386.kwimgs.com/bs2/mmu-aiplatform-temp/kling/kling-logo.png",
+      },
     ],
   },
   {
@@ -38,13 +55,24 @@ const popularWebsites = [
     sites: [
       { name: "微博", url: "https://weibo.com", icon: "" },
       { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
+      { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
+      { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
+      {
+        name: "网易邮箱",
+        url: "https://mail.163.com/",
+        icon: "https://dashi.163.com/favicon.ico",
+      },
     ],
   },
   {
     name: "效率工具",
     sites: [
       { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
-      { name: "Notion", url: "https://www.notion.so/", icon: "https://www.notion.com/front-static/favicon.ico" },
+      {
+        name: "Notion",
+        url: "https://www.notion.so/",
+        icon: "https://www.notion.com/front-static/favicon.ico",
+      },
       { name: "知乎", url: "https://www.zhihu.com", icon: "" },
       {
         name: "office",
@@ -56,8 +84,6 @@ const popularWebsites = [
         url: "https://www.deepl.com/",
         icon: "https://static.deepl.com/img/logo/deepl-logo-blue.svg",
       },
-      { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
-
     ],
   },
   {
@@ -71,9 +97,9 @@ const popularWebsites = [
       {
         name: "Unsplash",
         url: "https://unsplash.com/",
-        icon: ""
-      }
-    ]
+        icon: "",
+      },
+    ],
   },
   {
     name: "新闻",
@@ -84,8 +110,8 @@ const popularWebsites = [
       {
         name: "澎湃新闻",
         url: "https://www.thepaper.cn",
-        icon: ""
-      }
+        icon: "",
+      },
     ],
   },
   {
@@ -119,6 +145,21 @@ const popularWebsites = [
     ],
   },
   {
+    name: "阅读",
+    sites: [
+      {
+        name: "安娜的档案",
+        url: "https://annas-archive.org/",
+        icon: "/icons/anna_archive.png",
+      },
+      {
+         name: "微信读书",
+         url: "https://weread.qq.com/",
+         icon: "",
+      }
+    ]
+  },
+  {
     name: "学习",
     sites: [
       {
@@ -129,13 +170,19 @@ const popularWebsites = [
       {
         name: "MOOC",
         url: "https://www.icourse163.org/",
-        icon: "/icons/mooc.png"
+        icon: "/icons/mooc.png",
       },
       {
         name: "菜鸟教程",
         url: "https://www.runoob.com/",
-        icon: ""
-      }
+        icon: "",
+      },
+      {
+        name: "LeetCode",
+        url: "https://leetcode.cn/",
+        icon: "",
+      },
+      
     ],
   },
   {
@@ -144,19 +191,19 @@ const popularWebsites = [
       {
         name: "Web of Science",
         url: "https://www.webofscience.com/wos/",
-        icon: ""
+        icon: "",
       },
       {
         name: "中国知网",
         url: "https://www.cnki.net/",
-        icon: ""
+        icon: "",
       },
       {
         name: "Google Scholar",
         url: "https://scholar.google.com/",
-        icon: "/icons/google_scholar.ico"  
-      }
-    ]
-  }
+        icon: "/icons/google_scholar.ico",
+      },
+    ],
+  },
 ];
 export { popularWebsites };

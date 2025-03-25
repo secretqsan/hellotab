@@ -206,7 +206,7 @@ function searchBoxFocused() {
         v-model="searchQuery"
         type="text"
         autocomplete="off"
-        :placeholder="aiSearch ? '问AI' : $t('search.search') + '...'"
+        :placeholder="aiSearch ? $t('search.askAi') : $t('search.search') + '...'"
         @keyup.enter="handleSearch"
         @keyup.right="acceptAiSuggestion"
         @keydown.backspace="

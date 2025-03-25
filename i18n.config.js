@@ -5,6 +5,7 @@ export default defineI18nConfig(() => ({
       zh: {
         search: {
           search: '搜索',
+          askAi: '问AI',
         },
         menu: {
           main: {
@@ -20,15 +21,20 @@ export default defineI18nConfig(() => ({
           },
           general:{
             language: '语言',
-          }
+          },
+          search: {
+            defaultSearchEngine: '默认搜索引擎',
+          },
         },
         intro: {
           slogan: '你的智能新标签页伙伴',
+          startToUse: '开始使用',
         }
       },
       en: {
         search: {
           search: 'Search',
+          askAi: 'Ask AI',
         },
         menu: {
           main: {
@@ -44,10 +50,14 @@ export default defineI18nConfig(() => ({
           },
           general:{
             language: 'Language',
-          }
+          },
+          search: {
+            defaultSearchEngine: 'Default search engine',
+          },
         },
         intro: {
           slogan: 'Your Smart New Tab Page Buddy', 
+          startToUse: 'Start to use',
         }
       }
     }

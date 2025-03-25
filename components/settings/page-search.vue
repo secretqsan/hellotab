@@ -41,7 +41,7 @@ watch(
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">默认搜索引擎</label>
+      <label class="text-md text-gray-600">{{ $t('menu.search.defaultSearchEngine') }}</label>
       <div class="w-full overflow-x-scroll">
         <selector
           :candidates="searchEngineCandidates"
