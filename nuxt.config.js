@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.5.2 Nightly"
+      version: "1.5.3 Nightly"
     },
   }
 });
