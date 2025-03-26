@@ -91,6 +91,7 @@ const { widgets } = storeToRefs(settingStore);
             :size_y="element.size_y"
             :title="element.title"
             :e="element.e"
+            @dragstart="menuRef.hideMenu()"
             @contextmenu.prevent.stop="
               (event) => {
                 if (element.type != 'new') {
