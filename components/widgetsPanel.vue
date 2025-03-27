@@ -83,6 +83,7 @@ const { widgets } = storeToRefs(settingStore);
           ($device.isDesktop || $device.isTablet) ? 'px-[calc(100%/8)]' : 'px-2',
         ]"
         :style="{ 'grid-auto-flow': 'dense' }"
+        @start="console.log(1);menuRef.hideMenu()"
       >
         <template #item="{ element }">
           <component

@@ -147,6 +147,14 @@ onMounted(() => {
           <i class="pi pi-download text-xl"></i>
         </NuxtLink>
       </ClientOnly>
+      <NuxtLink
+        title="帮助"
+        class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center outline-none"
+        to="/faq"
+        target="_blank"
+      >
+        <i class="pi pi-question text-xl"></i>
+      </NuxtLink>
       <div
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
         title="设置"

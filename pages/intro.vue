@@ -44,9 +44,9 @@ const features = ref([
 ]);
 const releases = ref([
   {
-    url: "downloads/crx.zip",
-    icon: "image/crx.svg",
-    mainText: "crx 扩展",
+    url: "downloads/hellotab-0.1.0-beta.zip",
+    icon: "image/crx.png",
+    mainText: "zip版本",
     subText: "开发版本",
   },
   {
@@ -56,10 +56,10 @@ const releases = ref([
     subText: "扩展商店*",
   },
   {
-    url: "downloads/crx.zip",
+    url: "#",
     icon: "image/chrome.svg",
     mainText: "Chrome 扩展",
-    subText: "开发版本",
+    subText: "敬请期待",
   },
   {
     url: "#",
