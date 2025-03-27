@@ -154,7 +154,7 @@ onUnmounted(() => {
           请检查是否已开启位置服务
         </p>
         <a
-          href="https://blog.csdn.net/sinat_39030079/article/details/144381035"
+          href="/faq?q=failToFetchLocation"
           target="_blank"
           class="text-sm text-blue-500 hover:text-blue-600 hover:underline mt-1"
         >

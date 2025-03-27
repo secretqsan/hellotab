@@ -56,6 +56,7 @@ const popularWebsites = [
       { name: "微博", url: "https://weibo.com", icon: "" },
       { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
       { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
+      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "" },
       { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
       {
         name: "网易邮箱",
@@ -142,6 +143,11 @@ const popularWebsites = [
         url: "https://nuxt.com/",
         icon: "https://nuxt.com/icon.png",
       },
+      {
+        name: "CSDN",
+        url: "https://www.csdn.net/",
+        icon: ""
+      }
     ],
   },
   {

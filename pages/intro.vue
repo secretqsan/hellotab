@@ -45,8 +45,8 @@ const features = ref([
 const releases = ref([
   {
     url: "downloads/hellotab-0.1.0-beta.zip",
-    icon: "image/crx.svg",
-    mainText: "crx 扩展",
+    icon: "image/crx.png",
+    mainText: "zip版本",
     subText: "开发版本",
   },
   {
