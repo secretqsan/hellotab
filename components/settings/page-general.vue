@@ -3,7 +3,8 @@ const settings = useSettingsStore();
 const { language } = storeToRefs(settings);
 const languageOptions = [
   { label: "中文", value: "zh" },
-  { label: "English", value: "en" }
+  { label: "English", value: "en" },
+  { label: "日本語", value: "ja" },
 ];
 const { setLocale } = useI18n();
 watch(
@@ -27,6 +28,32 @@ watch(
           {{ option.label }}
         </option>
       </select>
+    </div>
+    <div 
+      class="flex flex-col gap-3"
+      v-if="false"
+    >
+      <label class="text-md text-gray-600">{{ $t('menu.general.config') }}</label>
+      <div class="flex flex-col gap-2">
+        <f-button class="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200">
+          <div class="flex flex-row items-center justify-center gap-2">
+            <i class="pi pi-file-export"></i>
+            <span>{{ $t('menu.general.exportConfig') }}</span>
+          </div>
+        </f-button>
+        <f-button class="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200">
+          <div class="flex flex-row items-center justify-center gap-2">
+            <i class="pi pi-file-import"></i>
+            <span>{{ $t('menu.general.importConfig') }}</span>
+          </div>
+        </f-button>
+        <f-button class="bg-red-500 text-white hover:bg-red-600 transition-colors duration-200">
+          <div class="flex flex-row items-center justify-center gap-2">
+            <i class="pi pi-eraser"></i>
+            <span>{{ $t('menu.general.reset') }}</span>
+          </div>
+        </f-button>
+      </div>
     </div>
   </div>
 </template>

@@ -6,13 +6,13 @@ const config = useRuntimeConfig();
   <div class="p-4 flex flex-col gap-6">
     <div class="p-4 bg-white rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">HelloTab</h3>
-      <p class="text-gray-600 mb-4">一个简洁、美观、实用的新标签页扩展。</p>
+      <p class="text-gray-600 mb-4">{{ $t('about.description') }}</p>
       <div class="text-sm text-gray-500">
-        <div class="mb-1">版本：{{ config.public.version }}</div>
-        <div class="mb-1">作者：神秘的Q桑</div>
-        <div class="mb-1">许可证：LGPL</div>
+        <div class="mb-1">{{ $t('about.versionHint') }}{{ config.public.version }}</div>
+        <div class="mb-1">{{ $t('about.authorHint') }}神秘的Q桑</div>
+        <div class="mb-1">{{ $t('about.licenseHint') }}LGPL</div>
         <div class="mb-1">
-          隐私政策：<NuxtLink to="/privacy" class="text-blue-500 hover:text-blue-600 transition-colors">查看</NuxtLink>
+          {{ $t('about.privacyPolicyHint') }}<NuxtLink to="/privacy" class="text-blue-500 hover:text-blue-600 transition-colors">{{ $t('about.privacyPolicyView') }}</NuxtLink>
         </div>
       </div>
     </div>

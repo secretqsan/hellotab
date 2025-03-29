@@ -16,6 +16,8 @@
     "@nuxtjs/tailwindcss": "6.13.2",
     "@pinia/nuxt": "^0.10.1",
     "@vercel/analytics": "^1.5.0",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
     "nuxt": "^3.16.0",
     "nuxt-lodash": "^2.5.3",
     "pinia": "^3.0.1",

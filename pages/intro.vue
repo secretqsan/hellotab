@@ -72,11 +72,9 @@ onMounted(() => {
   setLocale(language.value);
 });
 function changeLanguage() {
-  if (language.value == "en") {
-    language.value = "zh";
-  } else {
-    language.value = "en";
-  }
+  const languages = ["zh", "en", "ja"];
+  const currentIndex = languages.indexOf(language.value);
+  language.value = languages[(currentIndex + 1) % languages.length];
   router.push({
     query: {
       lang: language.value,
@@ -98,7 +96,7 @@ function changeLanguage() {
         @click="changeLanguage"
       >
         <span class="text-sm font-medium text-gray-800">{{
-          language == "en" ? "En" : "中"
+          language === "en" ? "En" : language === "ja" ? "日" : "中"
         }}</span>
       </button>
     </div>
