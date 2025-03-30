@@ -132,7 +132,7 @@ const handleAddCustomWebsite = () => {
     >
       <div class="flex flex-row gap-2 items-center">
         <i class="pi pi-bookmark"></i>
-        <span>导入浏览器收藏夹</span>
+        <span>{{ $t('settings.website.importBookmarks') }}</span>
       </div>
     </f-button>
 

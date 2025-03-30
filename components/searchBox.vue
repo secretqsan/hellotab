@@ -55,16 +55,22 @@ const selectSuggestion = (suggestion) => {
 const handleSearch = () => {
   if (searchQuery.value.trim()) {
     let searchUrl = "";
+    let baseSearchUrl = "";
     if (aiSearch.value) {
-      searchUrl = `${aiSearchEngine.value.baseUrl}${encodeURIComponent(
-        searchQuery.value.trim()
-      )}`;
+      baseSearchUrl = aiSearchEngine.value.baseUrl
     } else {
-      searchUrl = `${searchEngine.value.baseUrl}${encodeURIComponent(
-        searchQuery.value.trim()
-      )}`;
+      baseSearchUrl = searchEngine.value.baseUrl;
     }
-    addHistory(searchQuery.value.trim());
+    let queryStr = encodeURIComponent(searchQuery.value.trim())
+    if (baseSearchUrl.includes("%s")) {
+      searchUrl = baseSearchUrl.replace("%s", queryStr);
+    }
+    else {
+      searchUrl = `${baseSearchUrl}${queryStr}`;
+    }
+    if (!aiSearch.value) {
+      addHistory(searchQuery.value.trim());
+    }
     window.open(searchUrl, "_blank");
   }
 };

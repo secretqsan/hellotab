@@ -4,8 +4,8 @@ const aiSearchEngineCandidate = ref([
   { id: "perplexity", name: "Perplexity" },
 ]);
 const urls = ref({
-  mitaso: "https://metaso.cn/?q=",
-  perplexity: "https://www.perplexity.ai/?q=",
+  mitaso: "https://metaso.cn/?q=%s",
+  perplexity: "https://www.perplexity.ai/?q=%s",
 });
 const settings = useSettingsStore();
 const { aiSearchEngine, glmApiKey } = storeToRefs(settings);

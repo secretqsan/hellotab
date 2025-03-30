@@ -3,7 +3,7 @@ export const useSettingsStore = defineStore("settings", {
     language: "zh",
     searchEngine: {
       id: "bing",
-      baseUrl: "https://www.bing.com/search?q=",
+      baseUrl: "https://www.bing.com/search?q=%s",
       history: [
         
       ],
@@ -11,7 +11,7 @@ export const useSettingsStore = defineStore("settings", {
     },
     aiSearchEngine: {
       id: "mitaso",
-      baseUrl: "https://metaso.cn/?q=",
+      baseUrl: "https://metaso.cn/?q=%s",
     },
     glmApiKey: "",
     widgets: [
