@@ -8,8 +8,7 @@ const urls = ref({
   perplexity: "https://www.perplexity.ai/?q=%s",
 });
 const settings = useSettingsStore();
-const { aiSearchEngine, glmApiKey } = storeToRefs(settings);
-const showApiKey = ref(false);
+const { aiSearchEngine } = storeToRefs(settings);
 watch(
   () => aiSearchEngine.value.id,
   (newId, oldId) => {
