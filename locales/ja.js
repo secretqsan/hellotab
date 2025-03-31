@@ -44,7 +44,9 @@ export default {
       githubRepo: "GitHubリポジトリ",
       supportMessage: "HelloTabが役立つと感じた場合は、以下の方法でサポートをお願いします：",
       starOnGithub: "GitHubでスターを付ける",
-      recommendToFriends: "友達にHelloTabを紹介する"
+      recommendToFriends: "友達にHelloTabを紹介する",
+      community: "コミュニティ",
+      joinQQGroup: "QQグループへの参加を歓迎します："
     },
   },
   intro: {

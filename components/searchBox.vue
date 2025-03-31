@@ -125,33 +125,13 @@ const fetchSuggestions = async (query) => {
         });
       }
     } else {
-      if (glmApiKey.value == "") {
-        aiSuggestion.value = "提供API Key以开启AI补全";
-        return;
-      }
-      const response = await $fetch(
-        `https://open.bigmodel.cn/api/paas/v4/chat/completions`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${glmApiKey.value}`,
+      var result = await $fetch('/api/completion',{
+          method: "GET",
+          query: {
+            message: query,
           },
-          body: {
-            model: "glm-4-flashx",
-            messages: [
-              {
-                role: "system",
-                content:
-                  "根据提供的片段给出接下来最合理的几个字，以让整个语句构成一个有意义的简短提问，不要重复我提供的内容",
-              },
-              { role: "user", content: query },
-            ],
-          },
-        }
-      );
+      });
       aiSuggestionAccepted.value = false;
-      let result = response.choices?.[0]?.message?.content?.trim() || "";
       if (result.startsWith(query)) {
         result = result.slice(query.length).trim();
       }

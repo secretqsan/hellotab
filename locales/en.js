@@ -45,7 +45,9 @@ export default {
       githubRepo: "GitHub Repository",
       supportMessage: "If you find HelloTab helpful, please support us by:",
       starOnGithub: "Give us a Star on GitHub",
-      recommendToFriends: "Recommend HelloTab to your friends"
+      recommendToFriends: "Recommend HelloTab to your friends",
+      community: "Community",
+      joinQQGroup: "Welcome to join our QQ group:"
     },
   },
   intro: {

@@ -130,20 +130,15 @@ onMounted(() => {
       <div class="flex items-center gap-2">
         <label class="text-md text-gray-600">隐藏小组件标题</label>
         <placeholder />
-        <div
-          :class="[
-            'relative inline-block w-12 h-6 rounded-full transition duration-200 ease-in-out cursor-pointer',
-            appearance.hideTitle ? 'bg-blue-500' : 'bg-gray-200',
-          ]"
-          @click="appearance.hideTitle = !appearance.hideTitle"
-        >
-          <div
-            :class="[
-              'absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ease-in-out',
-              appearance.hideTitle ? 'translate-x-6' : '',
-            ]"
-          />
-        </div>
+        <Switch v-model="appearance.hideWidgetTitle" />
+      </div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="text-md text-gray-600">一言</label>
+      <div class="flex items-center gap-2">
+        <label class="text-md text-gray-600">显示一言</label>
+        <placeholder />
+        <Switch v-model="appearance.showHitokoto" />
       </div>
     </div>
   </div>

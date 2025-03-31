@@ -13,7 +13,6 @@ export const useSettingsStore = defineStore("settings", {
       id: "mitaso",
       baseUrl: "https://metaso.cn/?q=%s",
     },
-    glmApiKey: "",
     widgets: [
       {
         title: "哔哩哔哩",
@@ -33,6 +32,7 @@ export const useSettingsStore = defineStore("settings", {
     ],
     appearance: {
       hideTitle: false,
+      showHitokoto: false,
       background: "bing",
       e1: "",
     },

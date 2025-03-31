@@ -45,7 +45,9 @@ export default {
       githubRepo: "GitHub 仓库",
       supportMessage: "如果您觉得 HelloTab 对您有帮助，欢迎通过以下方式支持我们：",
       starOnGithub: "在 GitHub 上给我们一个 Star",
-      recommendToFriends: "向您的朋友推荐 HelloTab"
+      recommendToFriends: "向您的朋友推荐 HelloTab",
+      community: "社区",
+      joinQQGroup: "欢迎加入我们的 QQ 交流群："
     },
   },
   intro: {
