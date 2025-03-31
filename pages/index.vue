@@ -1,5 +1,6 @@
 <script setup>
 import { Analytics } from "@vercel/analytics/nuxt";
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 
 useHead({
   title: "HelloTab",
@@ -136,6 +137,7 @@ onMounted(() => {
 
 <template>
   <Analytics />
+  <SpeedInsights />
   <div
     class="z-10 p-4 h-screen w-screen flex flex-col gap-10 items-center relative"
   >

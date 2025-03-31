@@ -2,7 +2,6 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   const { message } = query;
   const key = process.env.NUXT_GLM_API_KEY;
-  console.log(key);
   try {
     const response = await $fetch(
       `https://open.bigmodel.cn/api/paas/v4/chat/completions`,
