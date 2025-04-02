@@ -12,7 +12,6 @@ export default {
       ai: 'AI',
       appearance: 'Appearance',
       widgets: 'Widgets',
-      
       website: 'Website',
       sync: 'Sync',
       about: 'About'
@@ -29,6 +28,7 @@ export default {
     },
     search: {
       defaultSearchEngine: 'Default search engine',
+      enterSearchEngineUrl: 'Please enter the search engine URL',
     },
     website: {
       importBookmarks: 'Import Browser Bookmarks'

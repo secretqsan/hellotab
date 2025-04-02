@@ -29,6 +29,7 @@ export default {
     },
     search: {
       defaultSearchEngine: '默认搜索引擎',
+      enterSearchEngineUrl: '请输入搜索引擎URL',
     },
     website: {
       importBookmarks: '导入浏览器收藏夹'

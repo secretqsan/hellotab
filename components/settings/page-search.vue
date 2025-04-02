@@ -60,7 +60,7 @@ watch(
           'w-full px-4 py-2 border rounded-lg focus:border-blue-500 focus:outline-none',
           searchEngine.id != 'custom' ? 'text-gray-400' : '',
         ]"
-        placeholder="请输入搜索引擎URL"
+        :placeholder="$t('settings.search.enterSearchEngineUrl')"
       />
     </div>
 

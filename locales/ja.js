@@ -28,6 +28,7 @@ export default {
     },
     search: {
       defaultSearchEngine: 'デフォルト検索エンジン',
+      enterSearchEngineUrl: '検索エンジンURLを入力',
     },
     website: {
       importBookmarks: 'ブラウザのブックマークをインポート'
