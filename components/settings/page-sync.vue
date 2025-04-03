@@ -113,25 +113,10 @@ const downloadFromCloud = async () => {
             开启后可以在多个设备间同步您的设置
           </p>
         </div>
-        <div
-          :class="[
-            'relative inline-block w-12 h-6 rounded-full transition duration-200 ease-in-out cursor-pointer',
-            syncEnabled ? 'bg-blue-500' : 'bg-gray-200',
-          ]"
-          @click="
-            () => {
-              syncEnabled = !syncEnabled;
-              firstSyncOk = false;
-            }
-          "
-        >
-          <div
-            :class="[
-              'absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ease-in-out',
-              syncEnabled ? 'translate-x-6' : '',
-            ]"
-          />
-        </div>
+        <Switch 
+          v-model="syncEnabled"
+          @checked="firstSyncOk = false"
+        />
       </div>
 
       <template v-if="syncEnabled">
@@ -166,21 +151,17 @@ const downloadFromCloud = async () => {
                 class="w-full px-3 py-2 border rounded-lg"
               />
             </div>
-
-            <button
+            <f-button
               v-if="!webdavTestedOk"
               @click="testConnection"
-              :class="[
-                'w-full px-4 py-2 rounded-lg transition-colors',
-                testingConnection
-                  ? 'bg-gray-200 cursor-not-allowed'
-                  : 'bg-blue-500 hover:bg-blue-600 text-white',
-              ]"
               :disabled="testingConnection"
-            >
+              :class="testingConnection
+                  ? 'bg-gray-200 cursor-not-allowed'
+                  : 'bg-blue-500 hover:bg-blue-600 text-white'">
               <span v-if="testingConnection">测试中...</span>
               <span v-else>测试连接</span>
-            </button>
+            </f-button>
+
             <div v-else class="space-y-4">
               <div
                 v-if="!firstSyncOk"
