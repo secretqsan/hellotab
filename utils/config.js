@@ -1,5 +1,5 @@
 import JSZip from "jszip";
-import { saveAs } from "file-saver";
+import saveAs from "file-saver";
 
 function resetConfig() {
   const imageStorage = useImageStore();
@@ -29,7 +29,6 @@ function exportConfig() {
 
 function saveConfigToZip() {
   var config = exportConfig();
-  console.log(config);
   var zip = new JSZip();
   zip.file("config.json", JSON.stringify(config.settings));
   zip.file("local_config.json", JSON.stringify(config.localSettings));
