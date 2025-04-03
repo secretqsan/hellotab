@@ -48,6 +48,11 @@ const popularWebsites = [
         url: "https://kling.kuaishou.com/",
         icon: "https://s2-111386.kwimgs.com/bs2/mmu-aiplatform-temp/kling/kling-logo.png",
       },
+      {
+        name: "Mureka",
+        url: "https://www.mureka.ai/",
+        icon: "",
+      },
     ],
   },
   {

@@ -1,12 +1,17 @@
 <script setup>
 import { Analytics } from "@vercel/analytics/nuxt";
+import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 
 useHead({
   title: "HelloTab",
   meta: [
-    {name: "keywords", content: "新标签页,标签页定制，效率工具"},
-    {name: "description", content: "试用HelloTab。HelloTab是一款功能强大的浏览器新标签页，提供可定制的小组件、云端同步、智能搜索和个性化外观等特性，让你的浏览体验更加高效和个性化。"},
-  ]
+    { name: "keywords", content: "新标签页,标签页定制，效率工具" },
+    {
+      name: "description",
+      content:
+        "试用HelloTab。HelloTab是一款功能强大的浏览器新标签页，提供可定制的小组件、云端同步、智能搜索和个性化外观等特性，让你的浏览体验更加高效和个性化。",
+    },
+  ],
 });
 
 const imageStorage = useImageStore();
@@ -128,17 +133,24 @@ onMounted(() => {
   }
   setLocale(language.value ?? "zh");
 });
-
 </script>
 
 <template>
   <Analytics />
-  <div class="z-10 p-4 h-screen w-screen flex flex-col items-center relative">
-    <div class="flex flex-row w-full gap-2">
+  <SpeedInsights />
+  <div
+    class="z-10 p-4 h-screen w-screen flex flex-col gap-10 items-center relative"
+  >
+    <div
+      :class="[
+        'flex flex-row w-full gap-2',
+        $device.isDesktop || $device.isTablet ? 'mb-10' : '',
+      ]"
+    >
       <Placeholder />
       <ClientOnly>
         <NuxtLink
-          v-if="crxId=='' && $device.isDesktop"
+          v-if="crxId == '' && $device.isDesktop"
           title="下载扩展"
           class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center outline-none"
           :to="'/intro?lang=' + language"
@@ -153,7 +165,7 @@ onMounted(() => {
         to="/faq"
         target="_blank"
       >
-        <i class="pi pi-question text-xl"></i>
+        <i class="pi pi-question-circle text-xl"></i>
       </NuxtLink>
       <div
         class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
@@ -167,14 +179,11 @@ onMounted(() => {
         <i class="pi pi-cog text-xl"></i>
       </div>
     </div>
-    <div :class="[$device.isDesktop || $device.isTablet ? 'h-20' : 'h-10']" />
-    <searchBox class="z-30" />
-    <div class="h-20 min-h-10" />
+    <searchBox class="z-30 mb-10" />
     <WidgetsPanel class="flex-1 w-full" />
-    
-    
+    <Hitokoto />
   </div>
-  <Background/>
+  <Background />
   <SettingsMain ref="settingPanel" />
   <Toast ref="toast" />
 </template>

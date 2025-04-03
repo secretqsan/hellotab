@@ -6,54 +6,56 @@ const config = useRuntimeConfig();
   <div class="p-4 flex flex-col gap-6">
     <div class="p-4 bg-white rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">HelloTab</h3>
-      <p class="text-gray-600 mb-4">一个简洁、美观、实用的新标签页扩展。</p>
+      <p class="text-gray-600 mb-4">{{ $t('settings.about.description') }}</p>
       <div class="text-sm text-gray-500">
-        <div class="mb-1">版本：{{ config.public.version }}</div>
-        <div class="mb-1">作者：神秘的Q桑</div>
-        <div class="mb-1">许可证：LGPL</div>
+        <div class="mb-1">{{ $t('settings.about.versionHint') }}{{ config.public.version }}</div>
+        <div class="mb-1">{{ $t('settings.about.authorHint') }}神秘的Q桑</div>
+        <div class="mb-1">{{ $t('settings.about.licenseHint') }}LGPL</div>
         <div class="mb-1">
-          隐私政策：<NuxtLink to="/privacy" class="text-blue-500 hover:text-blue-600 transition-colors">查看</NuxtLink>
+          {{ $t('settings.about.privacyPolicyHint') }}
+          <NuxtLink to="/privacy" class="text-blue-500 hover:text-blue-600 transition-colors">
+            {{ $t('settings.about.privacyPolicyView') }}
+          </NuxtLink>
         </div>
       </div>
     </div>
 
     <div class="p-4 bg-white rounded-lg shadow-sm">
-      <h3 class="text-lg font-medium mb-2">支持我们</h3>
+      <h3 class="text-lg font-medium mb-2">{{ $t('settings.about.supportUs') }}</h3>
       <div class="text-sm text-gray-500 space-y-2">
         <div :class="[
           'flex items-center gap-2'
         ]">
           <i class="pi pi-github text-lg"></i>
-          <span>我们的项目是开源的！欢迎访问</span>
+          <span>{{ $t('settings.about.openSource') }}</span>
           <a
             href="https://github.com/Gryffindor2/helloTab"
             target="_blank"
             class="text-blue-500 hover:text-blue-600 transition-colors"
-            >GitHub 仓库</a
-          >
+            >
+            {{ $t('settings.about.githubRepo') }}
+          </a>
         </div>
 
         <div class="flex items-center gap-2 mt-4">
           <i class="pi pi-heart-fill text-lg text-red-500"></i>
-          <span
-            >如果您觉得 HelloTab 对您有帮助，欢迎通过以下方式支持我们：</span
-          >
+          <span>{{ $t('settings.about.supportMessage') }}</span>
         </div>
         <div class="pl-6 space-y-1">
-          <div>• 在 GitHub 上给我们一个 Star</div>
-          <div>• 向您的朋友推荐 HelloTab</div>
+          <div>• {{ $t('settings.about.starOnGithub') }}</div>
+          <div>• {{ $t('settings.about.recommendToFriends') }}</div>
         </div>
       </div>
     </div>
 
     <div class="p-4 bg-white rounded-lg shadow-sm">
-      <h3 class="text-lg font-medium mb-2">社区</h3>
+      <h3 class="text-lg font-medium mb-2">{{ $t('settings.about.community') }}</h3>
       <div class="text-sm text-gray-500 space-y-2">
         <div class="flex items-center gap-2">
-          <span>欢迎加入我们的 QQ 交流群：</span>
+          <span>{{ $t('settings.about.joinQQGroup') }}</span>
         </div>
         <div class="flex justify-center mt-2">
-          <img src="/image/qq_group.jpg" alt="QQ群二维码" class="w-1/4" />
+          <img src="/image/qq_group.jpg" class="w-1/4" />
         </div>
       </div>
     </div>

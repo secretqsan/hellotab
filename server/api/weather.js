@@ -2,7 +2,6 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event);
   const { type, longitude, latitude } = query;
   const key = process.env.NUXT_QWEATHER_API_KEY;
-
   try {
     if (type === "location") {
       const res = await $fetch(

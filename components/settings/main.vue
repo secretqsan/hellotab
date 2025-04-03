@@ -11,18 +11,18 @@ const activeSettingTab = ref("search");
 const windowRef = ref(null);
 
 const settingTabs = {
-  general: { label: 'menu.main.general', icon: "pi pi-cog", comp: GeneralSettings },
-  search: { label: 'menu.main.search', icon: "pi pi-search", comp: SearchSettings },
-  ai: { label: 'menu.main.ai', icon: "pi pi-sparkles", comp: AISettings },
+  general: { label: 'settings.main.general', icon: "pi pi-cog", comp: GeneralSettings },
+  search: { label: 'settings.main.search', icon: "pi pi-search", comp: SearchSettings },
+  ai: { label: 'settings.main.ai', icon: "pi pi-sparkles", comp: AISettings },
   appearance: {
-    label: 'menu.main.appearance',
+    label: 'settings.main.appearance',
     icon: "pi pi-palette",
     comp: AppearanceSettings,
   },
-  widgets: { label: 'menu.main.widgets', icon: "pi pi-th-large", comp: WidgetsSettings },
-  website: { label: 'menu.main.website', icon: "pi pi-globe", comp: WebsiteSettings },
-  sync: { label: 'menu.main.sync', icon: "pi pi-cloud", comp: SyncSettings },
-  about: { label: 'menu.main.about', icon: "pi pi-info-circle", comp: AboutSettings },
+  widgets: { label: 'settings.main.widgets', icon: "pi pi-th-large", comp: WidgetsSettings },
+  website: { label: 'settings.main.website', icon: "pi pi-globe", comp: WebsiteSettings },
+  sync: { label: 'settings.main.sync', icon: "pi pi-cloud", comp: SyncSettings },
+  about: { label: 'settings.main.about', icon: "pi pi-info-circle", comp: AboutSettings },
 };
 const show = (tabName) => {
   activeSettingTab.value = tabName;
@@ -74,7 +74,7 @@ defineExpose({
       <div class="flex-1 w-0 h-full flex flex-col">
         <div class="flex flex-row">
           <h2 class="text-xl font-medium ml-8 mt-8 mb-0">
-            {{ $t('menu.main.setting') }} > {{ $t(settingTabs[activeSettingTab].label) }}
+            {{ $t('settings.base') }} > {{ $t(settingTabs[activeSettingTab].label) }}
           </h2>
         </div>
         <div class="flex-1 p-4 overflow-y-auto">

@@ -12,11 +12,11 @@ const searchEngineCandidates = ref([
   { id: "custom", name: "自定义" },
 ]);
 const urls = ref({
-  bingcn: "https://www4.bing.com/search?q=",
-  google: "https://www.google.com/search?q=",
-  bing: "https://www.bing.com/search?q=",
-  baidu: "https://www.baidu.com/s?wd=",
-  duckduckgo: "https://www.duckduckgo.com/?q=",
+  bingcn: "https://www4.bing.com/search?q=%s",
+  google: "https://www.google.com/search?q=%s",
+  bing: "https://www.bing.com/search?q=%s",
+  baidu: "https://www.baidu.com/s?wd=%s",
+  duckduckgo: "https://www.duckduckgo.com/?q=%s",
   costum: "",
 });
 
@@ -41,7 +41,7 @@ watch(
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">{{ $t('menu.search.defaultSearchEngine') }}</label>
+      <label class="text-md text-gray-600">{{ $t('settings.search.defaultSearchEngine') }}</label>
       <div class="w-full overflow-x-scroll">
         <selector
           :candidates="searchEngineCandidates"
@@ -60,7 +60,7 @@ watch(
           'w-full px-4 py-2 border rounded-lg focus:border-blue-500 focus:outline-none',
           searchEngine.id != 'custom' ? 'text-gray-400' : '',
         ]"
-        placeholder="请输入搜索引擎URL"
+        :placeholder="$t('settings.search.enterSearchEngineUrl')"
       />
     </div>
 

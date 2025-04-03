@@ -34,7 +34,9 @@ const { widgets } = storeToRefs(settingStore);
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">可用小组件</label>
+      <label class="text-md text-gray-600">
+        {{ $t('settings.widgets.available') }}
+      </label>
       <div 
         :class="[
           'grid gap-4',
