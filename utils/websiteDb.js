@@ -39,11 +39,6 @@ const popularWebsites = [
         icon: "https://gamma.app/favicons/favicon-192.svg",
       },
       {
-        name: "可图AI生图",
-        url: "https://kolors.kuaishou.com/",
-        icon: "https://h1.static.yximgs.com/kos/nlav111937/images/logo.ico",
-      },
-      {
         name: "可灵AI视频",
         url: "https://kling.kuaishou.com/",
         icon: "https://s2-111386.kwimgs.com/bs2/mmu-aiplatform-temp/kling/kling-logo.png",
@@ -62,12 +57,27 @@ const popularWebsites = [
       { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
       { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
       { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "" },
+    ],
+  },
+  {
+    name: "工作",
+    sites: [
       { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
       {
         name: "网易邮箱",
         url: "https://mail.163.com/",
         icon: "https://dashi.163.com/favicon.ico",
       },
+      {
+        name: "Microsoft Teams",
+        url: "https://teams.microsoft.com/",
+        icon: ""
+      },
+      {
+        name: "Mocrosoft Forms",
+        url: "https://forms.office.com/", 
+        icon: "/icons/forms.svg",
+      }
     ],
   },
   {
@@ -104,6 +114,16 @@ const popularWebsites = [
         name: "Unsplash",
         url: "https://unsplash.com/",
         icon: "",
+      },
+    ],
+  },
+  {
+    name: "云存储",
+    sites: [
+      {
+        name: "Onedrive",
+        url: "https://onedrive.live.com",
+        icon: "/icons/onedrive.svg",
       },
     ],
   },
