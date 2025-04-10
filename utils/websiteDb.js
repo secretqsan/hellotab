@@ -2,7 +2,7 @@ const popularWebsites = [
   {
     name: "娱乐",
     sites: [
-      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "" },
+      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "/icons/bilibili.png" },
       { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: "" },
       { name: "抖音", url: "https://www.douyin.com/", icon: "" },
       { name: "4399", url: "https://4399.com", icon: "" },
@@ -13,6 +13,7 @@ const popularWebsites = [
         icon: "/icons/163music.jpg",
       },
       { name: "腾讯视频", url: "https://v.qq.com/", icon: "" },
+      { name: "CCTV", url: "https://tv.cctv.com/", icon: "/icons/cctv.png" },
     ],
   },
   {
@@ -132,7 +133,7 @@ const popularWebsites = [
     sites: [
       { name: "腾讯网", url: "https://www.qq.com", icon: "/icons/qq.ico" },
       { name: "网易新闻", url: "https://news.163.com", icon: "" },
-      { name: "新华社", url: "https://www.xinhuanet.com", icon: "" },
+      { name: "新华社", url: "https://www.xinhuanet.com", icon: "/icons/xinhua.png" },
       {
         name: "澎湃新闻",
         url: "https://www.thepaper.cn",
@@ -144,7 +145,7 @@ const popularWebsites = [
     name: "购物",
     sites: [
       { name: "淘宝", url: "https://www.taobao.com", icon: "" },
-      { name: "京东", url: "https://www.jd.com", icon: "" },
+      { name: "京东", url: "https://www.jd.com", icon: "/icons/jd.jpg" },
     ],
   },
   {
