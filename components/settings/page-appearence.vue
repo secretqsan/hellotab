@@ -5,7 +5,8 @@ const imageStorage = useImageStore();
 const { pictures } = storeToRefs(imageStorage);
 const backgroundOrigin = ref([
   { id: "bing", name: "必应每日一图" },
-  { id: "custom", name: "自定义" }
+  { id: "unsplash", name: "Unsplash" },
+  { id: "custom", name: "自定义" },
 ]);
 const customBackgroundUrl = ref("");
 const fileInputRef = ref();
@@ -32,11 +33,12 @@ const handleDrop = (event) => {
   uploadFile(file);
 };
 
-const bingBackgroundUrl = ref('')
-
+const { data:onlineBackgroundUrl } = await useFetch('/api/backgrounds')
 const imageUrl = computed(() => {
   if (appearance.value.background == "bing") {
-    return bingBackgroundUrl.value;
+    return onlineBackgroundUrl.value.bing;
+  } else if (appearance.value.background == "unsplash") {
+    return onlineBackgroundUrl.value.unsplash;
   } else {
     if (!isNaN(appearance.value.e1)) {
       return pictures.value[appearance.value.e1];
@@ -45,18 +47,6 @@ const imageUrl = computed(() => {
     }
   }
 });
-
-onMounted(() => {
-  $fetch(proxyedUrl("https://www.bing.com/HPImageArchive.aspx"),{
-    params: {
-      n: 1,
-      idx: 0,
-      format: "js",
-    }})
-  .then((data) => {
-    bingBackgroundUrl.value = `https://www.bing.com${data.images[0].url}`;
-  })
-})
 </script>
 
 <template>
@@ -91,15 +81,15 @@ onMounted(() => {
         <div
           :class="[
             'w-full min-h-60 border rounded-lg border-1 flex flex-col bg-white items-center justify-center overflow-hidden ',
-            appearance.background == 'custom'
-              ? 'cursor-pointer'
-              : '',
+            appearance.background == 'custom' ? 'cursor-pointer' : '',
           ]"
-          @click="() => {
-            if(appearance.background == 'custom'){
-              fileInputRef.click()
+          @click="
+            () => {
+              if (appearance.background == 'custom') {
+                fileInputRef.click();
+              }
             }
-          }"
+          "
           @dragover.prevent
           @drop.prevent="handleDrop"
         >
@@ -117,11 +107,7 @@ onMounted(() => {
             <i class="pi pi-upload text-4xl"></i>
             <span class="text-sm">点击或拖拽图片到此处</span>
           </div>
-          <img
-            v-else
-            :src="imageUrl"
-            class="w-full"
-          />
+          <img v-else :src="imageUrl" class="w-full" />
         </div>
       </div>
     </div>

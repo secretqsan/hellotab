@@ -38,7 +38,7 @@ const { pictures } = storeToRefs(imageStorage);
         <img
           v-if="e.url"
           :src="e.customIcon ? pictures[e.icon] : e.icon"
-          class="w-12 h-12"
+          class="w-12 h-12 rounded-md"
           @error="$event.target.src = '/icons/globe.svg'"
           @contextmenu.prevent
         />

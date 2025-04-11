@@ -21,7 +21,7 @@ export const useSettingsStore = defineStore("settings", {
         size_y: 1,
         e: {
           url: "https://www.bilibili.com",
-          icon: "https://www.bilibili.com/favicon.ico",
+          icon: "/icons/bilibili.png",
           customIcon: false,
         },
       },

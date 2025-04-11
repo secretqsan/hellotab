@@ -209,7 +209,8 @@ const handleAddCustomWebsite = () => {
                   loading="lazy"
                   :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
                   :alt="site.name"
-                  class="w-6 h-6"
+                  class="w-6 h-6 rounded-sm"
+                  @contextmenu.prevent
                   @error="$event.target.src = '/icons/globe.svg'"
                 />
                 <div>

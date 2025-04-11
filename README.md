@@ -40,6 +40,7 @@ npm install
 ```bash
 NUXT_QWEATHER_API_KEY="你的和风天气API密钥"
 NUXT_GLM_API_KEY="你的智谱API密钥"
+NUXT_UNSPLASH_ACCESS_KEY="你的Unsplash API密钥"
 ```
 
 ### 开发环境
