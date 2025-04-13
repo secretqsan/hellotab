@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.7.9"
+      version: "1.7.10"
     },
   }
 });

@@ -22,7 +22,7 @@ const popularWebsites = [
       {
         name: "Deepseek",
         url: "https://chat.deepseek.com",
-        icon: "https://www.deepseek.com/favicon.ico",
+        icon: "/icons/deepseek.svg",
       },
       {
         name: "Kimi",
