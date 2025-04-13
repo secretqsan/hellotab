@@ -181,6 +181,7 @@ const handleAddCustomWebsite = () => {
           <div class="grid grid-cols-2 gap-4">
             <template v-for="site in filteredWebsites">
               <div
+                :title="site.name"
                 v-if="!widgets.find((w) => w.e1 == site.url)"
                 @click="
                   () => {
@@ -208,14 +209,18 @@ const handleAddCustomWebsite = () => {
                   loading="lazy"
                   :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
                   :alt="site.name"
-                  class="w-6 h-6"
+                  class="w-6 h-6 rounded-sm"
+                  @contextmenu.prevent
                   @error="$event.target.src = '/icons/globe.svg'"
                 />
                 <div>
                   <div class="font-medium">{{ site.name }}</div>
                   <div
                     v-if="$device.isDesktop || $device.isTablet"
-                    class="text-sm text-gray-500">{{ site.url }}</div>
+                    class="text-sm text-gray-500"
+                  >
+                    {{ site.url }}
+                  </div>
                 </div>
               </div>
             </template>

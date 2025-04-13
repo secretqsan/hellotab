@@ -6,11 +6,12 @@ const { data: hitokotoResponse } = await useFetch("https://v1.hitokoto.cn/", {
     c: "i",
     c: "k",
     encode: "json",
-  },
+  }
 });
 </script>
 <template>
-  <ClientOnly>
+  <div>
+    <ClientOnly>
     <div class="flex flex-col text-white gap-2" v-if="appearance.showHitokoto">
       <div class="flex flex-row items-center justify-center text-lg">
         <span class="mr-8 mb-4">『</span>
@@ -22,4 +23,6 @@ const { data: hitokotoResponse } = await useFetch("https://v1.hitokoto.cn/", {
       </div>
     </div>
   </ClientOnly>
+  </div>
+
 </template>

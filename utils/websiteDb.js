@@ -2,17 +2,18 @@ const popularWebsites = [
   {
     name: "娱乐",
     sites: [
-      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "" },
+      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "/icons/bilibili.png" },
       { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: "" },
       { name: "抖音", url: "https://www.douyin.com/", icon: "" },
       { name: "4399", url: "https://4399.com", icon: "" },
-      { name: "QQ音乐", url: "https://y.qq.com/", icon: "" },
+      { name: "QQ音乐", url: "https://y.qq.com/", icon: "/icons/qqmusic.png" },
       {
         name: "网易云音乐",
         url: "https://music.163.com/",
         icon: "/icons/163music.jpg",
       },
-      { name: "腾讯视频", url: "https://v.qq.com/", icon: "" },
+      { name: "腾讯视频", url: "https://v.qq.com/", icon: "/icons/qqvideo.png" },
+      { name: "CCTV", url: "https://tv.cctv.com/", icon: "/icons/CCTV.svg" },
     ],
   },
   {
@@ -39,11 +40,6 @@ const popularWebsites = [
         icon: "https://gamma.app/favicons/favicon-192.svg",
       },
       {
-        name: "可图AI生图",
-        url: "https://kolors.kuaishou.com/",
-        icon: "https://h1.static.yximgs.com/kos/nlav111937/images/logo.ico",
-      },
-      {
         name: "可灵AI视频",
         url: "https://kling.kuaishou.com/",
         icon: "https://s2-111386.kwimgs.com/bs2/mmu-aiplatform-temp/kling/kling-logo.png",
@@ -61,13 +57,28 @@ const popularWebsites = [
       { name: "微博", url: "https://weibo.com", icon: "" },
       { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
       { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
-      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "" },
+      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/icons/miyoushe.jpg" },
+    ],
+  },
+  {
+    name: "工作",
+    sites: [
       { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
       {
         name: "网易邮箱",
         url: "https://mail.163.com/",
-        icon: "https://dashi.163.com/favicon.ico",
+        icon: "/icons/163mail.svg",
       },
+      {
+        name: "Microsoft Teams",
+        url: "https://teams.microsoft.com/",
+        icon: ""
+      },
+      {
+        name: "Mocrosoft Forms",
+        url: "https://forms.office.com/", 
+        icon: "/icons/forms.svg",
+      }
     ],
   },
   {
@@ -108,11 +119,22 @@ const popularWebsites = [
     ],
   },
   {
+    name: "云存储",
+    sites: [
+      {
+        name: "Onedrive",
+        url: "https://onedrive.live.com",
+        icon: "/icons/onedrive.svg",
+      },
+    ],
+  },
+  {
     name: "新闻",
     sites: [
       { name: "腾讯网", url: "https://www.qq.com", icon: "/icons/qq.ico" },
-      { name: "网易新闻", url: "https://news.163.com", icon: "" },
-      { name: "新华社", url: "https://www.xinhuanet.com", icon: "" },
+      { name: "网易新闻", url: "https://news.163.com", icon: "/icons/netease_news.png" },
+      { name: "新华社", url: "https://www.xinhuanet.com", icon: "/icons/xinhua.png" },
+      { name: "搜狐", url: "https://www.sohu.com/", icon: "/icons/souhu.png" },
       {
         name: "澎湃新闻",
         url: "https://www.thepaper.cn",
@@ -124,7 +146,7 @@ const popularWebsites = [
     name: "购物",
     sites: [
       { name: "淘宝", url: "https://www.taobao.com", icon: "" },
-      { name: "京东", url: "https://www.jd.com", icon: "" },
+      { name: "京东", url: "https://www.jd.com", icon: "/icons/jd.jpg" },
     ],
   },
   {
@@ -152,6 +174,11 @@ const popularWebsites = [
         name: "CSDN",
         url: "https://www.csdn.net/",
         icon: ""
+      },
+      {
+        name: "Postman",
+        url: "https://www.postman.com/",
+        icon: "/icons/postman.svg",
       }
     ],
   },

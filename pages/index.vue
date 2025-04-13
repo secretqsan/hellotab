@@ -168,7 +168,7 @@ onMounted(() => {
         <i class="pi pi-question-circle text-xl"></i>
       </NuxtLink>
       <div
-        class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center"
+        class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer"
         title="设置"
         @click="
           () => {
