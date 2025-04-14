@@ -1,5 +1,8 @@
 <script setup>
+import { file } from 'jszip';
+
 const settings = useSettingsStore();
+const fileInputRef = ref(null);
 const { language } = storeToRefs(settings);
 const languageOptions = [
   { label: "中文", value: "zh" },
@@ -46,9 +49,21 @@ function resetConfigBtnClicked() {
             <span>{{ $t('settings.general.exportConfig') }}</span>
           </div>
         </f-button>
+        <input
+          type="file"
+          class="hidden"
+          ref="fileInputRef"
+          accept=".zip"
+          @change="(event) => {
+            const file = event.target.files[0];
+            if (file) {
+              loadConfigFromZip(file);
+            }
+          }"/>
         <f-button
-          v-if="false"
-          class="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200">
+          class="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
+          @click="fileInputRef.click()"
+        >
           <div class="flex flex-row items-center justify-center gap-2">
             <i class="pi pi-file-import"></i>
             <span>{{ $t('settings.general.importConfig') }}</span>

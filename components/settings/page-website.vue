@@ -166,7 +166,7 @@ const handleAddCustomWebsite = () => {
           </div>
           <select
             v-model="selectedCategory"
-            class="px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+            class="px-4 py-2 border rounded-lg outline-none focus:border-blue-500 transition-colors"
           >
             <option
               v-for="category in categories"

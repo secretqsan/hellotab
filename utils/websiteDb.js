@@ -58,10 +58,11 @@ const popularWebsites = [
       { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
       { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
       { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/icons/miyoushe.jpg" },
+      { name: "知乎", url: "https://www.zhihu.com", icon: "" },
     ],
   },
   {
-    name: "工作",
+    name: "通讯",
     sites: [
       { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
       {
@@ -74,33 +75,42 @@ const popularWebsites = [
         url: "https://teams.microsoft.com/",
         icon: ""
       },
-      {
-        name: "Mocrosoft Forms",
-        url: "https://forms.office.com/", 
-        icon: "/icons/forms.svg",
-      }
-    ],
+    ] 
   },
   {
     name: "效率工具",
     sites: [
-      { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
       {
         name: "Notion",
         url: "https://www.notion.so/",
         icon: "https://www.notion.com/front-static/favicon.ico",
-      },
-      { name: "知乎", url: "https://www.zhihu.com", icon: "" },
-      {
-        name: "office",
-        url: "https://m365.cloud.microsoft",
-        icon: "https://res.cdn.office.net/officehub/images/content/images/favicon_copilot-4370172aa6.ico",
       },
       {
         name: "deepl",
         url: "https://www.deepl.com/",
         icon: "https://static.deepl.com/img/logo/deepl-logo-blue.svg",
       },
+      {
+        name: "Mocrosoft Forms",
+        url: "https://forms.office.com/", 
+        icon: "/icons/forms.svg",
+      },
+      {
+        name: "腾讯文档",
+        url: "https://docs.qq.com/desktop/",
+        icon: "/icons/qqdoc.png"
+      },
+      {
+        name: "office",
+        url: "https://m365.cloud.microsoft",
+        icon: "https://res.cdn.office.net/officehub/images/content/images/favicon_copilot-4370172aa6.ico",
+      },
+      { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
+      {
+        name: "Xmind思维导图",
+        url: "https://ai.xmind.cn/",
+        icon: "/icons/xmind.jpg",
+      }
     ],
   },
   {
@@ -121,6 +131,11 @@ const popularWebsites = [
   {
     name: "云存储",
     sites: [
+      {
+        name: "百度网盘",
+        url: "https://pan.baidu.com/",
+        icon: "/icons/baidudisk.png"
+      },
       {
         name: "Onedrive",
         url: "https://onedrive.live.com",
