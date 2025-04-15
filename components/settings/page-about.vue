@@ -17,6 +17,16 @@ const config = useRuntimeConfig();
             {{ $t('settings.about.privacyPolicyView') }}
           </NuxtLink>
         </div>
+        <div class="mb-1">
+          第三方许可：Icons by 
+          <NuxtLink 
+            target="_blank" 
+            to="https://icons8.com/" 
+            class="text-blue-500 hover:text-blue-600 transition-colors"
+          >
+            Icons8
+          </NuxtLink>
+        </div>
       </div>
     </div>
 
@@ -55,7 +65,7 @@ const config = useRuntimeConfig();
           <span>{{ $t('settings.about.joinQQGroup') }}</span>
         </div>
         <div class="flex justify-center mt-2">
-          <img src="/image/qq_group.jpg" class="w-1/4" />
+          <img src="/img/qq_group.jpg" class="w-1/4" />
         </div>
       </div>
     </div>

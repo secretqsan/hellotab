@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 const activeTab = ref("popular");
 const searchQuery = ref("");
 const selectedCategory = ref("all");
@@ -211,7 +210,7 @@ const handleAddCustomWebsite = () => {
                   :alt="site.name"
                   class="w-6 h-6 rounded-sm"
                   @contextmenu.prevent
-                  @error="$event.target.src = '/icons/globe.svg'"
+                  @error="$event.target.src = '/img/globe.svg'"
                 />
                 <div>
                   <div class="font-medium">{{ site.name }}</div>

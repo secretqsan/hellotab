@@ -45,25 +45,25 @@ const features = ref([
 const releases = ref([
   {
     url: "downloads/hellotab-0.1.0-beta.zip",
-    icon: "image/crx.png",
+    icon: "/img/extension.svg",
     mainText: "zip版本",
     subText: "开发版本",
   },
   {
     url: "https://microsoftedge.microsoft.com/addons/detail/apcaagdmicpkhmldkepdadhkfglkimaf",
-    icon: "image/edge.svg",
+    icon: "/img/edge.svg",
     mainText: "Edge 扩展",
     subText: "扩展商店*",
   },
   {
     url: "#",
-    icon: "image/chrome.svg",
+    icon: "/img/chrome.svg",
     mainText: "Chrome 扩展",
     subText: "敬请期待",
   },
   {
     url: "#",
-    icon: "image/firefox.svg",
+    icon: "/img/firefox.svg",
     mainText: "Firefox 扩展",
     subText: "敬请期待",
   },

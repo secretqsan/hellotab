@@ -54,10 +54,13 @@ const imageUrl = computed(() => {
     <div class="flex flex-col gap-2">
       <label class="text-md text-gray-600">背景图片</label>
       <div class="flex flex-col gap-4">
-        <selector
-          :candidates="backgroundOrigin"
-          v-model="appearance.background"
-        />
+        <div class="w-full overflow-x-scroll">
+          <selector
+            :candidates="backgroundOrigin"
+            v-model="appearance.background"
+          />
+        </div>
+        
         <div
           v-if="appearance.background == 'custom'"
           class="flex flex-row gap-2"
