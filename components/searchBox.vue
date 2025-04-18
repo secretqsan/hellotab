@@ -187,7 +187,6 @@ function searchBoxFocused() {
 <template>
   <div class="relative w-full max-w-[600px]">
     <div class="relative w-full group">
-      <input v-show="false"> <!--//difuse the browser autofill-->
       <input
         v-model="searchQuery"
         type="text"

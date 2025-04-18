@@ -59,17 +59,17 @@ const popularWebsites = [
   {
     name: "社交",
     sites: [
-      { name: "微博", url: "https://weibo.com", icon: "" },
-      { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
-      { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
+      { name: "微博", url: "https://weibo.com", icon: "/img/weibo.png" },
+      { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "/img/xiaohongshu.png" },
+      { name: "豆瓣", url: "https://www.douban.com/", icon: "/img/douban.png" },
       { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/img/miyoushe.jpg" },
-      { name: "知乎", url: "https://www.zhihu.com", icon: "" },
+      { name: "知乎", url: "https://www.zhihu.com", icon: "/img/zhihu.png" },
     ],
   },
   {
     name: "通讯",
     sites: [
-      { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
+      { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "/img/outlook.svg" },
       {
         name: "网易邮箱",
         url: "https://mail.163.com/",
@@ -168,7 +168,7 @@ const popularWebsites = [
       {
         name: "澎湃新闻",
         url: "https://www.thepaper.cn",
-        icon: "",
+        icon: "/img/pengpai_news.png",
       },
     ],
   },
@@ -177,6 +177,7 @@ const popularWebsites = [
     sites: [
       { name: "淘宝", url: "https://www.taobao.com", icon: "" },
       { name: "京东", url: "https://www.jd.com", icon: "/img/jd.jpg" },
+      { name: "拼多多", url: "https://www.pinduoduo.com/", icon: "/img/pdd.png" },
     ],
   },
   {
@@ -209,6 +210,11 @@ const popularWebsites = [
         name: "Postman",
         url: "https://www.postman.com/",
         icon: "/img/postman.svg",
+      },
+      {
+        name: "Visual Studio Code",
+        url: "https://vscode.dev/",
+        icon: "/img/vsc.svg",
       }
     ],
   },
@@ -250,7 +256,11 @@ const popularWebsites = [
         url: "https://leetcode.cn/",
         icon: "",
       },
-      
+      {
+        name: "多邻国",
+        url: "https://www.duolingo.com/",
+        icon: "/img/duolingo.svg",
+      }
     ],
   },
   {

@@ -3,12 +3,17 @@ const settingsStore = useSettingsStore();
 const { searchEngine } = storeToRefs(settingsStore);
 const currentPage = ref(1);
 const itemsPerPage = 5;
+const availableImageSearchProvider = [
+  "bing",
+  "google"
+]
 const searchEngineCandidates = ref([
-  { id: "bingcn", name: "必应(国内用户使用)" },
+  { id: "bingcn", name: "必应(中国)" },
   { id: "google", name: "Google" },
   { id: "bing", name: "Bing" },
   { id: "baidu", name: "百度" },
   { id: "duckduckgo", name: "DuckDuckGo" },
+  { id: "yandex", name: "Yandex" },
   { id: "custom", name: "自定义" },
 ]);
 const urls = ref({
@@ -17,6 +22,7 @@ const urls = ref({
   bing: "https://www.bing.com/search?q=%s",
   baidu: "https://www.baidu.com/s?wd=%s",
   duckduckgo: "https://www.duckduckgo.com/?q=%s",
+  yandex: "https://yandex.com/search/?text=%s",
   costum: "",
 });
 
@@ -41,15 +47,27 @@ watch(
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">{{ $t('settings.search.defaultSearchEngine') }}</label>
+      <label class="text-md text-gray-600">
+        {{ $t('settings.search.defaultSearchEngine') }}
+      </label>
       <div class="w-full overflow-x-scroll">
         <selector
           :candidates="searchEngineCandidates"
           v-model="searchEngine.id"
         />
       </div>
+      <div v-if="false" :class="[
+        'text-sm',
+        availableImageSearchProvider.includes(searchEngine.id)? 'text-green-600':  ' text-red-600'
+        ]"
+      >
+        <i :class="[
+          'pi',
+          availableImageSearchProvider.includes(searchEngine.id)? 'pi-check-circle': 'pi-times-circle'
+        ]"/>
+        图像搜索
+      </div>
     </div>
-
     <div class="flex flex-col gap-2">
       <label class="text-md text-gray-600">URL</label>
       <input
