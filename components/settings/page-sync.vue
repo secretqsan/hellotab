@@ -113,10 +113,7 @@ const downloadFromCloud = async () => {
             开启后可以在多个设备间同步您的设置
           </p>
         </div>
-        <Switch 
-          v-model="syncEnabled"
-          @checked="firstSyncOk = false"
-        />
+        <CustomSwitch v-model="syncEnabled" @checked="firstSyncOk = false" />
       </div>
 
       <template v-if="syncEnabled">
@@ -151,16 +148,20 @@ const downloadFromCloud = async () => {
                 class="w-full px-3 py-2 border rounded-lg"
               />
             </div>
-            <f-button
+            <custom-button
               v-if="!webdavTestedOk"
               @click="testConnection"
               :disabled="testingConnection"
-              :class="testingConnection
+              :class="[
+                'w-full',
+                testingConnection
                   ? 'bg-gray-200 cursor-not-allowed'
-                  : 'bg-blue-500 hover:bg-blue-600 text-white'">
+                  : 'bg-blue-500 hover:bg-blue-600 text-white'
+              ]"
+            >
               <span v-if="testingConnection">测试中...</span>
               <span v-else>测试连接</span>
-            </f-button>
+            </custom-button>
 
             <div v-else class="space-y-4">
               <div

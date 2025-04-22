@@ -124,16 +124,16 @@ const handleAddCustomWebsite = () => {
 
 <template>
   <div class="p-4 flex flex-col gap-6 w-full h-full">
-    <f-button
+    <custom-button
       v-if="$device.isDesktop && !$device.isFirefox"
-      class="bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"
+      class="w-full bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
       @click="handleImportBookmarks"
     >
       <div class="flex flex-row gap-2 items-center">
         <i class="pi pi-bookmark"></i>
         <span>{{ $t('settings.website.importBookmarks') }}</span>
       </div>
-    </f-button>
+    </custom-button>
 
     <div class="bg-white rounded-lg p-4 w-full flex-1 h-0 flex flex-col overflow-hidden">
       <div class="flex gap-4 mb-4">

@@ -90,7 +90,7 @@ function changeLanguage() {
     class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-2 flex flex-col items-center"
   >
     <div class="flex flex-row items-center gap-2 w-full mb-20">
-      <Placeholder />
+      <CustomPlaceholder />
       <button
         class="w-10 h-10 bg-white hover:bg-gray-50 rounded-md shadow-md transition-all duration-300 hover:shadow-lg outline-none"
         @click="changeLanguage"

@@ -3,10 +3,11 @@ const settingsStore = useSettingsStore();
 const { searchEngine } = storeToRefs(settingsStore);
 const currentPage = ref(1);
 const itemsPerPage = 5;
-const availableImageSearchProvider = [
-  "bing",
-  "google"
-]
+const availableImageSearchUrl = {
+  bing: 'https://www.bing.com/images/search?view=detailv2&iss=SBI&q=imgurl:%s',
+  google: 'https://lens.google.com/uploadbyurl?url=%s',
+  yandex: 'https://ya.ru/images/search?rpt=imageview&url=%s',
+}
 const searchEngineCandidates = ref([
   { id: "bingcn", name: "必应(中国)" },
   { id: "google", name: "Google" },
@@ -40,6 +41,7 @@ watch(
   () => searchEngine.value.id,
   (newID, oldID) => {
     searchEngine.value.baseUrl = urls.value[newID];
+    searchEngine.value.imageSearchUrl = availableImageSearchUrl[newID];
   }
 );
 </script>
@@ -51,19 +53,19 @@ watch(
         {{ $t('settings.search.defaultSearchEngine') }}
       </label>
       <div class="w-full overflow-x-scroll">
-        <selector
+        <CustomSelector
           :candidates="searchEngineCandidates"
           v-model="searchEngine.id"
         />
       </div>
-      <div v-if="false" :class="[
+      <div :class="[
         'text-sm',
-        availableImageSearchProvider.includes(searchEngine.id)? 'text-green-600':  ' text-red-600'
+        Object.keys(availableImageSearchUrl).includes(searchEngine.id)? 'text-green-600': 'text-red-600'
         ]"
       >
         <i :class="[
           'pi',
-          availableImageSearchProvider.includes(searchEngine.id)? 'pi-check-circle': 'pi-times-circle'
+          Object.keys(availableImageSearchUrl).includes(searchEngine.id)? 'pi-check-circle': 'pi-times-circle'
         ]"/>
         图像搜索
       </div>
@@ -84,7 +86,7 @@ watch(
 
     <div class="flex flex-row items-center w-full">
       <label class="text-md text-gray-600">最大历史记录</label>
-      <Placeholder />
+      <CustomPlaceholder />
       <input
         type="number"
         class="p-2 border rounded-lg focus:border-blue-500 focus:outline-none"
@@ -110,7 +112,7 @@ watch(
           class="flex rounded-md flex-row items-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
         >
           <span class="text-sm text-gray-600 truncate">{{ item }}</span>
-          <Placeholder />
+          <CustomPlaceholder />
           <button
             @click="
               searchEngine.history.splice(
