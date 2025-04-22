@@ -167,9 +167,7 @@ const handleSearch = () => {
   else {
     return
   }
-  //window.open(searchUrl, "_blank");
-
-  console.log(searchUrl);
+  window.open(searchUrl, "_blank");
 };
 
 const fetchSuggestions = async (query) => {
