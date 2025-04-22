@@ -18,6 +18,7 @@
 - [ ] 增加更多的实用小组件
 - [ ] 移动端支持
 - [ ] 国际化支持
+- [ ] SPA支持
 
 ## 技术栈
 
@@ -41,6 +42,7 @@ npm install
 NUXT_QWEATHER_API_KEY="你的和风天气API密钥"
 NUXT_GLM_API_KEY="你的智谱API密钥"
 NUXT_UNSPLASH_ACCESS_KEY="你的Unsplash API密钥"
+NUXT_MONGODB_CONNECTION_STRING="你的MongoDB连接字符串"
 ```
 
 ### 开发环境

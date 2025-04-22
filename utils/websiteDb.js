@@ -120,6 +120,11 @@ const popularWebsites = [
         name: "Descript",
         url: "https://web.descript.com/",
         icon: "/img/descript.png"
+      },
+      {
+        name: "Typst",
+        url: "https://typst.app/",
+        icon: "/img/typst.png"
       }
     ],
   },
@@ -212,7 +217,7 @@ const popularWebsites = [
         icon: "/img/postman.svg",
       },
       {
-        name: "Visual Studio Code",
+        name: "VS Code",
         url: "https://vscode.dev/",
         icon: "/img/vsc.svg",
       }
