@@ -19,10 +19,10 @@ watch(
 
 <template>
   <div class="p-4 flex flex-col gap-6">
-    <label class="text-md text-gray-600">搜索框无内容时按 <keyboard>Space</keyboard> 以唤起。</label>
+    <label class="text-md text-gray-600">搜索框无内容时按 <CustomKeyboard>Space</CustomKeyboard> 以唤起。</label>
     <div class="flex flex-col gap-2">
       <label class="text-md text-gray-600">AI搜索服务提供商</label>
-      <selector
+      <CustomSelector
         :candidates="aiSearchEngineCandidate"
         v-model="aiSearchEngine.id"
       />

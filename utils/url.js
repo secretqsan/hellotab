@@ -23,4 +23,10 @@ function isUrl(str) {
   }
   return false;
 }
-export { proxyedUrl, apiEndpoint, isUrl };
+
+function constructTemplateUrl(baseUrl, placeholder, value) {
+  var url = baseUrl.replace(placeholder, value);
+  return url;
+}
+
+export { proxyedUrl, apiEndpoint, isUrl, constructTemplateUrl};

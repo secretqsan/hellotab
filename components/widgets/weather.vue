@@ -102,7 +102,7 @@ onUnmounted(() => {
       >
         <div class="flex items-center gap-4 mb-2">
           <div class="text-xl">{{ location.name }}</div>
-          <Placeholder />
+          <CustomPlaceholder />
           <div class="text-xs text-gray-400">
             {{ new Date().toLocaleDateString() }}
           </div>

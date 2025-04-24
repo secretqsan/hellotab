@@ -9,30 +9,18 @@ const backgroundOrigin = ref([
   { id: "custom", name: "自定义" },
 ]);
 const customBackgroundUrl = ref("");
-const fileInputRef = ref();
+const customBackgroundData = ref("");
 
-function uploadFile(file) {
-  if (file && file.type.startsWith("image/")) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
+watch(
+  () => customBackgroundData.value,
+  (newValue, oldValue) => {
+    if (newValue != oldValue) {
       delete pictures.value[appearance.value.e1];
-      var id = pictureProxy(e.target.result);
+      var id = pictureProxy(newValue);
       appearance.value.e1 = id;
-    };
-    reader.readAsDataURL(file);
+    }
   }
-}
-
-const handleFileSelect = (event) => {
-  const file = event.target.files[0];
-  uploadFile(file);
-};
-
-const handleDrop = (event) => {
-  const file = event.dataTransfer.files[0];
-  uploadFile(file);
-};
-
+);
 const { data:onlineBackgroundUrl } = await useFetch('/api/backgrounds')
 const imageUrl = computed(() => {
   if (appearance.value.background == "bing") {
@@ -54,10 +42,13 @@ const imageUrl = computed(() => {
     <div class="flex flex-col gap-2">
       <label class="text-md text-gray-600">背景图片</label>
       <div class="flex flex-col gap-4">
-        <selector
-          :candidates="backgroundOrigin"
-          v-model="appearance.background"
-        />
+        <div class="w-full overflow-x-scroll">
+          <CustomSelector
+            :candidates="backgroundOrigin"
+            v-model="appearance.background"
+          />
+        </div>
+        
         <div
           v-if="appearance.background == 'custom'"
           class="flex flex-row gap-2"
@@ -78,53 +69,27 @@ const imageUrl = computed(() => {
             应用
           </button>
         </div>
-        <div
-          :class="[
-            'w-full min-h-60 border rounded-lg border-1 flex flex-col bg-white items-center justify-center overflow-hidden ',
-            appearance.background == 'custom' ? 'cursor-pointer' : '',
-          ]"
-          @click="
-            () => {
-              if (appearance.background == 'custom') {
-                fileInputRef.click();
-              }
-            }
-          "
-          @dragover.prevent
-          @drop.prevent="handleDrop"
-        >
-          <input
-            type="file"
-            ref="fileInputRef"
-            class="hidden"
-            accept="image/*"
-            @change="handleFileSelect"
-          />
-          <div
-            v-if="appearance.background == 'custom' && appearance.e1 == ''"
-            class="flex flex-col items-center gap-4 text-gray-400"
-          >
-            <i class="pi pi-upload text-4xl"></i>
-            <span class="text-sm">点击或拖拽图片到此处</span>
-          </div>
-          <img v-else :src="imageUrl" class="w-full" />
-        </div>
+        <CustomImageUploader 
+          class="w-full min-h-60 border bg-white" 
+          :alt="imageUrl"
+          v-model="customBackgroundData"
+        />
       </div>
     </div>
     <div class="flex flex-col gap-2">
       <label class="text-md text-gray-600">小组件</label>
       <div class="flex items-center gap-2">
         <label class="text-md text-gray-600">隐藏小组件标题</label>
-        <placeholder />
-        <Switch v-model="appearance.hideWidgetTitle" />
+        <CustomPlaceholder />
+        <CustomSwitch v-model="appearance.hideWidgetTitle" />
       </div>
     </div>
     <div class="flex flex-col gap-2">
       <label class="text-md text-gray-600">一言</label>
       <div class="flex items-center gap-2">
         <label class="text-md text-gray-600">显示一言</label>
-        <placeholder />
-        <Switch v-model="appearance.showHitokoto" />
+        <CustomPlaceholder />
+        <CustomSwitch v-model="appearance.showHitokoto" />
       </div>
     </div>
   </div>

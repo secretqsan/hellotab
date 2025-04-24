@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   css: [
     "primeicons/primeicons.css",
     "qweather-icons/font/qweather-icons.css",
-    "./assets/css/global.css",
+    "~/assets/css/global.css",
   ],
   piniaPluginPersistedstate: {
     storage: "localStorage",
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.7.9"
+      version: "1.9.3"
     },
   }
 });

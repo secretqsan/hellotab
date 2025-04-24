@@ -25,7 +25,7 @@ export default defineCachedEventHandler(
     return backgrounds;
   },
   {
-    maxAge: 60 * 60,
+    maxAge: 60 * 60 * 6,
     swr: true,
   }
 );

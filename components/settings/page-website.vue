@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 const activeTab = ref("popular");
 const searchQuery = ref("");
 const selectedCategory = ref("all");
@@ -125,16 +124,16 @@ const handleAddCustomWebsite = () => {
 
 <template>
   <div class="p-4 flex flex-col gap-6 w-full h-full">
-    <f-button
+    <custom-button
       v-if="$device.isDesktop && !$device.isFirefox"
-      class="bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200"
+      class="w-full bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"
       @click="handleImportBookmarks"
     >
       <div class="flex flex-row gap-2 items-center">
         <i class="pi pi-bookmark"></i>
         <span>{{ $t('settings.website.importBookmarks') }}</span>
       </div>
-    </f-button>
+    </custom-button>
 
     <div class="bg-white rounded-lg p-4 w-full flex-1 h-0 flex flex-col overflow-hidden">
       <div class="flex gap-4 mb-4">
@@ -166,7 +165,7 @@ const handleAddCustomWebsite = () => {
           </div>
           <select
             v-model="selectedCategory"
-            class="px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+            class="px-4 py-2 border rounded-lg outline-none focus:border-blue-500 transition-colors"
           >
             <option
               v-for="category in categories"
@@ -211,7 +210,7 @@ const handleAddCustomWebsite = () => {
                   :alt="site.name"
                   class="w-6 h-6 rounded-sm"
                   @contextmenu.prevent
-                  @error="$event.target.src = '/icons/globe.svg'"
+                  @error="$event.target.src = '/img/globe.svg'"
                 />
                 <div>
                   <div class="font-medium">{{ site.name }}</div>

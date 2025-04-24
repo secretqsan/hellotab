@@ -147,7 +147,7 @@ onMounted(() => {
         $device.isDesktop || $device.isTablet ? 'mb-10' : '',
       ]"
     >
-      <Placeholder />
+      <CustomPlaceholder />
       <ClientOnly>
         <NuxtLink
           v-if="crxId == '' && $device.isDesktop"
@@ -186,4 +186,5 @@ onMounted(() => {
   <Background />
   <SettingsMain ref="settingPanel" />
   <Toast ref="toast" />
+  <canvas id="canvas" class="hidden" />
 </template>

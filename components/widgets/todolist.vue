@@ -92,7 +92,7 @@ const openWindow = () => {
               class="pi pi-external-link text-gray-600 hover:text-gray-800 transition-colors text-sm"
             ></i>
           </h1>
-          <Placeholder />
+          <CustomPlaceholder />
           <button
             class="p-1 rounded-md text-gray-500 border-2 hover:text-gray-600 transition-colors focus:outline-none hover:ring-2 hover:ring-gray-400/20 flex items-center justify-center"
             @click="addingNewTodo = !addingNewTodo"
@@ -125,7 +125,7 @@ const openWindow = () => {
         </div>
         <div class="flex-1 overflow-y-auto flex flex-col gap-1">
           <template v-for="(todo, index) in props.e.items">
-            <CheckBox
+            <CustomCheckBox
               v-model="todo.completed"
               @click="toggleTodo(todo)"
               class="rounded-md px-2 py-1.5 hover:bg-gray-100 transition-colors duration-200"
@@ -136,7 +136,7 @@ const openWindow = () => {
               >
                 {{ todo.title }}
               </span>
-            </CheckBox>
+            </CustomCheckBox>
             <div
               v-if="index < props.e.items.length - 1"
               class="h-[1px] bg-gray-300"
@@ -160,7 +160,7 @@ const openWindow = () => {
         </p>
         <div v-if="incompleteTodos.length > 0" @click.stop class="w-full">
           <div class="flex items-center p-2">
-            <CheckBox
+            <CustomCheckBox
               v-model="e.items[currentIndex].completed"
               @click="toggleTodo(e.items[currentIndex])"
               class="min-w-[20px]"
@@ -174,8 +174,8 @@ const openWindow = () => {
               >
                 {{ e.items[currentIndex]?.title }}
               </span>
-            </CheckBox>
-            <Placeholder />
+            </CustomCheckBox>
+            <CustomPlaceholder />
             <div class="flex flex-row gap-0.5">
               <button
                 @click="prevTodo"
@@ -229,7 +229,7 @@ const openWindow = () => {
         </div>
         <div class="max-h-[400px] overflow-y-auto flex flex-col gap-1">
           <template v-for="(todo, index) in e.items">
-            <CheckBox
+            <CustomCheckBox
               class="hover:bg-gray-100 transition-colors duration-200 rounded-md px-3 py-2"
               v-model="todo.completed"
               @click="toggleTodo(todo)"
@@ -242,7 +242,7 @@ const openWindow = () => {
                   {{ todo.title }}
                 </span>
                 <span class="text-sm text-gray-500">{{ todo.date }}</span>
-                <Placeholder />
+                <CustomPlaceholder />
                 <button
                   @click="deleteTodo(todo.id)"
                   class="px-2 py-1 text-sm text-gray-500 hover:text-gray-600 hover:bg-gray-200 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500/20"
@@ -250,7 +250,7 @@ const openWindow = () => {
                   删除
                 </button>
               </div>
-            </CheckBox>
+            </CustomCheckBox>
             <div
               v-if="index < e.items.length - 1"
               class="h-[1px] bg-gray-200"

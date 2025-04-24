@@ -2,18 +2,18 @@ const popularWebsites = [
   {
     name: "娱乐",
     sites: [
-      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "/icons/bilibili.png" },
+      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "/img/bilibili.png" },
       { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: "" },
       { name: "抖音", url: "https://www.douyin.com/", icon: "" },
       { name: "4399", url: "https://4399.com", icon: "" },
-      { name: "QQ音乐", url: "https://y.qq.com/", icon: "/icons/qqmusic.png" },
+      { name: "QQ音乐", url: "https://y.qq.com/", icon: "/img/qqmusic.png" },
       {
         name: "网易云音乐",
         url: "https://music.163.com/",
-        icon: "/icons/163music.jpg",
+        icon: "/img/163music.jpg",
       },
-      { name: "腾讯视频", url: "https://v.qq.com/", icon: "/icons/qqvideo.png" },
-      { name: "CCTV", url: "https://tv.cctv.com/", icon: "/icons/CCTV.svg" },
+      { name: "腾讯视频", url: "https://v.qq.com/", icon: "/img/qqvideo.png" },
+      { name: "CCTV", url: "https://tv.cctv.com/", icon: "/img/CCTV.svg" },
     ],
   },
   {
@@ -22,7 +22,7 @@ const popularWebsites = [
       {
         name: "Deepseek",
         url: "https://chat.deepseek.com",
-        icon: "https://www.deepseek.com/favicon.ico",
+        icon: "/img/deepseek.svg",
       },
       {
         name: "Kimi",
@@ -37,7 +37,7 @@ const popularWebsites = [
       {
         name: "Gamma",
         url: "https://gamma.app/",
-        icon: "https://gamma.app/favicons/favicon-192.svg",
+        icon: "/img/gamma.svg",
       },
       {
         name: "可灵AI视频",
@@ -49,58 +49,88 @@ const popularWebsites = [
         url: "https://www.mureka.ai/",
         icon: "",
       },
+      {
+        name: "腾讯元宝",
+        url: "https://yuanbao.tencent.com/",
+        icon: "/img/yuanbao.png",
+      }
     ],
   },
   {
     name: "社交",
     sites: [
-      { name: "微博", url: "https://weibo.com", icon: "" },
-      { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "" },
-      { name: "豆瓣", url: "https://www.douban.com/", icon: "" },
-      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/icons/miyoushe.jpg" },
+      { name: "微博", url: "https://weibo.com", icon: "/img/weibo.png" },
+      { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "/img/xiaohongshu.png" },
+      { name: "豆瓣", url: "https://www.douban.com/", icon: "/img/douban.png" },
+      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/img/miyoushe.jpg" },
+      { name: "知乎", url: "https://www.zhihu.com", icon: "/img/zhihu.png" },
     ],
   },
   {
-    name: "工作",
+    name: "通讯",
     sites: [
-      { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "" },
+      { name: "outlook", url: "https://outlook.office365.com/mail/", icon: "/img/outlook.svg" },
       {
         name: "网易邮箱",
         url: "https://mail.163.com/",
-        icon: "/icons/163mail.svg",
+        icon: "/img/163mail.svg",
       },
       {
         name: "Microsoft Teams",
         url: "https://teams.microsoft.com/",
         icon: ""
       },
-      {
-        name: "Mocrosoft Forms",
-        url: "https://forms.office.com/", 
-        icon: "/icons/forms.svg",
-      }
-    ],
+    ] 
   },
   {
     name: "效率工具",
     sites: [
-      { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
       {
         name: "Notion",
         url: "https://www.notion.so/",
         icon: "https://www.notion.com/front-static/favicon.ico",
-      },
-      { name: "知乎", url: "https://www.zhihu.com", icon: "" },
-      {
-        name: "office",
-        url: "https://m365.cloud.microsoft",
-        icon: "https://res.cdn.office.net/officehub/images/content/images/favicon_copilot-4370172aa6.ico",
       },
       {
         name: "deepl",
         url: "https://www.deepl.com/",
         icon: "https://static.deepl.com/img/logo/deepl-logo-blue.svg",
       },
+      {
+        name: "Mocrosoft Forms",
+        url: "https://forms.office.com/", 
+        icon: "/img/forms.svg",
+      },
+      {
+        name: "腾讯文档",
+        url: "https://docs.qq.com/desktop/",
+        icon: "/img/qqdoc.png"
+      },
+      {
+        name: "office",
+        url: "https://m365.cloud.microsoft",
+        icon: "https://res.cdn.office.net/officehub/images/content/images/favicon_copilot-4370172aa6.ico",
+      },
+      { name: "飞书", url: "https://www.feishu.cn/", icon: "" },
+      {
+        name: "Xmind思维导图",
+        url: "https://ai.xmind.cn/",
+        icon: "/img/xmind.jpg",
+      },
+      {
+        name: "Descript",
+        url: "https://web.descript.com/",
+        icon: "/img/descript.png"
+      },
+      {
+        name: "Typst",
+        url: "https://typst.app/",
+        icon: "/img/typst.png"
+      },
+      {
+        name: "Folo",
+        url: "https://app.follow.is/",
+        icon: "/img/folo.svg",
+      }
     ],
   },
   {
@@ -116,29 +146,44 @@ const popularWebsites = [
         url: "https://unsplash.com/",
         icon: "",
       },
+      {
+        name: "Icons8",
+        url: "https://icons8.com/",
+        icon: "/img/icons8.svg",
+      },
+      {
+        name: "Draw.io",
+        url: "https://app.diagrams.net/",
+        icon: "/img/drawio.svg",
+      }
     ],
   },
   {
     name: "云存储",
     sites: [
       {
+        name: "百度网盘",
+        url: "https://pan.baidu.com/",
+        icon: "/img/baidudisk.png"
+      },
+      {
         name: "Onedrive",
         url: "https://onedrive.live.com",
-        icon: "/icons/onedrive.svg",
+        icon: "/img/onedrive.svg",
       },
     ],
   },
   {
     name: "新闻",
     sites: [
-      { name: "腾讯网", url: "https://www.qq.com", icon: "/icons/qq.ico" },
-      { name: "网易新闻", url: "https://news.163.com", icon: "/icons/netease_news.png" },
-      { name: "新华社", url: "https://www.xinhuanet.com", icon: "/icons/xinhua.png" },
-      { name: "搜狐", url: "https://www.sohu.com/", icon: "/icons/souhu.png" },
+      { name: "腾讯网", url: "https://www.qq.com", icon: "/img/qq.ico" },
+      { name: "网易新闻", url: "https://news.163.com", icon: "/img/netease_news.png" },
+      { name: "新华社", url: "https://www.xinhuanet.com", icon: "/img/xinhua.png" },
+      { name: "搜狐", url: "https://www.sohu.com/", icon: "/img/souhu.png" },
       {
         name: "澎湃新闻",
         url: "https://www.thepaper.cn",
-        icon: "",
+        icon: "/img/pengpai_news.png",
       },
     ],
   },
@@ -146,7 +191,8 @@ const popularWebsites = [
     name: "购物",
     sites: [
       { name: "淘宝", url: "https://www.taobao.com", icon: "" },
-      { name: "京东", url: "https://www.jd.com", icon: "/icons/jd.jpg" },
+      { name: "京东", url: "https://www.jd.com", icon: "/img/jd.jpg" },
+      { name: "拼多多", url: "https://www.pinduoduo.com/", icon: "/img/pdd.png" },
     ],
   },
   {
@@ -178,7 +224,12 @@ const popularWebsites = [
       {
         name: "Postman",
         url: "https://www.postman.com/",
-        icon: "/icons/postman.svg",
+        icon: "/img/postman.svg",
+      },
+      {
+        name: "VS Code",
+        url: "https://vscode.dev/",
+        icon: "/img/vsc.svg",
       }
     ],
   },
@@ -188,7 +239,7 @@ const popularWebsites = [
       {
         name: "安娜的档案",
         url: "https://annas-archive.org/",
-        icon: "/icons/anna_archive.png",
+        icon: "/img/anna_archive.png",
       },
       {
          name: "微信读书",
@@ -208,7 +259,7 @@ const popularWebsites = [
       {
         name: "MOOC",
         url: "https://www.icourse163.org/",
-        icon: "/icons/mooc.png",
+        icon: "/img/mooc.png",
       },
       {
         name: "菜鸟教程",
@@ -220,7 +271,11 @@ const popularWebsites = [
         url: "https://leetcode.cn/",
         icon: "",
       },
-      
+      {
+        name: "多邻国",
+        url: "https://www.duolingo.com/",
+        icon: "/img/duolingo.svg",
+      }
     ],
   },
   {
@@ -239,7 +294,7 @@ const popularWebsites = [
       {
         name: "Google Scholar",
         url: "https://scholar.google.com/",
-        icon: "/icons/google_scholar.ico",
+        icon: "/img/google_scholar.ico",
       },
     ],
   },
