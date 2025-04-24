@@ -125,6 +125,11 @@ const popularWebsites = [
         name: "Typst",
         url: "https://typst.app/",
         icon: "/img/typst.png"
+      },
+      {
+        name: "Folo",
+        url: "https://app.follow.is/",
+        icon: "/img/folo.svg",
       }
     ],
   },
@@ -145,6 +150,11 @@ const popularWebsites = [
         name: "Icons8",
         url: "https://icons8.com/",
         icon: "/img/icons8.svg",
+      },
+      {
+        name: "Draw.io",
+        url: "https://app.diagrams.net/",
+        icon: "/img/drawio.svg",
       }
     ],
   },
