@@ -198,7 +198,7 @@ const popularWebsites = [
   {
     name: "开发",
     sites: [
-      { name: "GitHub", url: "https://github.com", icon: "" },
+      { name: "GitHub", url: "https://github.com", icon: "/img/github.svg" },
       { name: "Vercel", url: "https://vercel.com", icon: "" },
       { name: "Cloudflare", url: "https://dash.cloudflare.com", icon: "" },
       {
@@ -230,6 +230,11 @@ const popularWebsites = [
         name: "VS Code",
         url: "https://vscode.dev/",
         icon: "/img/vsc.svg",
+      },
+      {
+          name: "OHTTPS",
+          url: "https://ohttps.com/",
+          icon: "/img/ohttps.ico",
       }
     ],
   },

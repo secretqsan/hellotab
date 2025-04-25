@@ -1,4 +1,7 @@
 <script setup>
+useHead({
+  title: "帮助"
+});
 const route = useRoute();
 const faqItems = ref([
   {
@@ -28,8 +31,14 @@ const faqItems = ref([
   },
   {
     id: 'bingSearchFailure',
-    question: 'bing搜索白屏怎么办？',
-    answer: '目前认为是bing的问题，把搜索引擎换成bing(国内用户使用)可以解决。',
+    question: 'Bing搜索白屏怎么办？',
+    answer: '目前认为是Bing的问题，把搜索引擎换成bing(中国)即可解决。',
+    isOpen: false
+  },
+  {
+    id: 'bingImageSearch',
+    question: 'Bing图像搜索会自动跳转到世界风景名胜的界面？',
+    answer: 'Bing图像搜索不在中国大陆地区提供服务，因此无法正常使用。',
     isOpen: false
   }
 ]);

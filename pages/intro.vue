@@ -1,5 +1,4 @@
 <script setup>
-import { Analytics } from "@vercel/analytics/nuxt";
 const { setLocale } = useI18n();
 
 const route = useRoute();
@@ -85,7 +84,6 @@ function changeLanguage() {
 </script>
 
 <template>
-  <Analytics />
   <div
     class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-2 flex flex-col items-center"
   >

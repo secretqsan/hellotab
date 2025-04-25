@@ -1,14 +1,15 @@
 <script setup>
 const settingStore = useSettingsStore();
 const { appearance } = storeToRefs(settingStore);
+
+const params = new URLSearchParams();
+params.append("c", "i");
+params.append("c", "k");
+params.append("encode", "json");
 const { data: hitokotoResponse } = await useFetch(
   proxyedUrl("https://v1.hitokoto.cn/"),
   {
-    params: {
-      c: "i",
-      c: "k",
-      encode: "json",
-    },
+    query: params,
   }
 );
 </script>

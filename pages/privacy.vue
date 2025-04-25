@@ -1,3 +1,9 @@
+<script setup>
+useHead({
+  title: "隐私政策"
+});
+</script>
+
 <template>
   <div class="max-w-3xl mx-auto px-6 py-8 text-base leading-relaxed">
     <h1 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">隐私政策</h1>
@@ -43,6 +49,3 @@
     </section>
   </div>
 </template>
-
-<script setup>
-</script>
