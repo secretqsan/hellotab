@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
@@ -32,7 +31,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      version: "1.9.4"
+      version: "1.9.5"
     },
   }
 });
