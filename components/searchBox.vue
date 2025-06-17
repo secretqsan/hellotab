@@ -398,7 +398,7 @@ function searchBoxFocused() {
         </button>
         <ClientOnly>
           <button
-            v-if="!aiSearch && searchEngine.imageSearchUrl"
+            v-if="!aiSearch && searchEngine.imageSearchUrl != ''"
             :class="[
               'hover:bg-gray-100 rounded-lg text-gray-600 w-10 h-10',
               showImageUploader ? 'bg-gray-200' : ' ',

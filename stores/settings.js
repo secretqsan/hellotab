@@ -41,7 +41,7 @@ export const useSettingsStore = defineStore("settings", {
         size_y: 1,
         e: {
           url: "https://www.bilibili.com",
-          icon: "/img/bilibili.png",
+          icon: "/img/bilibili.webp",
           customIcon: false
         }
       },
@@ -63,7 +63,7 @@ export const useSettingsStore = defineStore("settings", {
         size_y: 1,
         e: {
           url: "https://pan.baidu.com/",
-          icon: "/img/baidudisk.png",
+          icon: "/img/baidudisk.webp",
           customIcon: false
         }
       },
@@ -85,7 +85,7 @@ export const useSettingsStore = defineStore("settings", {
         size_y: 1,
         e: {
           url: "https://music.163.com/",
-          icon: "/img/163music.jpg",
+          icon: "/img/163music.webp",
           customIcon: false
         }
       },

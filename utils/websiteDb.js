@@ -2,17 +2,17 @@ const popularWebsites = [
   {
     name: "娱乐",
     sites: [
-      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "/img/bilibili.png" },
+      { name: "哔哩哔哩", url: "https://www.bilibili.com", icon: "/img/bilibili.webp" },
       { name: "爱奇艺", url: "https://www.iqiyi.com/", icon: "" },
       { name: "抖音", url: "https://www.douyin.com/", icon: "" },
       { name: "4399", url: "https://4399.com", icon: "" },
-      { name: "QQ音乐", url: "https://y.qq.com/", icon: "/img/qqmusic.png" },
+      { name: "QQ音乐", url: "https://y.qq.com/", icon: "/img/qqmusic.webp" },
       {
         name: "网易云音乐",
         url: "https://music.163.com/",
-        icon: "/img/163music.jpg",
+        icon: "/img/163music.webp",
       },
-      { name: "腾讯视频", url: "https://v.qq.com/", icon: "/img/qqvideo.png" },
+      { name: "腾讯视频", url: "https://v.qq.com/", icon: "/img/qqvideo.webp" },
       { name: "CCTV", url: "https://tv.cctv.com/", icon: "/img/CCTV.svg" },
     ],
   },
@@ -52,18 +52,18 @@ const popularWebsites = [
       {
         name: "腾讯元宝",
         url: "https://yuanbao.tencent.com/",
-        icon: "/img/yuanbao.png",
+        icon: "/img/yuanbao.webp",
       }
     ],
   },
   {
     name: "社交",
     sites: [
-      { name: "微博", url: "https://weibo.com", icon: "/img/weibo.png" },
-      { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "/img/xiaohongshu.png" },
-      { name: "豆瓣", url: "https://www.douban.com/", icon: "/img/douban.png" },
-      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/img/miyoushe.jpg" },
-      { name: "知乎", url: "https://www.zhihu.com", icon: "/img/zhihu.png" },
+      { name: "微博", url: "https://weibo.com", icon: "/img/weibo.webp" },
+      { name: "小红书", url: "https://www.xiaohongshu.com/", icon: "/img/xiaohongshu.webp" },
+      { name: "豆瓣", url: "https://www.douban.com/", icon: "/img/douban.webp" },
+      { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/img/miyoushe.webp" },
+      { name: "知乎", url: "https://www.zhihu.com", icon: "/img/zhihu.webp" },
     ],
   },
   {
@@ -103,7 +103,7 @@ const popularWebsites = [
       {
         name: "腾讯文档",
         url: "https://docs.qq.com/desktop/",
-        icon: "/img/qqdoc.png"
+        icon: "/img/qqdoc.webp"
       },
       {
         name: "office",
@@ -114,17 +114,17 @@ const popularWebsites = [
       {
         name: "Xmind思维导图",
         url: "https://ai.xmind.cn/",
-        icon: "/img/xmind.jpg",
+        icon: "/img/xmind.webp",
       },
       {
         name: "Descript",
         url: "https://web.descript.com/",
-        icon: "/img/descript.png"
+        icon: "/img/descript.webp"
       },
       {
         name: "Typst",
         url: "https://typst.app/",
-        icon: "/img/typst.png"
+        icon: "/img/typst.webp"
       },
       {
         name: "Folo",
@@ -164,7 +164,7 @@ const popularWebsites = [
       {
         name: "百度网盘",
         url: "https://pan.baidu.com/",
-        icon: "/img/baidudisk.png"
+        icon: "/img/baidudisk.webp"
       },
       {
         name: "Onedrive",
@@ -177,13 +177,13 @@ const popularWebsites = [
     name: "新闻",
     sites: [
       { name: "腾讯网", url: "https://www.qq.com", icon: "/img/qq.ico" },
-      { name: "网易新闻", url: "https://news.163.com", icon: "/img/netease_news.png" },
-      { name: "新华社", url: "https://www.xinhuanet.com", icon: "/img/xinhua.png" },
-      { name: "搜狐", url: "https://www.sohu.com/", icon: "/img/souhu.png" },
+      { name: "网易新闻", url: "https://news.163.com", icon: "/img/netease_news.webp" },
+      { name: "新华社", url: "https://www.xinhuanet.com", icon: "/img/xinhua.webp" },
+      { name: "搜狐", url: "https://www.sohu.com/", icon: "/img/souhu.webp" },
       {
         name: "澎湃新闻",
         url: "https://www.thepaper.cn",
-        icon: "/img/pengpai_news.png",
+        icon: "/img/pengpai_news.webp",
       },
     ],
   },
@@ -191,8 +191,8 @@ const popularWebsites = [
     name: "购物",
     sites: [
       { name: "淘宝", url: "https://www.taobao.com", icon: "" },
-      { name: "京东", url: "https://www.jd.com", icon: "/img/jd.jpg" },
-      { name: "拼多多", url: "https://www.pinduoduo.com/", icon: "/img/pdd.png" },
+      { name: "京东", url: "https://www.jd.com", icon: "/img/jd.webp" },
+      { name: "拼多多", url: "https://www.pinduoduo.com/", icon: "/img/pdd.webp" },
     ],
   },
   {
@@ -244,7 +244,7 @@ const popularWebsites = [
       {
         name: "安娜的档案",
         url: "https://annas-archive.org/",
-        icon: "/img/anna_archive.png",
+        icon: "/img/anna_archive.webp",
       },
       {
          name: "微信读书",
@@ -264,7 +264,7 @@ const popularWebsites = [
       {
         name: "MOOC",
         url: "https://www.icourse163.org/",
-        icon: "/img/mooc.png",
+        icon: "/img/mooc.webp",
       },
       {
         name: "菜鸟教程",

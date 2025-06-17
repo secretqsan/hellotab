@@ -7,6 +7,10 @@ const availableImageSearchUrl = {
   bing: 'https://www.bing.com/images/search?view=detailv2&iss=SBI&q=imgurl:%s',
   google: 'https://lens.google.com/uploadbyurl?url=%s',
   yandex: 'https://ya.ru/images/search?rpt=imageview&url=%s',
+  bingcn: "",
+  baidu: "",
+  duckduckgo: "",
+  costum: "",
 }
 const searchEngineCandidates = ref([
   { id: "bingcn", name: "必应(中国)" },
@@ -60,12 +64,12 @@ watch(
       </div>
       <div :class="[
         'text-sm',
-        Object.keys(availableImageSearchUrl).includes(searchEngine.id)? 'text-green-600': 'text-red-600'
+        availableImageSearchUrl[searchEngine.id] != ''? 'text-green-600': 'text-red-600'
         ]"
       >
         <i :class="[
           'pi',
-          Object.keys(availableImageSearchUrl).includes(searchEngine.id)? 'pi-check-circle': 'pi-times-circle'
+          availableImageSearchUrl[searchEngine.id] != ''? 'pi-check-circle': 'pi-times-circle'
         ]"/>
         图像搜索
       </div>
