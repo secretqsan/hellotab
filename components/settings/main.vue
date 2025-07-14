@@ -37,7 +37,7 @@ defineExpose({
     <div class="w-full h-full flex flex-row">
       <div 
         :class="[
-          'bg-gray-100 h-full p-2 flex flex-col gap-1',
+          'bg-gray-100 h-full p-2 flex flex-col gap-1 overflow-y-auto',
           $device.isDesktop || $device.isTablet ? 'w-1/4' : '',
         ]
       ">

@@ -181,26 +181,31 @@ const handleAddCustomWebsite = () => {
             <template v-for="site in filteredWebsites">
               <div
                 :title="site.name"
-                v-if="!widgets.find((w) => w.e1 == site.url)"
                 @click="
                   () => {
-                    toast.showToast('添加成功');
-                    widgets.push({
-                      type: 'web',
-                      title: site.name,
-                      size_x: 1,
-                      size_y: 1,
-                      e: {
-                        url: site.url,
-                        icon:
-                          site.icon == '' ? getFaviconUrl(site.url) : site.icon,
-                        customIcon: false,
-                      },
-                    });
+                    const existingWidget = widgets.find(w => w.e?.url === site.url);
+                    if (existingWidget) {
+                      widgets.splice(widgets.indexOf(existingWidget), 1);
+                      toast.showToast('已移除');
+                    } else {
+                      widgets.push({
+                        type: 'web',
+                        title: site.name,
+                        size_x: 1,
+                        size_y: 1,
+                        e: {
+                          url: site.url,
+                          icon: site.icon == '' ? getFaviconUrl(site.url) : site.icon,
+                          customIcon: false,
+                        },
+                      });
+                      toast.showToast('添加成功');
+                    }
                   }
                 "
                 :class="[
-                  'overflow-hidden p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors duration-200 flex items-center gap-3',
+                  'overflow-hidden p-4 border rounded-lg cursor-pointer transition-colors duration-200 flex items-center gap-3',
+                  widgets.find(w => w.e?.url === site.url) ? 'border-blue-500 bg-blue-50' : 'hover:border-blue-500',
                   ($device.isDesktop || $device.isTablet)? 'flex-row': 'flex-col'
                 ]"
               >

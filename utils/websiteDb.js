@@ -17,6 +17,27 @@ const popularWebsites = [
     ],
   },
   {
+    name: "交通出行",
+    sites: [
+      {
+        name: "百度地图",
+        url: "https://map.baidu.com/",
+        icon: "/img/baidumap.webp"
+      },
+      {
+        name: "高德地图",
+        url: "https://www.amap.com/",
+        icon: "/img/amap.webp"
+      },
+      {
+        name: "携程旅行",
+        url: "https://www.ctrip.com/",
+        icon: "/img/ctrip.webp"
+      }
+      
+    ],
+  },
+  {
     name: "AI",
     sites: [
       {
@@ -88,7 +109,7 @@ const popularWebsites = [
       {
         name: "Notion",
         url: "https://www.notion.so/",
-        icon: "https://www.notion.com/front-static/favicon.ico",
+        icon: "/img/notion.svg",
       },
       {
         name: "deepl",
@@ -155,6 +176,11 @@ const popularWebsites = [
         name: "Draw.io",
         url: "https://app.diagrams.net/",
         icon: "/img/drawio.svg",
+      },
+      {
+        name: "Color Space",
+        url: "https://mycolor.space/",
+        icon: "/img/colorspace.webp",
       }
     ],
   },
@@ -250,6 +276,11 @@ const popularWebsites = [
          name: "微信读书",
          url: "https://weread.qq.com/",
          icon: "",
+      },
+      {
+        name: "简书",
+        url: "https://www.jianshu.com/",
+        icon: "/img/jianshu.webp",
       }
     ]
   },

@@ -69,7 +69,7 @@ onMounted(() => {
         <i class="pi pi-cog text-xl"></i>
       </div>
     </div>
-    <searchBox class="z-30 mb-10" />
+    <SearchBox class="z-30 mb-10" />
     <WidgetsPanel class="flex-1 w-full" />
     <Hitokoto />
   </div>
