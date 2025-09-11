@@ -1,0 +1,139 @@
+Date : 2025-09-08 18:25:52
+Directory : d:\documents\projects\hellotab
+Total : 85 files,  6320 codes, 10 comments, 1738 blanks, all 8068 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| vue                |         37 |      3,386 |          6 |        190 |      3,582 |
+| JSON with Comments |          3 |      1,511 |          1 |      1,477 |      2,989 |
+| JavaScript         |         17 |        950 |          1 |         45 |        996 |
+| JSON               |          4 |        203 |          0 |          1 |        204 |
+| XML                |         22 |        203 |          2 |          6 |        211 |
+| Markdown           |          1 |         50 |          0 |         19 |         69 |
+| CSS                |          1 |         17 |          0 |          0 |         17 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                       | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                          |         85 |      6,320 |         10 |      1,738 |      8,068 |
+| . (Files)                                                                  |          5 |      1,642 |          1 |      1,496 |      3,139 |
+| app                                                                        |         48 |      4,100 |          6 |        221 |      4,327 |
+| app (Files)                                                                |          1 |         12 |          0 |          2 |         14 |
+| app\assets                                                                 |          1 |         17 |          0 |          0 |         17 |
+| app\assets\css                                                             |          1 |         17 |          0 |          0 |         17 |
+| app\components                                                             |         32 |      3,026 |          6 |        170 |      3,202 |
+| app\components (Files)                                                     |          7 |        855 |          0 |         39 |        894 |
+| app\components\custom                                                      |          8 |        204 |          0 |         11 |        215 |
+| app\components\settings                                                    |          9 |      1,104 |          0 |         47 |      1,151 |
+| app\components\widgets                                                     |          8 |        863 |          6 |         73 |        942 |
+| app\pages                                                                  |          4 |        348 |          0 |         18 |        366 |
+| app\stores                                                                 |          4 |        143 |          0 |          4 |        147 |
+| app\utils                                                                  |          6 |        554 |          0 |         27 |        581 |
+| i18n                                                                       |          3 |        171 |          0 |          0 |        171 |
+| i18n\locales                                                               |          3 |        171 |          0 |          0 |        171 |
+| public                                                                     |         22 |        203 |          2 |          6 |        211 |
+| public (Files)                                                             |          1 |         21 |          0 |          0 |         21 |
+| public\img                                                                 |         21 |        182 |          2 |          6 |        190 |
+| server                                                                     |          7 |        204 |          1 |         15 |        220 |
+| server (Files)                                                             |          1 |          3 |          0 |          1 |          4 |
+| server\api                                                                 |          6 |        201 |          1 |         14 |        216 |
+| server\api (Files)                                                         |          3 |         92 |          0 |          4 |         96 |
+| server\api\image                                                           |          2 |         65 |          0 |          6 |         71 |
+| server\api\proxy                                                           |          1 |         44 |          1 |          4 |         49 |
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                   | language           | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\documents\projects\hellotab\README.md                                   | Markdown           |         50 |          0 |         19 |         69 |
+| d:\documents\projects\hellotab\app\app.vue                                 | vue                |         12 |          0 |          2 |         14 |
+| d:\documents\projects\hellotab\app\assets\css\global.css                   | CSS                |         17 |          0 |          0 |         17 |
+| d:\documents\projects\hellotab\app\components\background.vue               | vue                |         27 |          0 |          3 |         30 |
+| d:\documents\projects\hellotab\app\components\configSyncHandler.vue        | vue                |        110 |          0 |          4 |        114 |
+| d:\documents\projects\hellotab\app\components\custom\button.vue            | vue                |          7 |          0 |          0 |          7 |
+| d:\documents\projects\hellotab\app\components\custom\checkBox.vue          | vue                |         35 |          0 |          1 |         36 |
+| d:\documents\projects\hellotab\app\components\custom\image-uploader.vue    | vue                |         93 |          0 |          5 |         98 |
+| d:\documents\projects\hellotab\app\components\custom\keyboard.vue          | vue                |          6 |          0 |          0 |          6 |
+| d:\documents\projects\hellotab\app\components\custom\placeholder.vue       | vue                |          3 |          0 |          1 |          4 |
+| d:\documents\projects\hellotab\app\components\custom\selector.vue          | vue                |         24 |          0 |          1 |         25 |
+| d:\documents\projects\hellotab\app\components\custom\switch.vue            | vue                |         25 |          0 |          2 |         27 |
+| d:\documents\projects\hellotab\app\components\custom\text.vue              | vue                |         11 |          0 |          1 |         12 |
+| d:\documents\projects\hellotab\app\components\hitokoto.vue                 | vue                |         28 |          0 |          2 |         30 |
+| d:\documents\projects\hellotab\app\components\searchBox.vue                | vue                |        511 |          0 |         23 |        534 |
+| d:\documents\projects\hellotab\app\components\settings\main.vue            | vue                |         85 |          0 |          2 |         87 |
+| d:\documents\projects\hellotab\app\components\settings\page-about.vue      | vue                |         69 |          0 |          5 |         74 |
+| d:\documents\projects\hellotab\app\components\settings\page-ai.vue         | vue                |         30 |          0 |          2 |         32 |
+| d:\documents\projects\hellotab\app\components\settings\page-appearence.vue | vue                |         93 |          0 |          4 |         97 |
+| d:\documents\projects\hellotab\app\components\settings\page-general.vue    | vue                |         82 |          0 |          3 |         85 |
+| d:\documents\projects\hellotab\app\components\settings\page-search.vue     | vue                |        159 |          0 |          7 |        166 |
+| d:\documents\projects\hellotab\app\components\settings\page-sync.vue       | vue                |        210 |          0 |          9 |        219 |
+| d:\documents\projects\hellotab\app\components\settings\page-website.vue    | vue                |        284 |          0 |         13 |        297 |
+| d:\documents\projects\hellotab\app\components\settings\page-widgets.vue    | vue                |         92 |          0 |          2 |         94 |
+| d:\documents\projects\hellotab\app\components\toast.vue                    | vue                |         38 |          0 |          1 |         39 |
+| d:\documents\projects\hellotab\app\components\widgetsPanel.vue             | vue                |        105 |          0 |          5 |        110 |
+| d:\documents\projects\hellotab\app\components\widgets\base.vue             | vue                |         62 |          0 |          2 |         64 |
+| d:\documents\projects\hellotab\app\components\widgets\calendar.vue         | vue                |        110 |          0 |         15 |        125 |
+| d:\documents\projects\hellotab\app\components\widgets\clock.vue            | vue                |        119 |          6 |         16 |        141 |
+| d:\documents\projects\hellotab\app\components\widgets\menu.vue             | vue                |         80 |          0 |         10 |         90 |
+| d:\documents\projects\hellotab\app\components\widgets\new.vue              | vue                |         37 |          0 |          1 |         38 |
+| d:\documents\projects\hellotab\app\components\widgets\todolist.vue         | vue                |        250 |          0 |         14 |        264 |
+| d:\documents\projects\hellotab\app\components\widgets\weather.vue          | vue                |        158 |          0 |         12 |        170 |
+| d:\documents\projects\hellotab\app\components\widgets\website.vue          | vue                |         47 |          0 |          3 |         50 |
+| d:\documents\projects\hellotab\app\components\window.vue                   | vue                |         36 |          0 |          1 |         37 |
+| d:\documents\projects\hellotab\app\pages\faq.vue                           | vue                |         70 |          0 |          3 |         73 |
+| d:\documents\projects\hellotab\app\pages\index.vue                         | vue                |         78 |          0 |          3 |         81 |
+| d:\documents\projects\hellotab\app\pages\intro.vue                         | vue                |        155 |          0 |          5 |        160 |
+| d:\documents\projects\hellotab\app\pages\privacy.vue                       | vue                |         45 |          0 |          7 |         52 |
+| d:\documents\projects\hellotab\app\stores\image.js                         | JavaScript         |          6 |          0 |          1 |          7 |
+| d:\documents\projects\hellotab\app\stores\runtime.js                       | JavaScript         |          7 |          0 |          1 |          8 |
+| d:\documents\projects\hellotab\app\stores\settings.js                      | JavaScript         |        119 |          0 |          1 |        120 |
+| d:\documents\projects\hellotab\app\stores\settings_local.js                | JavaScript         |         11 |          0 |          1 |         12 |
+| d:\documents\projects\hellotab\app\utils\compressImage.js                  | JavaScript         |         28 |          0 |          6 |         34 |
+| d:\documents\projects\hellotab\app\utils\config.js                         | JavaScript         |         89 |          0 |         12 |        101 |
+| d:\documents\projects\hellotab\app\utils\picture_proxy.js                  | JavaScript         |          7 |          0 |          1 |          8 |
+| d:\documents\projects\hellotab\app\utils\url.js                            | JavaScript         |         30 |          0 |          3 |         33 |
+| d:\documents\projects\hellotab\app\utils\webdav_client.js                  | JavaScript         |         63 |          0 |          3 |         66 |
+| d:\documents\projects\hellotab\app\utils\websiteDb.js                      | JavaScript         |        337 |          0 |          2 |        339 |
+| d:\documents\projects\hellotab\bun.lock                                    | JSON with Comments |      1,505 |          0 |      1,475 |      2,980 |
+| d:\documents\projects\hellotab\i18n\locales\en.json                        | JSON               |         57 |          0 |          0 |         57 |
+| d:\documents\projects\hellotab\i18n\locales\ja.json                        | JSON               |         57 |          0 |          0 |         57 |
+| d:\documents\projects\hellotab\i18n\locales\zh.json                        | JSON               |         57 |          0 |          0 |         57 |
+| d:\documents\projects\hellotab\nuxt.config.js                              | JavaScript         |         52 |          0 |          0 |         52 |
+| d:\documents\projects\hellotab\package.json                                | JSON               |         32 |          0 |          1 |         33 |
+| d:\documents\projects\hellotab\public\img\163mail.svg                      | XML                |         25 |          0 |          1 |         26 |
+| d:\documents\projects\hellotab\public\img\CCTV.svg                         | XML                |         60 |          1 |          2 |         63 |
+| d:\documents\projects\hellotab\public\img\chrome.svg                       | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\deepseek.svg                     | XML                |          4 |          0 |          0 |          4 |
+| d:\documents\projects\hellotab\public\img\drawio.svg                       | XML                |         16 |          0 |          0 |         16 |
+| d:\documents\projects\hellotab\public\img\duolingo.svg                     | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\edge.svg                         | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\extension.svg                    | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\firefox.svg                      | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\folo.svg                         | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\forms.svg                        | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\gamma.svg                        | XML                |         23 |          0 |          1 |         24 |
+| d:\documents\projects\hellotab\public\img\github.svg                       | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\globe.svg                        | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\icons8.svg                       | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\notion.svg                       | XML                |          4 |          0 |          0 |          4 |
+| d:\documents\projects\hellotab\public\img\onedrive.svg                     | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\outlook.svg                      | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\postman.svg                      | XML                |         13 |          0 |          1 |         14 |
+| d:\documents\projects\hellotab\public\img\vsc.svg                          | XML                |          1 |          0 |          0 |          1 |
+| d:\documents\projects\hellotab\public\img\webofscience.svg                 | XML                |         24 |          1 |          1 |         26 |
+| d:\documents\projects\hellotab\public\sitemap.xml                          | XML                |         21 |          0 |          0 |         21 |
+| d:\documents\projects\hellotab\server\api\backgrounds.js                   | JavaScript         |         30 |          0 |          2 |         32 |
+| d:\documents\projects\hellotab\server\api\completion.js                    | JavaScript         |         36 |          0 |          1 |         37 |
+| d:\documents\projects\hellotab\server\api\image\[...id].js                 | JavaScript         |         44 |          0 |          5 |         49 |
+| d:\documents\projects\hellotab\server\api\image\upload.js                  | JavaScript         |         21 |          0 |          1 |         22 |
+| d:\documents\projects\hellotab\server\api\proxy\[...dest].js               | JavaScript         |         44 |          1 |          4 |         49 |
+| d:\documents\projects\hellotab\server\api\weather.js                       | JavaScript         |         26 |          0 |          1 |         27 |
+| d:\documents\projects\hellotab\server\tsconfig.json                        | JSON with Comments |          3 |          0 |          1 |          4 |
+| d:\documents\projects\hellotab\tsconfig.json                               | JSON with Comments |          3 |          1 |          1 |          5 |
+| Total                                                                      |                    |      6,320 |         10 |      1,738 |      8,068 |
++----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

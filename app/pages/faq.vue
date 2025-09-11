@@ -30,12 +30,6 @@ const faqItems = ref([
 
   },
   {
-    id: 'bingSearchFailure',
-    question: 'Bing搜索白屏怎么办？',
-    answer: '目前认为是Bing的问题，把搜索引擎换成bing(中国)即可解决。',
-    isOpen: false
-  },
-  {
     id: 'bingImageSearch',
     question: 'Bing图像搜索会自动跳转到世界风景名胜的界面？',
     answer: 'Bing图像搜索不在中国大陆地区提供服务，因此无法正常使用。',

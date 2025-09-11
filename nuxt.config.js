@@ -4,34 +4,52 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
-    "nuxt-lodash",
     "@nuxtjs/device",
     "@nuxtjs/i18n"
   ],
-  i18n: {
-    vueI18n: '@/i18n.config.js'
-  },
-  lodash: {
-    prefix: "_",
-    upperAfterPrefix: false,
+  features: {
+    inlineStyles: true
   },
   css: [
     "primeicons/primeicons.css",
     "qweather-icons/font/qweather-icons.css",
     "~/assets/css/global.css",
   ],
+  i18n: {
+    bundle: {
+      optimizeTranslationDirective: false
+    },
+    defaultLocale: 'zh',
+    locales: [
+      {
+        code: 'zh',
+        name: '简体中文',
+        file: 'zh.json'
+      },
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json'
+      },
+      {
+        code: 'ja',
+        name: '日本語',
+        file: 'ja.json'
+      }
+    ],
+  },
   piniaPluginPersistedstate: {
     storage: "localStorage",
   },
   imports: {
-    dirs: ["stores/*.{ts,js,mjs,mts}"],
+    dirs: ["~/app/stores"],
   },
   devtools: {
     enabled: false,
   },
   runtimeConfig: {
     public: {
-      version: "1.9.7"
+      version: "1.10.0"
     },
   }
 });

@@ -6,7 +6,7 @@ const params = new URLSearchParams();
 params.append("c", "i");
 params.append("c", "k");
 params.append("encode", "json");
-const { data: hitokotoResponse } = await useFetch(
+const { data: hitokotoResponse, error } = await useFetch(
   proxyedUrl("https://v1.hitokoto.cn/"),
   {
     query: params,
@@ -15,7 +15,7 @@ const { data: hitokotoResponse } = await useFetch(
 </script>
 <template>
   <ClientOnly>
-    <div class="flex flex-col text-white gap-2" v-if="appearance.showHitokoto && hitokotoResponse != null">
+    <div class="flex flex-col text-white gap-2" v-if="appearance.showHitokoto && hitokotoResponse != null && error == null">
       <div class="flex flex-row items-center justify-center text-lg">
         <span class="mr-8 mb-4">『</span>
         <span>{{ hitokotoResponse?.hitokoto }}</span>

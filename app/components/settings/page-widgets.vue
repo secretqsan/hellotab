@@ -34,7 +34,11 @@ const { widgets } = storeToRefs(settingStore);
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">
+      <label
+        v-if="widgesAvailiable.some(
+              (widget) => !widgets.find((w) => w.type === widget.name)
+            )"
+        class="text-md text-gray-600">
         {{ $t('settings.widgets.available') }}
       </label>
       <div 
@@ -53,7 +57,7 @@ const { widgets } = storeToRefs(settingStore);
             ($device.isDesktop || $device.isTablet)? 'col-span-3': 'col-span-2'
           ]"
         >
-          暂无可用小组件
+          {{ $t('settings.widgets.noAvailable') }}
         </div>
         <template v-for="widget in widgesAvailiable">
           <div

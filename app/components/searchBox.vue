@@ -1,4 +1,5 @@
 <script setup>
+import { debounce } from 'radash';
 const aiSearch = ref(false);
 const showImageUploader = ref(false);
 const imageUploading = ref(false);
@@ -239,7 +240,7 @@ const fetchSuggestions = async (query) => {
     suggestions.value = [];
   }
 };
-const debouncedFetchSuggestions = _debounce(fetchSuggestions, 300);
+const debouncedFetchSuggestions = debounce(fetchSuggestions, 150);
 
 const calculateTextWidth = (text) => {
   const canvas = document.getElementById("canvas");

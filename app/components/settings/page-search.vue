@@ -7,13 +7,11 @@ const availableImageSearchUrl = {
   bing: 'https://www.bing.com/images/search?view=detailv2&iss=SBI&q=imgurl:%s',
   google: 'https://lens.google.com/uploadbyurl?url=%s',
   yandex: 'https://ya.ru/images/search?rpt=imageview&url=%s',
-  bingcn: "",
   baidu: "",
   duckduckgo: "",
   costum: "",
 }
 const searchEngineCandidates = ref([
-  { id: "bingcn", name: "必应(中国)" },
   { id: "google", name: "Google" },
   { id: "bing", name: "Bing" },
   { id: "baidu", name: "百度" },
@@ -22,7 +20,6 @@ const searchEngineCandidates = ref([
   { id: "custom", name: "自定义" },
 ]);
 const urls = ref({
-  bingcn: "https://www4.bing.com/search?q=%s",
   google: "https://www.google.com/search?q=%s",
   bing: "https://www.bing.com/search?q=%s",
   baidu: "https://www.baidu.com/s?wd=%s",

@@ -320,7 +320,7 @@ const popularWebsites = [
       {
         name: "Web of Science",
         url: "https://www.webofscience.com/wos/",
-        icon: "",
+        icon: "/img/webofscience.svg",
       },
       {
         name: "中国知网",
