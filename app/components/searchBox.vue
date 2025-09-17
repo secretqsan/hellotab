@@ -1,5 +1,4 @@
 <script setup>
-import { debounce } from 'radash';
 const aiSearch = ref(false);
 const showImageUploader = ref(false);
 const imageUploading = ref(false);
@@ -43,10 +42,6 @@ function stopCountdown() {
   clearInterval(countdownTimer);
 }
 
-onUnmounted(() => {
-  clearInterval(countdownTimer);
-});
-
 async function handleUpload() {
   imageUploading.value = true;
   const compressedImage = await compressImage(imageData.value);
@@ -80,6 +75,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   document.removeEventListener("click", handleOutsideClick);
+  clearInterval(countdownTimer);
 });
 
 const handleOutsideClick = (event) => {
@@ -105,13 +101,23 @@ function addHistory(history) {
     searchEngine.value.history.unshift(history);
   }
 }
+
 function latestNHistory(n) {
   return searchEngine.value.history.slice(0, n);
+}
+
+function navigateTo(url) {
+  if (searchEngine.value.open == 0) {
+    window.open(url, "_blank");
+  }
+  else {
+    window.open(url, "_self");
+  }
 }
 function openLink(url) {
   addHistory(url);
   const urlWithProtocol = url.match(/^[a-zA-Z]+:\/\//) ? url : `http://${url}`;
-  window.open(urlWithProtocol, "_blank");
+  navigateTo(urlWithProtocol)
 }
 
 const showInlineSuggestions = computed(() => {
@@ -168,7 +174,7 @@ const handleSearch = () => {
   else {
     return
   }
-  window.open(searchUrl, "_blank");
+  navigateTo(searchUrl);
 };
 
 const fetchSuggestions = async (query) => {
@@ -240,7 +246,7 @@ const fetchSuggestions = async (query) => {
     suggestions.value = [];
   }
 };
-const debouncedFetchSuggestions = debounce(fetchSuggestions, 150);
+const debouncedFetchSuggestions = _debounce(fetchSuggestions, 150);
 
 const calculateTextWidth = (text) => {
   const canvas = document.getElementById("canvas");

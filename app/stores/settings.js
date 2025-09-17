@@ -6,7 +6,8 @@ export const useSettingsStore = defineStore("settings", {
       baseUrl: "https://www.bing.com/search?q=%s",
       imageSearchUrl: "https://www.bing.com/images/search?view=detailv2&iss=SBI&q=imgurl:%s",
       history: [],
-      maxHistoryCnt: 50
+      maxHistoryCnt: 50,
+      open: 1
     },
     aiSearchEngine: {
       id: "mitaso",

@@ -1,5 +1,4 @@
 <script setup>
-import { debounce } from 'radash';
 const imageStorage = useImageStore();
 const settingStore = useSettingsStore();
 const localSettings = useLocalSettingsStore();
@@ -12,7 +11,7 @@ const {
   webdavPassword,
 } = storeToRefs(localSettings);
 
-const uploadSettings = debounce(async () => {
+const uploadSettings = _debounce(async () => {
   const client = new webdavClient(`/api/proxy/${webdavUrl.value}`, {
     subdir: "hellotab",
     username: webdavUsername.value,
@@ -27,7 +26,7 @@ const uploadSettings = debounce(async () => {
     console.error("同步失败:", error);
   }
 }, 1000);
-const uploadImages = debounce(async () => {
+const uploadImages = _debounce(async () => {
   const client = new Client(`/api/proxy/${webdavUrl.value}`, {
     subdir: "hellotab",
     username: webdavUsername.value,

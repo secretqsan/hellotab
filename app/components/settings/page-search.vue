@@ -85,6 +85,19 @@ watch(
       />
     </div>
 
+    <div class="flex items-center flex-row">
+      <div class="text-md text-gray-600">搜素结果打开位置</div>
+      <CustomPlaceholder />
+      <select
+        v-model="searchEngine.open"
+        class="p-2 border rounded-lg focus:border-blue-500 focus:outline-none"
+      >
+        <option value="0">新标签页</option>
+        <option value="1">当前标签页</option>
+      </select>
+    </div>
+    
+
     <div class="flex flex-row items-center w-full">
       <label class="text-md text-gray-600">最大历史记录</label>
       <CustomPlaceholder />
