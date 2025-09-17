@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/device",
-    "@nuxtjs/i18n"
+    "@nuxtjs/i18n",
+    "@chettapong/nuxt-lodash"
   ],
   features: {
     inlineStyles: true
@@ -44,12 +45,16 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["~/app/stores"],
   },
+  lodash: {
+    prefix: "_",
+    upperAfterPrefix: false,
+  },
   devtools: {
     enabled: false,
   },
   runtimeConfig: {
     public: {
-      version: "1.10.0"
+      version: "1.10.1"
     },
   }
 });
