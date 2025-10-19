@@ -114,7 +114,6 @@ function navigateTo(url) {
     window.open(url, "_self");
   }
 }
-
 function openLink(url) {
   addHistory(url);
   const urlWithProtocol = url.match(/^[a-zA-Z]+:\/\//) ? url : `http://${url}`;
