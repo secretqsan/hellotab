@@ -1,7 +1,8 @@
 {
   "search": {
     "search": "搜索",
-    "askAi": "问AI"
+    "askAi": "问AI",
+    "imageUrl": "图片URL"
   },
   "settings": {
     "base": "设置中心",

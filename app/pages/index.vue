@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <ConfigSyncHandler />
-
+  <NuxtPwaManifest />
   <div
     class="z-10 p-4 h-screen w-screen flex flex-col gap-10 items-center relative"
   >
@@ -43,7 +43,7 @@ onMounted(() => {
           v-if="crxId == '' && $device.isDesktop"
           title="下载扩展"
           class="text-white hover:bg-white/30 w-12 h-12 rounded-lg flex items-center justify-center outline-none"
-          :to="'/intro?lang=' + language"
+          :to="language == 'zh' ? '/intro/' : `/${language}/intro/`"
           target="_blank"
         >
           <i class="pi pi-download text-xl"></i>

@@ -114,6 +114,7 @@ function navigateTo(url) {
     window.open(url, "_self");
   }
 }
+
 function openLink(url) {
   addHistory(url);
   const urlWithProtocol = url.match(/^[a-zA-Z]+:\/\//) ? url : `http://${url}`;
@@ -468,7 +469,7 @@ function searchBoxFocused() {
         <div class="flex flex-row gap-2">
           <custom-text
             class="flex-1"
-            placeholder="图像Url"
+            :placeholder="$t('search.imageUrl')"
             v-model="imageUrl"
           />
           <custom-button

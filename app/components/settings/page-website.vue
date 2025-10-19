@@ -176,7 +176,7 @@ const handleAddCustomWebsite = () => {
             </option>
           </select>
         </div>
-        <div class="overflow-auto  flex-1">
+        <div class="overflow-auto flex-1">
           <div class="grid grid-cols-2 gap-4">
             <template v-for="site in filteredWebsites">
               <div
@@ -204,7 +204,8 @@ const handleAddCustomWebsite = () => {
                   }
                 "
                 :class="[
-                  'overflow-hidden p-4 border rounded-lg cursor-pointer transition-colors duration-200 flex items-center gap-3',
+                  'group',
+                  'p-4 border rounded-lg cursor-pointer transition-colors duration-200 flex items-center gap-3',
                   widgets.find(w => w.e?.url === site.url) ? 'border-blue-500 bg-blue-50' : 'hover:border-blue-500',
                   ($device.isDesktop || $device.isTablet)? 'flex-row': 'flex-col'
                 ]"
@@ -217,11 +218,12 @@ const handleAddCustomWebsite = () => {
                   @contextmenu.prevent
                   @error="$event.target.src = '/img/globe.svg'"
                 />
-                <div>
+                <div class="flex-1 overflow-hidden">
                   <div class="font-medium">{{ site.name }}</div>
                   <div
                     v-if="$device.isDesktop || $device.isTablet"
-                    class="text-sm text-gray-500"
+                    class="text-sm text-gray-500 truncate"
+                    :title="site.url"
                   >
                     {{ site.url }}
                   </div>

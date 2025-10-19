@@ -1,9 +1,6 @@
 <script setup>
-const { setLocale } = useI18n();
+const { setLocale, locale } = useI18n();
 
-const route = useRoute();
-const router = useRouter();
-const language = ref(route.query.lang ?? "zh");
 useHead({
   title: "HelloTab",
   meta: [
@@ -41,6 +38,7 @@ const features = ref([
     description: "支持自由布局以及自定义背景，打造专属新标签页",
   },
 ]);
+
 const releases = ref([
   {
     url: "downloads/hellotab-0.1.0-beta.zip",
@@ -67,19 +65,12 @@ const releases = ref([
     subText: "敬请期待",
   },
 ]);
-onMounted(() => {
-  setLocale(language.value);
-});
+
 function changeLanguage() {
   const languages = ["zh", "en", "ja"];
-  const currentIndex = languages.indexOf(language.value);
-  language.value = languages[(currentIndex + 1) % languages.length];
-  router.push({
-    query: {
-      lang: language.value,
-    },
-  });
-  setLocale(language.value);
+  const currentIndex = languages.indexOf(locale.value);
+  const targetLang = languages[(currentIndex + 1) % languages.length];
+  setLocale(targetLang);
 }
 </script>
 
@@ -94,7 +85,7 @@ function changeLanguage() {
         @click="changeLanguage"
       >
         <span class="text-sm font-medium text-gray-800">{{
-          language === "en" ? "En" : language === "ja" ? "日" : "中"
+          locale == "en" ? "En" : locale == "ja" ? "日" : "中"
         }}</span>
       </button>
     </div>

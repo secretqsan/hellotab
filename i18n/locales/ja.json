@@ -1,7 +1,8 @@
 {
   "search": {
     "search": "検索",
-    "askAi": "AIに質問"
+    "askAi": "AIに質問",
+    "imageUrl": "画像URL"
   },
   "settings": {
     "base": "設定センター",
