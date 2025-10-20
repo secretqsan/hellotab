@@ -1,6 +1,6 @@
 export const useRuntimeStore = defineStore("runtimeStorage", {
     state: () => ({
-      crxId: '',
+      crxId: '#',
       settingPanel: null,
       toast: null,
     })

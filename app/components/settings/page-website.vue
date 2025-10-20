@@ -219,7 +219,7 @@ const handleAddCustomWebsite = () => {
                   @error="$event.target.src = '/img/globe.svg'"
                 />
                 <div class="flex-1 overflow-hidden">
-                  <div class="font-medium">{{ site.name }}</div>
+                  <div class="font-medium truncate">{{ site.name }}</div>
                   <div
                     v-if="$device.isDesktop || $device.isTablet"
                     class="text-sm text-gray-500 truncate"
