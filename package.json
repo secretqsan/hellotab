@@ -11,7 +11,7 @@
     "@vite-pwa/nuxt": "^1.0.7",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
-    "lighthouse": "^12.8.2",
+    "lighthouse": "^13.0.0",
     "lodash": "^4.17.21",
     "mongodb": "^6.20.0",
     "nuxt": "^4.1.3",

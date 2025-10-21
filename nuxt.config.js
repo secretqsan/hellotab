@@ -20,8 +20,14 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      version: "1.11.1"
+      version: "1.11.2"
     },
+  },
+  imports: {
+    dirs: ["~/app/stores"],
+  },
+  devtools: {
+    enabled: false,
   },
   //module config
   pwa: pwaConfig,
@@ -52,14 +58,8 @@ export default defineNuxtConfig({
   piniaPluginPersistedstate: {
     storage: "localStorage",
   },
-  imports: {
-    dirs: ["~/app/stores"],
-  },
   lodash: {
     prefix: "_",
     upperAfterPrefix: false,
-  },
-  devtools: {
-    enabled: false,
   }
 });

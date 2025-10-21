@@ -35,7 +35,7 @@ onMounted(() => {
   <ConfigSyncHandler />
   <NuxtPwaManifest />
   <div
-    class="z-10 p-4 h-screen w-screen flex flex-col gap-10 items-center relative"
+    class="z-10 p-4 h-screen w-screen flex flex-col gap-10 items-center fixed"
   >
     <div
       :class="[

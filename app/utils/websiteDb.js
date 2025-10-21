@@ -128,7 +128,7 @@ const popularWebsites = [
       },
       {
         name: "office",
-        url: "https://m365.cloud.microsoft",
+        url: "https://m365.cloud.microsoft.com/",
         icon: "https://res.cdn.office.net/officehub/images/content/images/favicon_copilot-4370172aa6.ico",
       },
       { name: "飞书", url: "https://www.feishu.cn/", icon: "" },

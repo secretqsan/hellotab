@@ -180,7 +180,6 @@ const handleAddCustomWebsite = () => {
           <div class="grid grid-cols-2 gap-4">
             <template v-for="site in filteredWebsites">
               <div
-                :title="site.name"
                 @click="
                   () => {
                     const existingWidget = widgets.find(w => w.e?.url === site.url);
@@ -221,11 +220,17 @@ const handleAddCustomWebsite = () => {
                 <div class="flex-1 overflow-hidden">
                   <div class="font-medium truncate">{{ site.name }}</div>
                   <div
+                    style="container-type: inline-size;"
                     v-if="$device.isDesktop || $device.isTablet"
-                    class="text-sm text-gray-500 truncate"
-                    :title="site.url"
+                    class="w-full flex"
                   >
-                    {{ site.url }}
+                    <div
+                      class="text-sm text-gray-500 truncate 
+                            group-hover:overflow-visible group-hover:text-clip group-hover:translate-x-[min(calc(100cqw-100%),0px)] 
+                            transition-all duration-1000"
+                    >
+                      {{ site.url }}
+                    </div>
                   </div>
                 </div>
               </div>
