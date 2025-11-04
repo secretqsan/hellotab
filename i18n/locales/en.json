@@ -54,5 +54,9 @@
   "intro": {
     "slogan": "Your Smart New Tab Page Buddy",
     "startToUse": "Start to use"
+  },
+  "error": {
+    "description": "Sorry, there was a problem with the page you were trying to access",
+    "backToHome": "Back to Home"
   }
 }

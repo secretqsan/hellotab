@@ -54,5 +54,9 @@
   "intro": {
     "slogan": "你的智能新标签页伙伴",
     "startToUse": "开始使用"
+  },
+  "error": {
+    "description": "抱歉，您访问的页面出现了问题",
+    "backToHome": "返回主页"
   }
 }

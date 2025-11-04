@@ -15,7 +15,6 @@ const runtimeVariables = useRuntimeStore();
 const { language } = storeToRefs(settingStore);
 const { crxId, settingPanel, toast } = storeToRefs(runtimeVariables);
 const { setLocale } = useI18n();
-console.log(language.value);
 onMounted(() => {
   const body = document.getElementsByTagName("body")[0];
   setTimeout(() => {

@@ -433,7 +433,7 @@ function searchBoxFocused() {
             'flex items-center justify-center',
           ]"
         >
-          <i :class="['pi', aiSearch ? 'pi-send' : 'pi-search']" />
+          <span :class="['pi', aiSearch ? 'pi-send' : 'pi-search']" />
         </button>
       </div>
     </div>

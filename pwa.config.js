@@ -3,6 +3,7 @@ export const pwaConfig = {
   devOptions: {
     enabled: true,
     type: 'module',
+    suppressWarnings: true
   },
   manifest: {
     name: 'HelloTab',
@@ -24,14 +25,16 @@ export const pwaConfig = {
   },
   workbox: {
     globPatterns: [
-      '**/*.{js,css,html,png,svg,woff2}'
+      '**/*.*'
     ],
     runtimeCaching: [
-      {
-        urlPattern: /^http/,
-        handler: 'NetworkFirst',
-        options: { cacheName: 'api-data' }
-      }
+        {
+          urlPattern: /^http/,
+          handler: 'NetworkFirst',
+          options: { 
+            cacheName: 'api',
+          }
+        }
     ]
   },
 }
