@@ -1,12 +1,10 @@
 <script setup>
 const props = defineProps({
   error: Object
-});
-
+})
 useHead({
-  title: `错误 ${errorCode.value} | HelloTab`,
+  title: `错误 ${props.error?.statusCode} | HelloTab`,
 });
-
 </script>
 
 <template>
