@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      version: "1.11.4"
+      version: "1.11.5"
     },
   },
   imports: {

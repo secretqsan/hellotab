@@ -35,7 +35,7 @@ useHead({
 
     <section class="mb-8">
       <h2 class="text-2xl font-semibold mb-4 text-gray-700 dark:text-gray-300">4. 第三方服务</h2>
-      <p class="mb-4">某些功能（如天气预报、同步等）可能需要使用第三方服务。这些服务可能会收集某些信息，但我们会确保：</p>
+      <p class="mb-4">页面访问量记录以及性能优化功能需要使用第三方服务。这些服务可能会收集某些信息，但我们会确保：</p>
       <ul class="list-disc pl-6 space-y-2">
         <li>仅传输必要的信息</li>
         <li>不包含任何个人身份信息</li>

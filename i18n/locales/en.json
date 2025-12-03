@@ -48,7 +48,8 @@
       "starOnGithub": "Give us a Star on GitHub",
       "recommendToFriends": "Recommend HelloTab to your friends",
       "community": "Community",
-      "joinQQGroup": "Welcome to join our QQ group:"
+      "joinQQGroup": "Welcome to join our QQ group:",
+      "thirdPartyLicense": "Third-party License:"
     }
   },
   "intro": {

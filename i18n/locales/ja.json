@@ -48,7 +48,8 @@
       "starOnGithub": "GitHubでスターを付ける",
       "recommendToFriends": "友達にHelloTabを紹介する",
       "community": "コミュニティ",
-      "joinQQGroup": "QQグループへの参加を歓迎します："
+      "joinQQGroup": "QQグループへの参加を歓迎します：",
+      "thirdPartyLicense": "第三方向ライセンス："
     }
   },
   "intro": {
