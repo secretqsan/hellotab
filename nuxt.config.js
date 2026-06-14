@@ -1,38 +1,72 @@
+import { pwaConfig } from './pwa.config.js'
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
-  devtools: { enabled: true },
+  nitro: {
+    prerender: {
+      routes: [
+        '/'
+      ],
+    },
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
-    "nuxt-lodash",
     "@nuxtjs/device",
-    "@nuxtjs/i18n"
+    "@nuxtjs/i18n",
+    "@chettapong/nuxt-lodash",
+    '@vite-pwa/nuxt'
   ],
-  i18n: {
-    vueI18n: '@/i18n.config.js'
-  },
-  lodash: {
-    prefix: "_",
-    upperAfterPrefix: false,
+  features: {
+    inlineStyles: true
   },
   css: [
     "primeicons/primeicons.css",
     "qweather-icons/font/qweather-icons.css",
     "~/assets/css/global.css",
   ],
-  piniaPluginPersistedstate: {
-    storage: "localStorage",
+  runtimeConfig: {
+    public: {
+      version: "1.12.0"
+    },
   },
   imports: {
-    dirs: ["stores/*.{ts,js,mjs,mts}"],
+    dirs: ["~/app/stores"],
   },
   devtools: {
     enabled: false,
   },
-  runtimeConfig: {
-    public: {
-      version: "1.9.3"
+  //module config
+  pwa: pwaConfig,
+  i18n: {
+    bundle: {
+      optimizeTranslationDirective: false
     },
+    defaultLocale: 'zh',
+    fallbackLocale: 'zh',
+    locales: [
+      {
+        code: 'zh',
+        name: '简体中文',
+        file: 'zh.json'
+      },
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json'
+      },
+      {
+        code: 'ja',
+        name: '日本語',
+        file: 'ja.json'
+      }
+    ],
+  },
+  piniaPluginPersistedstate: {
+    storage: "localStorage",
+  },
+  lodash: {
+    prefix: "_",
+    upperAfterPrefix: false,
   }
 });

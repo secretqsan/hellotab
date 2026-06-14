@@ -1,0 +1,29 @@
+<script setup>
+const settingStore = useSettingsStore();
+const { appearance } = storeToRefs(settingStore);
+
+const params = new URLSearchParams();
+params.append("c", "i");
+params.append("c", "k");
+params.append("encode", "json");
+const { data: hitokotoResponse, error } = await useFetch(
+  proxyedUrl("https://v1.hitokoto.cn/"),
+  {
+    query: params,
+  }
+);
+</script>
+<template>
+  <ClientOnly>
+    <div class="flex flex-col text-white gap-2" v-if="appearance.showHitokoto && hitokotoResponse != null && error == null">
+      <div class="flex flex-row items-center justify-center text-lg">
+        <span class="mr-8 mb-4">『</span>
+        <span>{{ hitokotoResponse?.hitokoto }}</span>
+        <span class="ml-8 mt-4">』</span>
+      </div>
+      <div class="text-sm text-gray-100 text-right">
+        —— {{ hitokotoResponse?.from_who }}「{{ hitokotoResponse?.from }}」
+      </div>
+    </div>
+  </ClientOnly>
+</template>

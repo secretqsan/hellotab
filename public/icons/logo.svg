@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #29abe2;
+      }
+
+      .cls-2 {
+        fill: #00a99d;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.5, SVG Export Plug-In . SVG Version: 1.2.0 Build 176)  -->
+  <g>
+    <g id="_图层_1" data-name="图层_1">
+      <g>
+        <rect class="cls-1" x="230.3" y="182.2" width="51.7" height="148.1" rx="25.9" ry="25.9" transform="translate(-.5 .5) rotate(-.1)"/>
+        <rect class="cls-1" x="304.3" y="24.3" width="52.3" height="380" rx="26.1" ry="26.1" transform="translate(-.4 .7) rotate(-.1)"/>
+        <rect class="cls-2" x="379" y="138.6" width="53" height="214.7" rx="26.5" ry="26.5" transform="translate(-.5 .8) rotate(-.1)"/>
+        <rect class="cls-1" x="155.4" y="106.7" width="52.3" height="381" rx="26.1" ry="26.1" transform="translate(-.6 .4) rotate(-.1)"/>
+        <rect class="cls-1" x="79.9" y="159.2" width="53" height="213.8" rx="26.5" ry="26.5" transform="translate(-.5 .2) rotate(-.1)"/>
+      </g>
+    </g>
+  </g>
+</svg>
