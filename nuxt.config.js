@@ -1,6 +1,13 @@
 import { pwaConfig } from './pwa.config.js'
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
+  nitro: {
+    prerender: {
+      routes: [
+        '/'
+      ],
+    },
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
@@ -20,7 +27,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      version: "1.11.5"
+      version: "1.12.0"
     },
   },
   imports: {
