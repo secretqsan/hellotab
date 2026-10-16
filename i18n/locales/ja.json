@@ -28,6 +28,7 @@
       "reset": "リセット"
     },
     "search": {
+      "useBrowserSettings": "ブラウザの設定を使用",
       "defaultSearchEngine": "デフォルト検索エンジン",
       "enterSearchEngineUrl": "検索エンジンURLを入力"
     },

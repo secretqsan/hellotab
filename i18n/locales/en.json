@@ -28,6 +28,7 @@
       "reset": "Reset"
     },
     "search": {
+      "useBrowserSettings": "Use browser settings",
       "defaultSearchEngine": "Default search engine",
       "enterSearchEngineUrl": "Please enter the search engine URL"
     },

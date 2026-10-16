@@ -2,25 +2,25 @@
   "name": "nuxt-app",
   "dependencies": {
     "@chettapong/nuxt-lodash": "^2.5.4",
-    "@nuxtjs/device": "3.2.4",
-    "@nuxtjs/i18n": "^9.5.6",
-    "@nuxtjs/tailwindcss": "6.13.2",
-    "@pinia/nuxt": "^0.11.3",
-    "@vercel/analytics": "^1.6.1",
-    "@vercel/speed-insights": "^1.3.1",
+    "@nuxtjs/device": "^4.0.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@pinia/nuxt": "^1.0.3",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "@vite-pwa/nuxt": "^1.1.1",
     "file-saver": "^2.0.5",
-    "jszip": "^3.10.1",
-    "lighthouse": "^13.4.0",
+    "jszip": "^3.10.2",
+    "lighthouse": "^13.5.0",
     "lodash": "^4.18.1",
-    "mongodb": "^6.21.0",
-    "nuxt": "^4.4.8",
-    "pinia": "^3.0.4",
+    "mongodb": "^7.7.0",
+    "nuxt": "^4.6.1",
+    "pinia": "^4.1.0",
     "pinia-plugin-persistedstate": "^4.7.1",
-    "primeicons": "^7.0.0",
+    "primeicons": "^8.0.2",
     "qweather-icons": "^1.8.0",
-    "vue": "^3.5.38",
-    "vue-router": "^4.6.4",
+    "vue": "^3.5.44",
+    "vue-router": "^5.4.0",
     "vuedraggable": "^4.1.0"
   },
   "private": true,
@@ -31,5 +31,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@nuxt/eslint": "^1.17.0"
+  }
 }

@@ -14,6 +14,8 @@ const popularWebsites = [
       },
       { name: "腾讯视频", url: "https://v.qq.com/", icon: "/img/qqvideo.webp" },
       { name: "CCTV", url: "https://tv.cctv.com/", icon: "/img/CCTV.svg" },
+      { name: "抖音短视频", url: "https://www.douyin.com/", icon: "" },
+      { name: "快手", url: "https://www.kuaishou.com/", icon: "" },
     ],
   },
   {
@@ -33,8 +35,12 @@ const popularWebsites = [
         name: "携程旅行",
         url: "https://www.ctrip.com/",
         icon: "/img/ctrip.webp"
+      },
+      {
+        name: "12306",
+        url: "https://www.12306.cn/",
+        icon: ""
       }
-      
     ],
   },
   {
@@ -63,7 +69,7 @@ const popularWebsites = [
       {
         name: "可灵AI视频",
         url: "https://kling.kuaishou.com/",
-        icon: "https://s2-111386.kwimgs.com/bs2/mmu-aiplatform-temp/kling/kling-logo.png",
+        icon: "/img/kling.svg",
       },
       {
         name: "Mureka",
@@ -74,6 +80,21 @@ const popularWebsites = [
         name: "腾讯元宝",
         url: "https://yuanbao.tencent.com/",
         icon: "/img/yuanbao.webp",
+      },
+      {
+        name: "通义千问",
+        url: "https://www.qianwen.com/",
+        icon: "",
+      },
+      {
+        name: "ChatGPT",
+        url: "https://chatgpt.com/",
+        icon: "",
+      },
+      {
+        name: "Claude",
+        url: "https://claude.ai/",
+        icon: "",
       }
     ],
   },
@@ -85,6 +106,7 @@ const popularWebsites = [
       { name: "豆瓣", url: "https://www.douban.com/", icon: "/img/douban.webp" },
       { name: "米游社", url: "https://www.miyoushe.com/ys/", icon: "/img/miyoushe.webp" },
       { name: "知乎", url: "https://www.zhihu.com", icon: "/img/zhihu.webp" },
+      { name: "百度贴吧", url: "https://tieba.baidu.com/", icon: "" },
     ],
   },
   {
@@ -101,7 +123,17 @@ const popularWebsites = [
         url: "https://teams.microsoft.com/",
         icon: ""
       },
-    ] 
+      {
+        name: "QQ邮箱",
+        url: "https://mail.qq.com/",
+        icon: ""
+      },
+      {
+        name: "Gmail",
+        url: "https://mail.google.com/",
+        icon: ""
+      },
+    ]
   },
   {
     name: "效率工具",
@@ -117,7 +149,7 @@ const popularWebsites = [
         icon: "https://static.deepl.com/img/logo/deepl-logo-blue.svg",
       },
       {
-        name: "Mocrosoft Forms",
+        name: "Microsoft Forms",
         url: "https://forms.office.com/", 
         icon: "/img/forms.svg",
       },
@@ -150,7 +182,22 @@ const popularWebsites = [
       {
         name: "Folo",
         url: "https://app.follow.is/",
-        icon: "/img/folo.svg",
+        icon: "/img/follow.svg",
+      },
+      {
+        name: "石墨文档",
+        url: "https://shimo.im/",
+        icon: "",
+      },
+      {
+        name: "印象笔记",
+        url: "https://www.yinxiang.com/",
+        icon: "",
+      },
+      {
+        name: "百度翻译",
+        url: "https://fanyi.baidu.com/",
+        icon: "",
       }
     ],
   },
@@ -181,6 +228,11 @@ const popularWebsites = [
         name: "Color Space",
         url: "https://mycolor.space/",
         icon: "/img/colorspace.webp",
+      },
+      {
+        name: "Canva可画",
+        url: "https://www.canva.cn/",
+        icon: "",
       }
     ],
   },
@@ -197,6 +249,11 @@ const popularWebsites = [
         url: "https://onedrive.live.com",
         icon: "/img/onedrive.svg",
       },
+      {
+        name: "夸克网盘",
+        url: "https://pan.quark.cn/",
+        icon: "",
+      },
     ],
   },
   {
@@ -211,6 +268,7 @@ const popularWebsites = [
         url: "https://www.thepaper.cn",
         icon: "/img/pengpai_news.webp",
       },
+      { name: "今日头条", url: "https://www.toutiao.com/", icon: "" },
     ],
   },
   {
@@ -219,6 +277,7 @@ const popularWebsites = [
       { name: "淘宝", url: "https://www.taobao.com", icon: "" },
       { name: "京东", url: "https://www.jd.com", icon: "/img/jd.webp" },
       { name: "拼多多", url: "https://www.pinduoduo.com/", icon: "/img/pdd.webp" },
+      { name: "闲鱼", url: "https://www.goofish.com/", icon: "" },
     ],
   },
   {
@@ -261,6 +320,11 @@ const popularWebsites = [
           name: "OHTTPS",
           url: "https://ohttps.com/",
           icon: "/img/ohttps.ico",
+      },
+      {
+        name: "稀土掘金",
+        url: "https://juejin.cn/",
+        icon: "",
       }
     ],
   },
@@ -281,6 +345,11 @@ const popularWebsites = [
         name: "简书",
         url: "https://www.jianshu.com/",
         icon: "/img/jianshu.webp",
+      },
+      {
+        name: "起点中文网",
+        url: "https://www.qidian.com/",
+        icon: "",
       }
     ]
   },
@@ -332,6 +401,11 @@ const popularWebsites = [
         url: "https://scholar.google.com/",
         icon: "/img/google_scholar.ico",
       },
+      {
+        name: "arXiv",
+        url: "https://arxiv.org/",
+        icon: "",
+      }
     ],
   },
 ];

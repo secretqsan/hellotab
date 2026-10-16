@@ -1,4 +1,5 @@
 <script setup>
+const runtimeVariables = useRuntimeStore();
 const aiSearch = ref(false);
 const showImageUploader = ref(false);
 const imageUploading = ref(false);
@@ -16,6 +17,7 @@ const imageUrl = ref("");
 const imageId = ref("");
 const currentUrl = useRequestURL();
 const { searchEngine, aiSearchEngine } = storeToRefs(settings);
+const { crxId } = storeToRefs(runtimeVariables);
 
 const countdownTime = ref(300);
 let countdownTimer = null;
@@ -146,8 +148,6 @@ const handleSearch = () => {
   let searchUrl = "";
   if (showingImage.value) {
     stopCountdown();
-    console.log(imageId.value);
-    console.log(currentUrl);
     searchUrl = constructTemplateUrl(
       searchEngine.value.imageSearchUrl,
       "%s",
@@ -156,12 +156,19 @@ const handleSearch = () => {
   }
   else if (searchQuery.value.trim()) {
     let baseSearchUrl = "";
+    if (searchEngine.value.useBrowserSettings && !aiSearch.value) {
+      chrome.runtime.sendMessage(
+        crxId.value,
+        { type: "search", msg: searchQuery.value.trim() },
+        () => {}
+      );
+    }
     if (aiSearch.value) {
       baseSearchUrl = aiSearchEngine.value.baseUrl;
     } else {
       baseSearchUrl = searchEngine.value.baseUrl;
     }
-    let queryStr = encodeURIComponent(searchQuery.value.trim());
+    const queryStr = encodeURIComponent(searchQuery.value.trim());
     if (baseSearchUrl.includes("%s")) {
       searchUrl = constructTemplateUrl(baseSearchUrl, "%s", queryStr);
     } else {
@@ -180,7 +187,7 @@ const handleSearch = () => {
 const fetchSuggestions = async (query) => {
   if (!query.trim()) {
     suggestions.value = [];
-    var historys = latestNHistory(5);
+    const historys = latestNHistory(5);
     for (const history of historys) {
       suggestions.value.push({
         text: history,
@@ -277,7 +284,7 @@ function searchBoxFocused() {
   focused.value = true;
   if (aiSearch.value == false && searchQuery.value.trim() == "") {
     suggestions.value = [];
-    var historys = latestNHistory(5);
+    const historys = latestNHistory(5);
     for (const history of historys) {
       suggestions.value.push({
         text: history,
@@ -342,18 +349,15 @@ function searchBoxFocused() {
           showingImage ? 'left-0' : '',
         ]"
       >
-        <div class="h-full p-1 flex items-center" v-if="showingImage">
-          <i
-            class="pi pi-spinner pi-spin text-lg"
-            v-if="loadingImage"
-          />
+        <div v-if="showingImage" class="h-full p-1 flex items-center">
+          <i v-if="loadingImage" class="pi pi-spinner pi-spin text-lg"/>
           <img
             v-show="!loadingImage"
             class="h-full rounded-lg"
             :src="`/api/image/${imageId}.webp`"
             @load="loadingImage = false"
             @error="showingImage = false"
-          />
+          >
         </div>
 
         <div
@@ -454,9 +458,9 @@ function searchBoxFocused() {
         ]"
       >
         <CustomImageUploader
+          v-model="imageData"
           :alt="imageData"
           class="w-full border h-60"
-          v-model="imageData"
         />
         <div
           v-if="imageData"

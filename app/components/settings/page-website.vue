@@ -16,8 +16,8 @@ const handleImportBookmarks = async () => {
         { type: "fav", msg: "" },
         function (response) {
           favList = JSON.parse(response.msg);
-          for (var i = 0; i < favList.length; i++) {
-            var fav = favList[i];
+          for (const i of _range(favList.length)) {
+            const fav = favList[i];
             widgets.value.push({
               type: "web",
               title: fav.title,

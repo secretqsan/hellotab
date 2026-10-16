@@ -28,6 +28,7 @@
       "reset": "重置"
     },
     "search": {
+      "useBrowserSettings": "使用浏览器设置",
       "defaultSearchEngine": "默认搜索引擎",
       "enterSearchEngineUrl": "请输入搜索引擎URL"
     },

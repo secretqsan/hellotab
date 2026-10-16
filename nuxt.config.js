@@ -9,13 +9,16 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    "@nuxt/eslint",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/device",
     "@nuxtjs/i18n",
     "@chettapong/nuxt-lodash",
-    '@vite-pwa/nuxt'
+    '@vite-pwa/nuxt',
+    '@vercel/analytics',
+    '@vercel/speed-insights'
   ],
   features: {
     inlineStyles: true
@@ -27,7 +30,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      version: "1.12.0"
+      version: "1.12.1"
     },
   },
   imports: {

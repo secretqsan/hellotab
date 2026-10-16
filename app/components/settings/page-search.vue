@@ -1,6 +1,21 @@
 <script setup>
 const settingsStore = useSettingsStore();
+const runtimeVariables = useRuntimeStore();
 const { searchEngine } = storeToRefs(settingsStore);
+const { crxId } = storeToRefs(runtimeVariables);
+
+const extensionInstalled = computed(
+  () => !!crxId.value && crxId.value !== "#"
+);
+
+const handleBrowserSettingsToggle = (value) => {
+  if (value && !extensionInstalled.value) {
+    alert("请先安装插件");
+    window.open("/intro", "_blank");
+    return;
+  }
+  searchEngine.value.useBrowserSettings = value;
+};
 const currentPage = ref(1);
 const itemsPerPage = 5;
 const availableImageSearchUrl = {
@@ -38,6 +53,10 @@ const totalPages = computed(() => {
   return Math.ceil((searchEngine.value.history?.length || 0) / itemsPerPage);
 });
 
+const searchEngineDisabled = computed(
+  () => searchEngine.value.useBrowserSettings
+);
+
 watch(
   () => searchEngine.value.id,
   (newID, oldID) => {
@@ -49,7 +68,20 @@ watch(
 
 <template>
   <div class="p-4 flex flex-col gap-6">
-    <div class="flex flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <label class="text-md text-gray-600">
+        {{ $t('settings.search.useBrowserSettings') }}
+      </label>
+      <CustomPlaceholder />
+      <CustomSwitch
+        :model-value="searchEngine.useBrowserSettings"
+        @update:model-value="handleBrowserSettingsToggle"
+      />
+    </div>
+    <div
+      class="flex flex-col gap-2"
+      :class="searchEngineDisabled ? 'opacity-50 pointer-events-none select-none' : ''"
+    >
       <label class="text-md text-gray-600">
         {{ $t('settings.search.defaultSearchEngine') }}
       </label>
@@ -71,10 +103,13 @@ watch(
         图像搜索
       </div>
     </div>
-    <div class="flex flex-col gap-2">
+    <div
+      class="flex flex-col gap-2"
+      :class="searchEngineDisabled ? 'opacity-50 pointer-events-none select-none' : ''"
+    >
       <label class="text-md text-gray-600">URL</label>
       <input
-        :disabled="searchEngine.id != 'custom'"
+        :disabled="searchEngineDisabled || searchEngine.id != 'custom'"
         v-model="searchEngine.baseUrl"
         type="text"
         :class="[

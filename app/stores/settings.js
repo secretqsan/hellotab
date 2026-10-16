@@ -2,6 +2,7 @@ export const useSettingsStore = defineStore("settings", {
   state: () => ({
     language: "zh",
     searchEngine: {
+      useBrowserSettings: false,
       id: "bing",
       baseUrl: "https://www.bing.com/search?q=%s",
       imageSearchUrl: "https://www.bing.com/images/search?view=detailv2&iss=SBI&q=imgurl:%s",

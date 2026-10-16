@@ -1,7 +1,9 @@
 export const pwaConfig = {
   registerType: 'autoUpdate',
   devOptions: {
-    enabled: true,
+    // dev 下关闭 SW：它会拦截所有模块请求并逐一过 NetworkFirst 缓存，显著拖慢开发服务器
+    // 需要调试 SW 行为时临时改回 true 即可
+    enabled: false,
     type: 'module',
     suppressWarnings: true
   },
@@ -24,6 +26,7 @@ export const pwaConfig = {
     ]
   },
   workbox: {
+    navigateFallbackAllowlist: [/^\/$/],
     globPatterns: [
       '**/*.*'
     ],
