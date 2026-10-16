@@ -162,6 +162,7 @@ const handleSearch = () => {
         { type: "search", msg: searchQuery.value.trim() },
         () => {}
       );
+      return;
     }
     if (aiSearch.value) {
       baseSearchUrl = aiSearchEngine.value.baseUrl;
