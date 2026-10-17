@@ -157,9 +157,11 @@ const handleSearch = () => {
   else if (searchQuery.value.trim()) {
     let baseSearchUrl = "";
     if (searchEngine.value.useBrowserSettings && !aiSearch.value) {
+      const query = searchQuery.value.trim();
+      addHistory(query);
       chrome.runtime.sendMessage(
         crxId.value,
-        { type: "search", text: searchQuery.value.trim() },
+        { type: "search", text: query },
         () => {}
       );
       return;

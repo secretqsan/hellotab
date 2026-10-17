@@ -1,6 +1,16 @@
 <script setup>
+useSeoMeta({
+  title: "帮助 - HelloTab",
+  description:
+    "HelloTab 使用说明：如何用 WebDAV 同步设置、天气小组件无法获取位置，以及 Bing 图片搜索的限制。",
+  ogTitle: "帮助 - HelloTab",
+  ogDescription:
+    "HelloTab 使用说明：如何用 WebDAV 同步设置、天气小组件无法获取位置，以及 Bing 图片搜索的限制。",
+  ogUrl: "https://hellotab.top/faq",
+  ogType: "website",
+});
 useHead({
-  title: "帮助"
+  link: [{ rel: "canonical", href: "https://hellotab.top/faq" }],
 });
 const route = useRoute();
 const faqItems = ref([

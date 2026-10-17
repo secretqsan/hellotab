@@ -1,19 +1,19 @@
 <script setup>
 const { setLocale, locale } = useI18n();
 
+useSeoMeta({
+  title: "HelloTab - 可定制的浏览器新标签页",
+  description:
+    "HelloTab 是一款浏览器新标签页扩展，支持小组件、WebDAV 云端同步、多种搜索引擎和自定义壁纸。可在 Edge 扩展商店安装，也可直接使用网页版。",
+  ogTitle: "HelloTab - 可定制的浏览器新标签页",
+  ogDescription:
+    "小组件、WebDAV 同步、多种搜索引擎和自定义壁纸，打造自己的浏览器新标签页。",
+  ogImage: "https://hellotab.top/icons/512.png",
+  ogUrl: "https://hellotab.top/intro",
+  ogType: "website",
+});
 useHead({
-  title: "HelloTab",
-  meta: [
-    {
-      name: "keywords",
-      content: "新标签页,标签页定制,浏览器扩展,Chrome扩展,Edge扩展,效率工具",
-    },
-    {
-      name: "description",
-      content:
-        "HelloTab是一款功能强大的浏览器新标签页扩展，提供可定制的小组件、云端同步、智能搜索和个性化外观，让你的浏览体验更加高效和个性化。",
-    },
-  ],
+  link: [{ rel: "canonical", href: "https://hellotab.top/intro" }],
 });
 
 const features = ref([
@@ -41,7 +41,7 @@ const features = ref([
 
 const releases = ref([
   {
-    url: "downloads/hellotab-0.1.0-beta.zip",
+    url: "downloads/hellotab-0.1.1.zip",
     icon: "/img/extension.svg",
     mainText: "zip版本",
     subText: "开发版本",

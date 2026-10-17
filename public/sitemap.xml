@@ -1,20 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hellotab.top</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/en</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/ja</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top"/>
   </url>
   <url>
     <loc>https://hellotab.top/intro</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top/intro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en/intro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja/intro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top/intro"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/en/intro</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top/intro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en/intro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja/intro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top/intro"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/ja/intro</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top/intro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en/intro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja/intro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top/intro"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/faq</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top/faq"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/en/faq</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top/faq"/>
+  </url>
+  <url>
+    <loc>https://hellotab.top/ja/faq</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://hellotab.top/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hellotab.top/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hellotab.top/ja/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hellotab.top/faq"/>
   </url>
   <url>
     <loc>https://nightly.hellotab.top</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

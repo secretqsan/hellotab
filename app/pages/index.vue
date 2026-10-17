@@ -1,14 +1,16 @@
 <script setup>
+useSeoMeta({
+  title: "HelloTab 新标签页",
+  description:
+    "打开 HelloTab 新标签页，使用搜索、小组件、每日壁纸和常用网站。",
+  ogTitle: "HelloTab 新标签页",
+  ogDescription:
+    "打开 HelloTab 新标签页，使用搜索、小组件、每日壁纸和常用网站。",
+  ogUrl: "https://hellotab.top",
+  ogType: "website",
+});
 useHead({
-  title: "HelloTab",
-  meta: [
-    { name: "keywords", content: "新标签页,标签页定制，效率工具" },
-    {
-      name: "description",
-      content:
-        "试用HelloTab。HelloTab是一款功能强大的浏览器新标签页，提供可定制的小组件、云端同步、智能搜索和个性化外观等特性，让你的浏览体验更加高效和个性化。",
-    },
-  ]
+  link: [{ rel: "canonical", href: "https://hellotab.top" }],
 });
 const settingStore = useSettingsStore();
 const runtimeVariables = useRuntimeStore();
