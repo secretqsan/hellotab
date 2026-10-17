@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     "@chettapong/nuxt-lodash",
     '@vite-pwa/nuxt',
     '@vercel/analytics',
-    '@vercel/speed-insights'
+    '@vercel/speed-insights',
+    "@nuxt/image"
   ],
   features: {
     inlineStyles: true
@@ -30,7 +31,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      version: "1.12.2"
+      version: "1.12.3"
     },
   },
   imports: {
@@ -71,5 +72,16 @@ export default defineNuxtConfig({
   lodash: {
     prefix: "_",
     upperAfterPrefix: false,
-  }
+  },
+  image: {
+    presets: {
+      icon: {
+        modifiers: {
+          format: "webp",
+          enlarge: true,
+          fit: "contain"
+        },
+      },
+    },
+  },
 });

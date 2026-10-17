@@ -15,7 +15,7 @@ defineExpose({
   <Teleport to="body">
     <div
       @click.stop
-      @contextmenu.stop
+      @contextmenu.prevent.stop
       class="fixed top-0 right-0 p-4 z-50 flex flex-col gap-3"
     >
       <TransitionGroup

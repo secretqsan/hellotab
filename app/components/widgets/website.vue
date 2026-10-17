@@ -35,9 +35,12 @@ const { pictures } = storeToRefs(imageStorage);
   >
     <template #alt>
       <div class="h-full w-full flex items-center justify-center">
-        <img
+        <NuxtImg
           v-if="e.url"
           :src="e.customIcon ? pictures[e.icon] : e.icon"
+          preset="icon"
+          width="48"
+          height="48"
           class="w-12 h-12 rounded-md"
           @error="$event.target.src = '/img/globe.svg'"
           @contextmenu.prevent

@@ -159,7 +159,7 @@ const handleSearch = () => {
     if (searchEngine.value.useBrowserSettings && !aiSearch.value) {
       chrome.runtime.sendMessage(
         crxId.value,
-        { type: "search", msg: searchQuery.value.trim() },
+        { type: "search", text: searchQuery.value.trim() },
         () => {}
       );
       return;

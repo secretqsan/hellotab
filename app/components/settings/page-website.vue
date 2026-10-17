@@ -209,10 +209,13 @@ const handleAddCustomWebsite = () => {
                   ($device.isDesktop || $device.isTablet)? 'flex-row': 'flex-col'
                 ]"
               >
-                <img
+                <NuxtImg
                   loading="lazy"
                   :src="site.icon == '' ? getFaviconUrl(site.url) : site.icon"
                   :alt="site.name"
+                  preset="icon"
+                  width="24"
+                  height="24"
                   class="w-6 h-6 rounded-sm"
                   @contextmenu.prevent
                   @error="$event.target.src = '/img/globe.svg'"
@@ -264,9 +267,12 @@ const handleAddCustomWebsite = () => {
         <div class="flex flex-col gap-2">
           <label class="text-sm text-gray-600">自定义图标</label>
           <div class="flex gap-4 items-center">
-            <img
+            <NuxtImg
               v-if="customWebsite.icon"
               :src="customWebsite.icon"
+              preset="icon"
+              width="40"
+              height="40"
               class="w-10 h-10 rounded-lg border"
             />
             <div

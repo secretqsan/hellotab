@@ -21,20 +21,7 @@ watch(
     }
   }
 );
-const { data:onlineBackgroundUrl } = await useFetch('/api/backgrounds')
-const imageUrl = computed(() => {
-  if (appearance.value.background == "bing") {
-    return onlineBackgroundUrl.value.bing;
-  } else if (appearance.value.background == "unsplash") {
-    return onlineBackgroundUrl.value.unsplash;
-  } else {
-    if (!isNaN(appearance.value.e1)) {
-      return pictures.value[appearance.value.e1];
-    } else {
-      return appearance.value.e1;
-    }
-  }
-});
+const imageUrl = await useBackgroundUrl();
 </script>
 
 <template>

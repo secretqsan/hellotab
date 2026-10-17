@@ -5,5 +5,7 @@ useHead({
 </script>
 
 <template>
-  <NuxtPage />
+  <div class="contents" @contextmenu.capture.prevent>
+    <NuxtPage />
+  </div>
 </template>
