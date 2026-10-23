@@ -22,12 +22,25 @@ watch(
   }
 );
 const imageUrl = await useBackgroundUrl();
+const themeOptions = ref([
+  { id: "auto", name: "跟随系统" },
+  { id: "light", name: "白天" },
+  { id: "dark", name: "黑夜" },
+]);
 </script>
 
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">背景图片</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">主题</label>
+      <CustomSelector
+        :candidates="themeOptions"
+        v-model="appearance.theme"
+        class="dark:text-gray-200"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="text-md text-gray-600 dark:text-gray-300">背景图片</label>
       <div class="flex flex-col gap-4">
         <div class="w-full overflow-x-scroll">
           <CustomSelector
@@ -64,17 +77,17 @@ const imageUrl = await useBackgroundUrl();
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">小组件</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">小组件</label>
       <div class="flex items-center gap-2">
-        <label class="text-md text-gray-600">隐藏小组件标题</label>
+        <label class="text-md text-gray-600 dark:text-gray-300">隐藏小组件标题</label>
         <CustomPlaceholder />
         <CustomSwitch v-model="appearance.hideWidgetTitle" />
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">一言</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">一言</label>
       <div class="flex items-center gap-2">
-        <label class="text-md text-gray-600">显示一言</label>
+        <label class="text-md text-gray-600 dark:text-gray-300">显示一言</label>
         <CustomPlaceholder />
         <CustomSwitch v-model="appearance.showHitokoto" />
       </div>

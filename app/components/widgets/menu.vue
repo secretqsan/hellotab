@@ -55,7 +55,7 @@ watch(hide, (newValue) => {
   <Teleport to="body">
     <div
       ref="menuRef"
-      class="absolute z-20 w-40 bg-white rounded-lg shadow-lg border border-gray-300 flex flex-col overflow-hidden p-1"
+      class="absolute z-20 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-300 dark:border-slate-600 flex flex-col overflow-hidden p-1"
       v-show="!hide"
       :style="{
         left: `${x}px`,
@@ -69,7 +69,7 @@ watch(hide, (newValue) => {
           <div
             :class="[
               'px-2 py-1 cursor-pointer flex items-center gap-3 rounded-md',
-              ($device.isDesktop || $device.isTablet)? 'hover:bg-gray-100 transition-colors ': ''
+              ($device.isDesktop || $device.isTablet)? 'hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors ': ''
             ]"
             @click="
               () => {
@@ -78,11 +78,11 @@ watch(hide, (newValue) => {
               }
             "
           >
-            <i v-if="item.icon" :class="[item.icon, 'text-gray-600']"></i>
-            <span class="text-gray-700">{{ item.label }}</span>
+            <i v-if="item.icon" :class="[item.icon, 'text-gray-600 dark:text-gray-300']"></i>
+            <span class="text-gray-700 dark:text-gray-200">{{ item.label }}</span>
           </div>
         </template>
-        <div v-else class="h-[1px] bg-gray-200 m-0.5" />
+        <div v-else class="h-[1px] bg-gray-200 dark:bg-slate-700 m-0.5" />
       </template>
     </div>
   </Teleport>

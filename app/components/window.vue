@@ -17,7 +17,7 @@ defineExpose({
     <div 
       :class="
         [
-          'bg-gray-50 overflow-hidden relative',
+          'bg-gray-50 dark:bg-slate-900 dark:text-gray-200 overflow-hidden relative',
           ($device.isDesktop || $device.isTablet)? 'w-3/4 h-3/4 rounded-lg': 'w-full h-full'
         ]
     ">
@@ -25,7 +25,7 @@ defineExpose({
       <button
         :class="[
           'absolute top-2 right-2 rounded-full flex items-center justify-center text-red-500',
-          $device.isDesktop? 'hover:bg-red-50 transition-colors duration-200 h-10 w-10': ' h-12 w-12',
+          $device.isDesktop? 'hover:bg-red-50 dark:hover:bg-red-950 transition-colors duration-200 h-10 w-10': ' h-12 w-12',
         ]"
         @click="open = false"
       >

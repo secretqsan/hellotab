@@ -37,7 +37,7 @@ defineExpose({
     <div class="w-full h-full flex flex-row">
       <div 
         :class="[
-          'bg-gray-100 h-full p-2 flex flex-col gap-1 overflow-y-auto',
+          'bg-gray-100 dark:bg-slate-800 h-full p-2 flex flex-col gap-1 overflow-y-auto',
           $device.isDesktop || $device.isTablet ? 'w-1/4' : '',
         ]
       ">
@@ -48,22 +48,22 @@ defineExpose({
           :class="[
             'flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-colors duration-200',
             activeSettingTab === key
-              ? 'bg-white shadow-sm'
-              : 'hover:bg-white/50',
+              ? 'bg-white dark:bg-slate-700 shadow-sm'
+              : 'hover:bg-white/50 dark:hover:bg-slate-700/50',
           ]"
         >
           <i
             :class="[
               tab.icon,
               'text-lg',
-              activeSettingTab === key ? 'text-blue-500' : 'text-gray-500',
+              activeSettingTab === key ? 'text-blue-500' : 'text-gray-500 dark:text-gray-400',
             ]"
           ></i>
           <span
             :class="[
               activeSettingTab === key
                 ? 'text-blue-500 font-medium'
-                : 'text-gray-700',
+                : 'text-gray-700 dark:text-gray-300',
               'whitespace-nowrap',
             ]"
             v-if="$device.isDesktop || $device.isTablet"
@@ -73,7 +73,7 @@ defineExpose({
       </div>
       <div class="flex-1 w-0 h-full flex flex-col">
         <div class="flex flex-row">
-          <h2 class="text-xl font-medium ml-8 mt-8 mb-0">
+          <h2 class="text-xl font-medium ml-8 mt-8 mb-0 dark:text-gray-100">
             {{ $t('settings.base') }} > {{ $t(settingTabs[activeSettingTab].label) }}
           </h2>
         </div>

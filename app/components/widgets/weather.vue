@@ -111,7 +111,7 @@ onUnmounted(() => {
           <i :class="`qi-${weather.icon} text-5xl`" />
           <div class="flex flex-col">
             <span class="text-4xl font-medium">{{ weather.temp }}°C</span>
-            <span class="text-lg text-gray-500">{{ weather.text }}</span>
+            <span class="text-lg text-gray-500 dark:text-gray-400">{{ weather.text }}</span>
           </div>
         </div>
         <a
@@ -131,7 +131,7 @@ onUnmounted(() => {
         <i :class="`qi-${weather.icon} text-3xl`" />
         <div class="flex flex-col items-center justify-center">
           <span class="text-xl font-medium">{{ weather.temp }}°C</span>
-          <span class="text-sm text-gray-500">{{ weather.text }}</span>
+          <span class="text-sm text-gray-500 dark:text-gray-400">{{ weather.text }}</span>
         </div>
       </div>
     </template>
@@ -139,7 +139,7 @@ onUnmounted(() => {
     <template #small>
       <div class="h-full w-full flex flex-col items-center justify-center">
         <span class="text-xl font-medium">{{ weather.temp }}°C</span>
-        <span class="text-sm text-gray-500">{{ weather.text }}</span>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{ weather.text }}</span>
       </div>
     </template>
 
@@ -149,8 +149,8 @@ onUnmounted(() => {
         class="h-full w-full flex flex-col items-center justify-center gap-2"
       >
         <i class="pi pi-exclamation-circle text-red-500 text-3xl"></i>
-        <p class="text-lg font-medium text-gray-800">地理位置获取失败</p>
-        <p class="text-sm text-gray-600 text-center">
+        <p class="text-lg font-medium text-gray-800 dark:text-gray-200">地理位置获取失败</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 text-center">
           请检查是否已开启位置服务
         </p>
         <a

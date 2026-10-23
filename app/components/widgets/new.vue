@@ -30,7 +30,7 @@ const { settingPanel } = storeToRefs(runtimeVariables);
           }
         "
       >
-        <i class="pi pi-plus text-gray-600 text-3xl"></i>
+        <i class="pi pi-plus text-gray-600 dark:text-gray-400 text-3xl"></i>
       </div>
     </template>
   </WidgetsBase>

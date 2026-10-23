@@ -70,13 +70,13 @@ onMounted(() => {
   <WidgetsBase :size_x="size_x" :size_y="size_y" :title="'日历'">
     <template #large>
       <div class="h-full w-full p-4 flex flex-col items-center justify-center">
-        <div class="text-center mb-1 text-gray-600">
+        <div class="text-center mb-1 text-gray-600 dark:text-gray-300">
           {{ currentMonth.getFullYear() }}年{{ currentMonth.getMonth() + 1 }}月
         </div>
         <div class="grid grid-cols-7 gap-0.5">
           <div
             v-for="day in ['日', '一', '二', '三', '四', '五', '六']"
-            class="text-center text-xs text-gray-500"
+            class="text-center text-xs text-gray-500 dark:text-gray-400"
           >
             {{ day }}
           </div>
@@ -87,7 +87,7 @@ onMounted(() => {
                 day === now.getDate() &&
                 currentMonth.getMonth() === now.getMonth()
                   ? 'bg-blue-500 text-white'
-                  : 'text-gray-700',
+                  : 'text-gray-700 dark:text-gray-200',
               ]"
             >
               {{ day }}
@@ -104,7 +104,7 @@ onMounted(() => {
             now.getDate()
           }}日
         </div>
-        <div class="text-xs text-gray-500">
+        <div class="text-xs text-gray-500 dark:text-gray-400">
           星期{{ ["日", "一", "二", "三", "四", "五", "六"][now.getDay()] }}
         </div>
       </div>
@@ -115,7 +115,7 @@ onMounted(() => {
         <div class="text-xl font-medium">
           {{ now.getMonth() + 1 }}/{{ now.getDate() }}
         </div>
-        <div class="text-xs text-gray-500">
+        <div class="text-xs text-gray-500 dark:text-gray-400">
           {{ ["日", "一", "二", "三", "四", "五", "六"][now.getDay()] }}
         </div>
       </div>

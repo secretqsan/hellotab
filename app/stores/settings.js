@@ -114,7 +114,8 @@ export const useSettingsStore = defineStore("settings", {
       hideTitle: false,
       showHitokoto: false,
       background: "bing",
-      e1: ""
+      e1: "",
+      theme: "auto"
     }
   }),
   persist: true,

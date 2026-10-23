@@ -26,11 +26,11 @@ function resetConfigBtnClicked() {
 <template>
   <div class="p-4 space-y-6">
     <div class="flex items-center flex-row">
-      <div class="text-md text-gray-600">{{ $t('settings.general.language') }}</div>
+      <div class="text-md text-gray-600 dark:text-gray-300">{{ $t('settings.general.language') }}</div>
       <CustomPlaceholder />
       <select
         v-model="language"
-        class="rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm focus:border-blue-500 focus:ring-blue-500 outline-none"
+        class="rounded-lg border border-gray-300 bg-gray-50 dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100 p-2 text-sm focus:border-blue-500 focus:ring-blue-500 outline-none"
       >
         <option v-for="option in languageOptions" :key="option.value" :value="option.value">
           {{ option.label }}
@@ -39,7 +39,7 @@ function resetConfigBtnClicked() {
     </div>
     <div 
       class="flex flex-col gap-3">
-      <label class="text-md text-gray-600">{{ $t('settings.general.config') }}</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">{{ $t('settings.general.config') }}</label>
       <div class="flex flex-col gap-2">
         <custom-button
           class="w-full bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200"

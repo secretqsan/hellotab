@@ -58,22 +58,22 @@ onMounted(() => {
 </script>
 <template>
   <div class="max-w-3xl mx-auto p-8">
-    <h1 class="text-center mb-12 text-3xl font-bold tracking-tight text-gray-800">常见问题</h1>
+    <h1 class="text-center mb-12 text-3xl font-bold tracking-tight text-gray-800 dark:text-gray-100">常见问题</h1>
     <div class="flex flex-col gap-6">
       <div v-for="(item, index) in faqItems" :key="index" 
-        class="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 bg-white">
+        class="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <div 
-          class="p-5 cursor-pointer flex justify-between items-center font-medium bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
+          class="p-5 cursor-pointer flex justify-between items-center font-medium bg-gray-50 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-200"
           @click="item.isOpen = !item.isOpen"
         >
-          <span class="text-lg text-gray-700">{{ item.question }}</span>
-          <span class="text-xl transition-transform duration-300 ease-in-out text-gray-500" :class="{ 'rotate-90': item.isOpen }">›</span>
+          <span class="text-lg text-gray-700 dark:text-gray-200">{{ item.question }}</span>
+          <span class="text-xl transition-transform duration-300 ease-in-out text-gray-500 dark:text-gray-400" :class="{ 'rotate-90': item.isOpen }">›</span>
         </div>
         <div 
           class="overflow-hidden transition-all duration-300 ease-in-out"
           :class="{ 'max-h-0': !item.isOpen, 'max-h-[500px]': item.isOpen }"
         >
-          <div class="p-5 leading-relaxed text-gray-600" v-html="item.answer"></div>
+          <div class="p-5 leading-relaxed text-gray-600 dark:text-gray-300" v-html="item.answer"></div>
         </div>
       </div>
     </div>

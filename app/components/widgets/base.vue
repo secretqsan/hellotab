@@ -34,8 +34,8 @@ defineExpose({
   >
     <div
       :class="[
-        'bg-white rounded-xl',
-        'hover:shadow-lg hover:shadow-gray-300/50 transition-shadow duration-200',
+        'bg-white dark:bg-slate-800 dark:text-gray-100 rounded-xl',
+        'hover:shadow-lg hover:shadow-gray-300/50 dark:hover:shadow-black/40 transition-shadow duration-200',
         size_x == 1 ? 'w-20' : 'w-56',
         size_y == 1 ? 'h-20' : 'h-56',
       ]"

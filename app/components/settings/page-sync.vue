@@ -105,11 +105,11 @@ const downloadFromCloud = async () => {
   <div class="p-4 space-y-6">
     <div class="flex flex-col gap-4">
       <div
-        class="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm"
+        class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm"
       >
         <div>
           <h3 class="text-base font-medium">启用同步</h3>
-          <p class="text-sm text-gray-500 mt-1">
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
             开启后可以在多个设备间同步您的设置
           </p>
         </div>
@@ -117,35 +117,35 @@ const downloadFromCloud = async () => {
       </div>
 
       <template v-if="syncEnabled">
-        <div class="p-4 bg-white rounded-lg shadow-sm">
+        <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
           <h3 class="text-base font-medium mb-4">WebDAV 存储配置</h3>
           <div class="space-y-4">
             <div>
-              <label class="block text-sm text-gray-600 mb-1">服务器地址</label>
+              <label class="block text-sm text-gray-600 dark:text-gray-300 mb-1">服务器地址</label>
               <input
                 v-model="webdavUrl"
                 @change="clearSyncState"
                 type="text"
-                class="w-full px-3 py-2 border rounded-lg"
+                class="w-full px-3 py-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100"
                 placeholder="https://example.com"
               />
             </div>
             <div>
-              <label class="block text-sm text-gray-600 mb-1">用户名</label>
+              <label class="block text-sm text-gray-600 dark:text-gray-300 mb-1">用户名</label>
               <input
                 v-model="webdavUsername"
                 @change="clearSyncState"
                 type="text"
-                class="w-full px-3 py-2 border rounded-lg"
+                class="w-full px-3 py-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100"
               />
             </div>
             <div>
-              <label class="block text-sm text-gray-600 mb-1">密码</label>
+              <label class="block text-sm text-gray-600 dark:text-gray-300 mb-1">密码</label>
               <input
                 v-model="webdavPassword"
                 @change="clearSyncState"
                 type="password"
-                class="w-full px-3 py-2 border rounded-lg"
+                class="w-full px-3 py-2 border rounded-lg dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100"
               />
             </div>
             <custom-button
@@ -155,7 +155,7 @@ const downloadFromCloud = async () => {
               :class="[
                 'w-full',
                 testingConnection
-                  ? 'bg-gray-200 cursor-not-allowed'
+                  ? 'bg-gray-200 dark:bg-slate-600 cursor-not-allowed'
                   : 'bg-blue-500 hover:bg-blue-600 text-white'
               ]"
             >
@@ -177,7 +177,7 @@ const downloadFromCloud = async () => {
                 @click="uploadToCloud"
                 :class="[
                   uploading || downloading
-                    ? 'bg-gray-200 cursor-not-allowed'
+                    ? 'bg-gray-200 dark:bg-slate-600 cursor-not-allowed'
                     : 'bg-blue-500 hover:bg-blue-600 text-white',
                   'w-full px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2',
                 ]"
@@ -195,7 +195,7 @@ const downloadFromCloud = async () => {
                 @click="downloadFromCloud"
                 :class="[
                   uploading || downloading
-                    ? 'bg-gray-200 cursor-not-allowed'
+                    ? 'bg-gray-200 dark:bg-slate-600 cursor-not-allowed'
                     : 'bg-blue-500 hover:bg-blue-600 text-white',
                   'w-full px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2',
                 ]"

@@ -5,7 +5,11 @@ useHead({
 </script>
 
 <template>
-  <div class="contents" @contextmenu.capture.prevent>
+  <div
+    class="contents select-none dark:[color-scheme:dark]"
+    @contextmenu.capture.prevent
+  >
+    <ThemeHandler />
     <NuxtPage />
   </div>
 </template>

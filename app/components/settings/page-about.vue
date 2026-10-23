@@ -4,10 +4,10 @@ const config = useRuntimeConfig();
 
 <template>
   <div class="p-4 flex flex-col gap-6">
-    <div class="p-4 bg-white rounded-lg shadow-sm">
+    <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">HelloTab</h3>
-      <p class="text-gray-600 mb-4">{{ $t('settings.about.description') }}</p>
-      <div class="text-sm text-gray-500">
+      <p class="text-gray-600 dark:text-gray-300 mb-4">{{ $t('settings.about.description') }}</p>
+      <div class="text-sm text-gray-500 dark:text-gray-400">
         <div class="mb-1">{{ $t('settings.about.versionHint') }}{{ config.public.version }}</div>
         <div class="mb-1">{{ $t('settings.about.authorHint') }}神秘的Q桑</div>
         <div class="mb-1">{{ $t('settings.about.licenseHint') }}LGPL</div>
@@ -30,9 +30,9 @@ const config = useRuntimeConfig();
       </div>
     </div>
 
-    <div class="p-4 bg-white rounded-lg shadow-sm">
+    <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">{{ $t('settings.about.supportUs') }}</h3>
-      <div class="text-sm text-gray-500 space-y-2">
+      <div class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
         <div :class="[
           'flex items-center gap-2'
         ]">
@@ -58,9 +58,9 @@ const config = useRuntimeConfig();
       </div>
     </div>
 
-    <div class="p-4 bg-white rounded-lg shadow-sm">
+    <div class="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
       <h3 class="text-lg font-medium mb-2">{{ $t('settings.about.community') }}</h3>
-      <div class="text-sm text-gray-500 space-y-2">
+      <div class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
         <div class="flex items-center gap-2">
           <span>{{ $t('settings.about.joinQQGroup') }}</span>
         </div>

@@ -22,7 +22,8 @@
     "qweather-icons": "^1.8.0",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0",
-    "vuedraggable": "^4.1.0"
+    "vuedraggable": "^4.1.0",
+    "webdav": "^5.11.0"
   },
   "private": true,
   "scripts": {

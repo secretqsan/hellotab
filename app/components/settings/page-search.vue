@@ -69,7 +69,7 @@ watch(
 <template>
   <div class="p-4 flex flex-col gap-6">
     <div class="flex items-center gap-2">
-      <label class="text-md text-gray-600">
+      <label class="text-md text-gray-600 dark:text-gray-300">
         {{ $t('settings.search.useBrowserSettings') }}
       </label>
       <CustomPlaceholder />
@@ -82,7 +82,7 @@ watch(
       class="flex flex-col gap-2"
       :class="searchEngineDisabled ? 'opacity-50 pointer-events-none select-none' : ''"
     >
-      <label class="text-md text-gray-600">
+      <label class="text-md text-gray-600 dark:text-gray-300">
         {{ $t('settings.search.defaultSearchEngine') }}
       </label>
       <div class="w-full overflow-x-scroll">
@@ -107,7 +107,7 @@ watch(
       class="flex flex-col gap-2"
       :class="searchEngineDisabled ? 'opacity-50 pointer-events-none select-none' : ''"
     >
-      <label class="text-md text-gray-600">URL</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">URL</label>
       <input
         :disabled="searchEngineDisabled || searchEngine.id != 'custom'"
         v-model="searchEngine.baseUrl"
@@ -121,7 +121,7 @@ watch(
     </div>
 
     <div class="flex items-center flex-row">
-      <div class="text-md text-gray-600">搜素结果打开位置</div>
+      <div class="text-md text-gray-600 dark:text-gray-300">搜素结果打开位置</div>
       <CustomPlaceholder />
       <select
         v-model="searchEngine.open"
@@ -134,7 +134,7 @@ watch(
     
 
     <div class="flex flex-row items-center w-full">
-      <label class="text-md text-gray-600">最大历史记录</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">最大历史记录</label>
       <CustomPlaceholder />
       <input
         type="number"
@@ -145,9 +145,9 @@ watch(
       />
     </div>
     <div class="flex flex-col gap-2">
-      <label class="text-md text-gray-600">历史记录管理</label>
+      <label class="text-md text-gray-600 dark:text-gray-300">历史记录管理</label>
       <div
-        class="flex flex-col gap-1 bg-white rounded-md p-2 border border-gray-200"
+        class="flex flex-col gap-1 bg-white dark:bg-slate-800 rounded-md p-2 border border-gray-200 dark:border-slate-600"
       >
         <div
           v-if="!searchEngine.history?.length"
@@ -158,9 +158,9 @@ watch(
         <div
           v-for="(item, index) in paginatedHistory"
           :key="index"
-          class="flex rounded-md flex-row items-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+          class="flex rounded-md flex-row items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-200"
         >
-          <span class="text-sm text-gray-600 truncate">{{ item }}</span>
+          <span class="text-sm text-gray-600 dark:text-gray-300 truncate">{{ item }}</span>
           <CustomPlaceholder />
           <button
             @click="
@@ -191,7 +191,7 @@ watch(
           >
             <i class="pi pi-chevron-left"></i>
           </button>
-          <span class="text-sm text-gray-600"
+          <span class="text-sm text-gray-600 dark:text-gray-300"
             >{{ currentPage }} / {{ totalPages }}</span
           >
           <button

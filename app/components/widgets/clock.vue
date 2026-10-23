@@ -62,7 +62,7 @@ onMounted(() => {
             cy="50"
             r="45"
             fill="none"
-            stroke="#E5E7EB"
+            class="stroke-gray-200 dark:stroke-slate-600"
             stroke-width="2"
           />
 
@@ -74,7 +74,7 @@ onMounted(() => {
               y1="10"
               x2="50"
               y2="15"
-              stroke="#374151"
+              class="stroke-gray-700 dark:stroke-gray-400"
               stroke-width="2"
               :transform="`rotate(${(i - 1) * 30} 50 50)`"
             />
@@ -86,7 +86,7 @@ onMounted(() => {
             y1="50"
             x2="50"
             y2="30"
-            stroke="#111827"
+            class="stroke-gray-900 dark:stroke-gray-100"
             stroke-width="3"
             stroke-linecap="round"
             :transform="clockHands.hour"
@@ -98,7 +98,7 @@ onMounted(() => {
             y1="50"
             x2="50"
             y2="25"
-            stroke="#374151"
+            class="stroke-gray-700 dark:stroke-gray-300"
             stroke-width="2"
             stroke-linecap="round"
             :transform="clockHands.minute"
@@ -117,7 +117,7 @@ onMounted(() => {
           />
 
           <!-- 中心点 -->
-          <circle cx="50" cy="50" r="2" fill="#111827" />
+          <circle cx="50" cy="50" r="2" class="fill-gray-900 dark:fill-gray-100" />
         </svg>
         <div class="text-2xl font-medium">{{ getTimeString(now) }}</div>
       </div>

@@ -1,65 +1,46 @@
+import { createClient } from "webdav";
+
 class Client {
   constructor(url, params) {
-    this.url = url.endsWith("/")
-      ? url + `${params.subdir}/`
-      : url + `/${params.subdir}/`;
-    this.url = proxyedUrl(url);
-    this.authorizationStr =
-      "Basic " + btoa(params.username + ":" + params.password);
+    this.basePath = `/${params.subdir}`;
+    this.client = createClient(proxyedUrl(url), {
+      username: params.username,
+      password: params.password,
+    });
   }
 
   async createFolder() {
-    await $fetch(this.url, {
-      method: "MKCOL",
-      headers: {
-        Authorization: this.authorizationStr,
-      },
-      responseType: "arrayBuffer",
-    });
+    if (!(await this.client.exists(this.basePath))) {
+      await this.client.createDirectory(this.basePath, { recursive: true });
+    }
   }
-  async fetchFile(fileName) {
-    var res = await $fetch(this.url + fileName, {
-      headers: {
-        Authorization: this.authorizationStr,
-      },
-      responseType: "arrayBuffer",
-    });
-    return res;
-  }
-  async uploadFile(fileName, data) {
-    await $fetch(this.url + fileName, {
-      method: "PUT",
-      headers: {
-        Authorization: this.authorizationStr,
-        "Content-Type": "text/plain;charset=UTF-8",
-      },
-      body: data,
-      responseType: "arrayBuffer",
-    });
-  }
-  async listFiles() {
-    var res = await $fetch(this.url, {
-      method: "PROPFIND",
-      headers: {
-        Authorization: this.authorizationStr,
-      },
-    });
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(res, "text/xml");
 
-    const hrefs = xmlDoc.getElementsByTagNameNS("DAV:", "href");
-    const files = Array.from(hrefs)
-      .map((href) => href.textContent.split("/").pop())
-      .filter((file) => file !== "");
-    return files;
-  }
-  async deleteFile(fileName) {
-    await $fetch(this.url + fileName, {
-      method: "DELETE",
-      headers: {
-        Authorization: this.authorizationStr,
-      },
+  async fetchFile(fileName) {
+    return await this.client.getFileContents(`${this.basePath}/${fileName}`, {
+      format: "binary",
     });
+  }
+
+  async uploadFile(fileName, data) {
+    await this.client.putFileContents(`${this.basePath}/${fileName}`, data, {
+      overwrite: true,
+      headers: { "Content-Type": "text/plain;charset=UTF-8" },
+    });
+  }
+
+  async listFiles() {
+    if (!(await this.client.exists(this.basePath))) {
+      return [];
+    }
+    const items = await this.client.getDirectoryContents(this.basePath);
+    return items
+      .filter((item) => item.type === "file")
+      .map((item) => item.basename);
+  }
+
+  async deleteFile(fileName) {
+    await this.client.deleteFile(`${this.basePath}/${fileName}`);
   }
 }
+
 export default Client;

@@ -5,7 +5,7 @@ const v = defineModel();
 <template>
   <input
     v-model="v"
-    class="flex-1 px-4 py-2 border rounded-lg transition-colors focus:border-blue-500 focus:outline-none"
+    class="flex-1 px-4 py-2 border rounded-lg transition-colors focus:border-blue-500 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100"
     :placeholder="placeholder"
   />
 </template>

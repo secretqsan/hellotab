@@ -9,7 +9,7 @@ const target = defineModel({
   <div
     :class="[
       'relative inline-block w-12 h-6 rounded-full transition duration-200 ease-in-out cursor-pointer',
-      target ? 'bg-blue-500' : 'bg-gray-200',
+      target ? 'bg-blue-500' : 'bg-gray-200 dark:bg-slate-600',
     ]"
     @click="() => {
       target = !target;

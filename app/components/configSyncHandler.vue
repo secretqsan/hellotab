@@ -12,7 +12,7 @@ const {
 } = storeToRefs(localSettings);
 
 const uploadSettings = _debounce(async () => {
-  const client = new webdavClient(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(webdavUrl.value, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,
@@ -27,7 +27,7 @@ const uploadSettings = _debounce(async () => {
   }
 }, 1000);
 const uploadImages = _debounce(async () => {
-  const client = new Client(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(webdavUrl.value, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,
@@ -54,7 +54,7 @@ const uploadImages = _debounce(async () => {
 }, 1000);
 
 async function fetchSettings() {
-  const client = new Client(`/api/proxy/${webdavUrl.value}`, {
+  const client = new webdavClient(webdavUrl.value, {
     subdir: "hellotab",
     username: webdavUsername.value,
     password: webdavPassword.value,

@@ -17,11 +17,11 @@ const checked = defineModel({
     <div
       :class="[
         'flex flex-row items-center justify-center inline-block cursor-pointer w-5 h-5 border-2 rounded-md transition-all duration-200 ease-in-out',
-        checked ? 'border-blue-500 scale-105' : 'border-gray-300',
-        checked ? 'bg-blue-500' : 'bg-white',
+        checked ? 'border-blue-500 scale-105' : 'border-gray-300 dark:border-slate-500',
+        checked ? 'bg-blue-500' : 'bg-white dark:bg-slate-700',
         checked
           ? 'group-hover:bg-blue-600 group-hover:border-blue-600'
-          : 'group-hover:border-gray-400 group-hover:bg-gray-50',
+          : 'group-hover:border-gray-400 group-hover:bg-gray-50 dark:group-hover:bg-slate-600',
         'active:scale-95',
       ]"
     >

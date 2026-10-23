@@ -5,6 +5,7 @@ export async function useBackgroundUrl() {
   const { appearance } = storeToRefs(settingStore);
   const { data: onlineBackgroundUrl } = await useFetch("/api/backgrounds", {
     key: "backgrounds",
+    server: false
   });
 
   return computed(() => {

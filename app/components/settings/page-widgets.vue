@@ -38,7 +38,7 @@ const { widgets } = storeToRefs(settingStore);
         v-if="widgesAvailiable.some(
               (widget) => !widgets.find((w) => w.type === widget.name)
             )"
-        class="text-md text-gray-600">
+        class="text-md text-gray-600 dark:text-gray-300">
         {{ $t('settings.widgets.available') }}
       </label>
       <div 
@@ -53,7 +53,7 @@ const { widgets } = storeToRefs(settingStore);
             )
           "
           :class="[
-            'text-center py-8 text-gray-500',
+            'text-center py-8 text-gray-500 dark:text-gray-400',
             ($device.isDesktop || $device.isTablet)? 'col-span-3': 'col-span-2'
           ]"
         >
@@ -71,12 +71,12 @@ const { widgets } = storeToRefs(settingStore);
                 e: widget.e,
               })
             "
-            class="relative p-4 border rounded-lg hover:border-blue-500 cursor-pointer transition-colors group"
+            class="relative p-4 border dark:border-slate-600 rounded-lg hover:border-blue-500 cursor-pointer transition-colors group"
           >
             <div
               class="transition-opacity group-hover:opacity-0 flex flex-col items-center justify-center"
             >
-              <i :class="[widget.icon, 'pi text-2xl text-gray-600']"></i>
+              <i :class="[widget.icon, 'pi text-2xl text-gray-600 dark:text-gray-300']"></i>
               <div class="mt-2 text-sm">{{ widget.title }}</div>
             </div>
             <div

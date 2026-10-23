@@ -86,10 +86,10 @@ const openWindow = () => {
         <div class="flex flex-row w-full items-center justify-between mb-2">
           <h1
             @click="openWindow"
-            class="text-xl font-bold text-gray-800 cursor-pointer flex items-center gap-2"
+            class="text-xl font-bold text-gray-800 dark:text-gray-100 cursor-pointer flex items-center gap-2"
           >
             待办事项<i
-              class="pi pi-external-link text-gray-600 hover:text-gray-800 transition-colors text-sm"
+              class="pi pi-external-link text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors text-sm"
             ></i>
           </h1>
           <CustomPlaceholder />
@@ -105,7 +105,7 @@ const openWindow = () => {
             v-model="newTodo"
             @keyup.enter="addTodo"
             placeholder="添加新的待办事项..."
-            class="w-full px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
+            class="w-full px-3 py-1 border border-gray-300 dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
           />
           <div class="w-full flex flex-row items-center gap-1">
             <div class="flex-1" />
@@ -128,7 +128,7 @@ const openWindow = () => {
             <CustomCheckBox
               v-model="todo.completed"
               @click="toggleTodo(todo)"
-              class="rounded-md px-2 py-1.5 hover:bg-gray-100 transition-colors duration-200"
+              class="rounded-md px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-200"
             >
               <span
                 :class="{ 'line-through text-gray-600': todo.completed }"
@@ -139,7 +139,7 @@ const openWindow = () => {
             </CustomCheckBox>
             <div
               v-if="index < props.e.items.length - 1"
-              class="h-[1px] bg-gray-300"
+              class="h-[1px] bg-gray-300 dark:bg-slate-700"
             />
           </template>
         </div>
@@ -154,7 +154,7 @@ const openWindow = () => {
         <p
           v-if="incompleteTodos.length > 0"
           @click="openWindow"
-          class="text-md text-gray-800 font-bold"
+          class="text-md text-gray-800 dark:text-gray-100 font-bold"
         >
           待办事项: {{ currentIndex + 1 }}/{{ e.items.length }}
         </p>
@@ -179,20 +179,20 @@ const openWindow = () => {
             <div class="flex flex-row gap-0.5">
               <button
                 @click="prevTodo"
-                class="w-6 h-6 rounded-l-md flex items-center justify-center text-gray-500 hover:bg-gray-200 bg-gray-100 hover:text-gray-700 transition-colors"
+                class="w-6 h-6 rounded-l-md flex items-center justify-center text-gray-500 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 bg-gray-100 dark:bg-slate-700 hover:text-gray-700 dark:hover:text-gray-100 transition-colors"
               >
                 <i class="pi pi-chevron-left text-xs"></i>
               </button>
               <button
                 @click="nextTodo"
-                class="w-6 h-6 rounded-r-md flex items-center justify-center text-gray-500 hover:bg-gray-200 bg-gray-100 hover:text-gray-700 transition-colors"
+                class="w-6 h-6 rounded-r-md flex items-center justify-center text-gray-500 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 bg-gray-100 dark:bg-slate-700 hover:text-gray-700 dark:hover:text-gray-100 transition-colors"
               >
                 <i class="pi pi-chevron-right text-xs"></i>
               </button>
             </div>
           </div>
         </div>
-        <div v-else class="text-sm text-gray-500">暂无待办事项</div>
+        <div v-else class="text-sm text-gray-500 dark:text-gray-400">暂无待办事项</div>
       </div>
     </template>
 
@@ -201,7 +201,7 @@ const openWindow = () => {
         class="w-full h-full flex flex-col justify-center items-center"
         @click="openWindow"
       >
-        <p class="text-xl font-bold text-gray-800">
+        <p class="text-xl font-bold text-gray-800 dark:text-gray-100">
           {{ incompleteTodos.length }}
         </p>
         <p class="text-md">项待办</p>
@@ -210,7 +210,7 @@ const openWindow = () => {
 
     <template #window>
       <div class="mx-auto p-4 space-y-4">
-        <h2 class="text-xl font-bold text-gray-800 text-center">
+        <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100 text-center">
           待办事项管理
         </h2>
         <div class="flex gap-2">
@@ -218,7 +218,7 @@ const openWindow = () => {
             v-model="newTodo"
             @keyup.enter="addTodo"
             placeholder="添加新的待办事项..."
-            class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
+            class="flex-1 px-3 py-2 border border-gray-300 dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
           />
           <button
             @click="addTodo"
@@ -230,22 +230,22 @@ const openWindow = () => {
         <div class="max-h-[400px] overflow-y-auto flex flex-col gap-1">
           <template v-for="(todo, index) in e.items">
             <CustomCheckBox
-              class="hover:bg-gray-100 transition-colors duration-200 rounded-md px-3 py-2"
+              class="hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-200 rounded-md px-3 py-2"
               v-model="todo.completed"
               @click="toggleTodo(todo)"
             >
               <div class="flex flex-row gap-2 ml-2 items-center w-full">
                 <span
                   :class="{ 'line-through text-gray-500': todo.completed }"
-                  class="text-gray-800"
+                  class="text-gray-800 dark:text-gray-200"
                 >
                   {{ todo.title }}
                 </span>
-                <span class="text-sm text-gray-500">{{ todo.date }}</span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{{ todo.date }}</span>
                 <CustomPlaceholder />
                 <button
                   @click="deleteTodo(todo.id)"
-                  class="px-2 py-1 text-sm text-gray-500 hover:text-gray-600 hover:bg-gray-200 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500/20"
+                  class="px-2 py-1 text-sm text-gray-500 hover:text-gray-600 hover:bg-gray-200 dark:hover:bg-slate-600 dark:hover:text-gray-300 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500/20"
                 >
                   删除
                 </button>
@@ -253,7 +253,7 @@ const openWindow = () => {
             </CustomCheckBox>
             <div
               v-if="index < e.items.length - 1"
-              class="h-[1px] bg-gray-200"
+              class="h-[1px] bg-gray-200 dark:bg-slate-700"
             />
           </template>
         </div>

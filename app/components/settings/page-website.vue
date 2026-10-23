@@ -135,7 +135,7 @@ const handleAddCustomWebsite = () => {
       </div>
     </custom-button>
 
-    <div class="bg-white rounded-lg p-4 w-full flex-1 h-0 flex flex-col overflow-hidden">
+    <div class="bg-white dark:bg-slate-800 rounded-lg p-4 w-full flex-1 h-0 flex flex-col overflow-hidden">
       <div class="flex gap-4 mb-4">
         <button
           v-for="tab in ['popular', 'custom']"
@@ -145,7 +145,7 @@ const handleAddCustomWebsite = () => {
             'px-4 py-2 rounded-lg transition-colors duration-200',
             activeTab === tab
               ? 'bg-blue-500 text-white'
-              : 'text-gray-600 hover:bg-gray-100',
+              : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700',
           ]"
         >
           {{ tab === "popular" ? "热门网址" : "自定义" }}
@@ -205,7 +205,7 @@ const handleAddCustomWebsite = () => {
                 :class="[
                   'group',
                   'p-4 border rounded-lg cursor-pointer transition-colors duration-200 flex items-center gap-3',
-                  widgets.find(w => w.e?.url === site.url) ? 'border-blue-500 bg-blue-50' : 'hover:border-blue-500',
+                  widgets.find(w => w.e?.url === site.url) ? 'border-blue-500 bg-blue-50 dark:bg-blue-500/20' : 'hover:border-blue-500 dark:border-slate-600',
                   ($device.isDesktop || $device.isTablet)? 'flex-row': 'flex-col'
                 ]"
               >
@@ -228,7 +228,7 @@ const handleAddCustomWebsite = () => {
                     class="w-full flex"
                   >
                     <div
-                      class="text-sm text-gray-500 truncate 
+                      class="text-sm text-gray-500 dark:text-gray-400 truncate 
                             group-hover:overflow-visible group-hover:text-clip group-hover:translate-x-[min(calc(100cqw-100%),0px)] 
                             transition-all duration-1000"
                     >
@@ -244,28 +244,28 @@ const handleAddCustomWebsite = () => {
 
       <div v-else class="space-y-4">
         <div class="flex flex-col gap-2">
-          <label class="text-sm text-gray-600">网站名称</label>
+          <label class="text-sm text-gray-600 dark:text-gray-300">网站名称</label>
           <input
             v-model="customWebsite.name"
             type="text"
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 transition-colors dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100"
             placeholder="请输入网站名称"
             required
           />
         </div>
         <div class="flex flex-col gap-2">
-          <label class="text-sm text-gray-600">网站链接</label>
+          <label class="text-sm text-gray-600 dark:text-gray-300">网站链接</label>
           <input
             v-model="customWebsite.url"
             type="url"
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 transition-colors dark:bg-slate-700 dark:border-slate-600 dark:text-gray-100"
             placeholder="请输入网站链接 (例如: https://www.example.com)"
             required
             @blur="customWebsite.icon = getFaviconUrl(customWebsite.url)"
           />
         </div>
         <div class="flex flex-col gap-2">
-          <label class="text-sm text-gray-600">自定义图标</label>
+          <label class="text-sm text-gray-600 dark:text-gray-300">自定义图标</label>
           <div class="flex gap-4 items-center">
             <NuxtImg
               v-if="customWebsite.icon"
@@ -277,7 +277,7 @@ const handleAddCustomWebsite = () => {
             />
             <div
               v-else
-              class="w-10 h-10 rounded-lg border flex items-center justify-center text-gray-400"
+              class="w-10 h-10 rounded-lg border dark:border-slate-600 flex items-center justify-center text-gray-400"
             >
               <i class="pi pi-image text-xl"></i>
             </div>
@@ -290,7 +290,7 @@ const handleAddCustomWebsite = () => {
             />
             <button
               type="button"
-              class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+              class="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-200"
               @click="$refs.iconInput.click()"
             >
               选择图标

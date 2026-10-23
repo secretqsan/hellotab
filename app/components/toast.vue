@@ -27,7 +27,7 @@ defineExpose({
         <div
           v-for="message in messages"
           :key="message.id"
-          class="flex flex-row items-center min-w-60 gap-2 bg-white border border-gray-200 rounded-lg p-2"
+          class="flex flex-row items-center min-w-60 gap-2 bg-white dark:bg-slate-800 dark:text-gray-200 border border-gray-200 dark:border-slate-600 rounded-lg p-2"
         >
           <i class="text-md pi pi-info-circle text-blue-400"></i>
           <span class="text-md">{{ message.text }}</span>
